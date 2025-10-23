@@ -41,7 +41,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 7;
+  const postsPerPage = 5;
 
   // ✅ use posts from DB instead of hardcoded
   const featuredPosts = initialPosts;
@@ -471,15 +471,15 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1 lg:sticky lg:top-6 self-start">
-            <h3 className="text-2xl font-bold text-gray-800 mb-6">Popular Reads</h3>
+            {/* <h3 className="text-2xl font-bold text-gray-800 mb-6">Popular Reads</h3> */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden self-start">
               <div
                 className="block group relative cursor-pointer"
-                onClick={() => navigate.push('/blog/featured')}
+                onClick={() => navigate.push('/media/blog')}
               >
                 <div className="relative w-full h-48 overflow-hidden">
                   <img
-                    src={`${basePath}/no_image.jpg`}
+                    src={`${basePath}/1761127133_1755059720_1320-x-720_12830_BLOG.jpg`}
                     alt="Featured Blog Post"
                     width={1200}
                     height={628}
@@ -488,9 +488,9 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5">
                     <div>
                       {/* <span className="text-xs font-medium text-[#F1B434] mb-1 block">Editor's Pick</span> */}
-                      <h3 className="text-xl font-bold text-white">The Future of Construction Technology</h3>
+                      <h3 className="text-xl font-bold text-white">6 Proven Factors That Affect Truck Crane Durability</h3>
                       <div className="flex items-center gap-2 text-xs text-white/80 mt-2">
-                        <span>June 12, 2024</span>
+                        <span>Oct 22, 2025</span>
                         <span>•</span>
                         <span>12 min read</span>
                       </div>
@@ -544,7 +544,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
               </div>
             </div>
 
-            <div className="bg-white rounded-xl shadow-sm p-6 mt-8">
+            {/* <div className="bg-white rounded-xl shadow-sm p-6 mt-8">
               <div className="flex items-center justify-between mb-4">
                 <h3 className="text-lg font-bold text-gray-900">Topics</h3>
                 <button
@@ -568,7 +568,7 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                   </button>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             <div className="bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-xl shadow-sm p-6 mt-8 text-white">
               <h3 className="text-lg font-bold mb-2">Subscribe to our newsletter</h3>

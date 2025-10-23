@@ -38,69 +38,54 @@ const Page = () => {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <div className="relative h-72 w-full overflow-hidden">
-        <img
-          src={`${basePath}/contact-us_bg.jpg`}
-          alt="Contact Us"
-          className="w-full h-full object-cover"
-        />
-
-        {/* Top-to-bottom gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-transparent z-10" />
-
-        {/* Left-to-right gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
-
-        <div className="absolute inset-0 z-20 flex items-center pt-6">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
-            <motion.div
-              className="max-w-2xl"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
-            >
-              <motion.span
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-[#FFE352] text-sm font-bold tracking-tight mb-2 mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                GET IN TOUCH
-              </motion.span>
-
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-              >
-                Contact <span className="text-[#F1B434]">Us</span>
-              </motion.h1>
-
-              <motion.div
-                className="w-24 h-1.5 bg-gradient-to-r from-[#F1B434] to-[#FFE352] rounded-full mb-4"
-                initial={{ scaleX: 0 }}
-                animate={{ scaleX: 1 }}
-                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            <div className="relative h-72 w-full overflow-hidden">
+              <img
+                src={`${basePath}/contact.jpg`}
+                alt="inquiry"
+                className="w-full h-full object-cover"
               />
-
-              <motion.p
-                className="text-lg text-gray-200 max-w-xl leading-relaxed"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
-                Have questions or need more information? Reach out to our team today.
-              </motion.p>
-            </motion.div>
-          </div>
-        </div>
-      </div>
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
+              <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent z-10" />
+              <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
+              <div className="absolute inset-0 z-20 flex items-center pt-6">
+                <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
+                  <motion.div
+                    className="max-w-2xl"
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
+                  >
+                    <motion.h1
+                      className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.3, duration: 0.8 }}
+                    >
+                      Reach Out <span className="text-[#F1B434]">To Us</span>
+                    </motion.h1>
+                    <motion.div
+                      className="w-24 h-1.5 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-4"
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                    />
+                    <motion.p
+                      className="text-lg text-gray-200 max-w-xl leading-relaxed"
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.5, duration: 0.8 }}
+                    >
+                      Build your career with a pioneer in India's heavy equipment industry.
+                    </motion.p>
+                  </motion.div>
+                </div>
+              </div>
+            </div>
 
 
       {/* Main Content */}
       <main className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
           {/* Inquiry Form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -297,119 +282,17 @@ const Page = () => {
                 </div>
               </div>
 
-              <div className="pt-4">
-                <motion.button
-                  type="submit"
-                  className="w-full flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#F1B434] hover:bg-[#E8AC30] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F1B434]"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                >
-                  Submit Inquiry
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </motion.button>
-              </div>
+              <div className="pt-4 flex justify-center">
+  <motion.button
+    type="submit"
+    className="w-40 flex justify-center items-center px-6 py-3 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#F1B434] hover:bg-[#E8AC30] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#F1B434]"
+    whileHover={{ scale: 1.02 }}
+    whileTap={{ scale: 0.98 }}
+  >
+    Submit
+  </motion.button>
+</div>
             </form>
-          </motion.div>
-
-          {/* Contact Information */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="space-y-8"
-          >
-            <div className="bg-gradient-to-r from-[#F1B434] to-[#FFE352] rounded-xl shadow-lg p-8 text-white">
-              <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-white/20 rounded-lg">
-                    <MapPin className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Registered Office</h3>
-                    <p className="text-white/90">
-                      1, Taratolla Road, Garden Reach<br />
-                      Kolkata - 700 024, West Bengal, India
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-white/20 rounded-lg">
-                    <Phone className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Phone</h3>
-                    <p className="text-white/90">
-                      +91 33 2468 1357 (Corporate Office)<br />
-                      +91 33 6633 2000 (Customer Care)
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-white/20 rounded-lg">
-                    <Mail className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-lg mb-1">Email</h3>
-                    <p className="text-white/90">
-                      <a href="mailto:info@tilindia.com" className="hover:underline">info@tilindia.com</a><br />
-                      <a href="mailto:sales@tilindia.com" className="hover:underline">sales@tilindia.com</a>
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-xl shadow-lg p-8 border border-gray-100">
-              <h2 className="text-2xl font-bold text-gray-800 mb-6">Regional Offices</h2>
-
-              <div className="space-y-6">
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#F1B434]/10 rounded-lg">
-                    <MapPin className="w-6 h-6 text-[#F1B434]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Northern Region</h3>
-                    <p className="text-gray-600">
-                      TIL Limited, Plot No. 1, Sector 11<br />
-                      Noida - 201301, Uttar Pradesh, India<br />
-                      Phone: +91 120 456 7890
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#F1B434]/10 rounded-lg">
-                    <MapPin className="w-6 h-6 text-[#F1B434]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Western Region</h3>
-                    <p className="text-gray-600">
-                      TIL Limited, 401, 4th Floor, Trade Center<br />
-                      Bandra Kurla Complex, Mumbai - 400051, India<br />
-                      Phone: +91 22 6789 1234
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-4">
-                  <div className="p-3 bg-[#F1B434]/10 rounded-lg">
-                    <MapPin className="w-6 h-6 text-[#F1B434]" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800 mb-1">Southern Region</h3>
-                    <p className="text-gray-600">
-                      TIL Limited, No. 123, Richmond Road<br />
-                      Bangalore - 560025, Karnataka, India<br />
-                      Phone: +91 80 2345 6789
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </motion.div>
         </div>
       </main>

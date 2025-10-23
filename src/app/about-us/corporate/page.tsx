@@ -35,7 +35,7 @@ const CorporateProfilePage = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative h-60 w-full overflow-hidden">
+      <div className="relative h-72 w-full overflow-hidden">
         <img
           src={`${basePath}/corporate-profile-banner.png`}
           alt="Corporate Profile"

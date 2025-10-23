@@ -27,16 +27,16 @@ async function getBlogPost(slug: string) {
         name: post.publisher || "Admin",
         role: "Publisher",
         bio: "",
-        avatar: "/no_image.jpg",
+        avatar: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/rima_chaudhuri.jpg`,
       },
       column: "General",
       date: post.publish_date ? post.publish_date.toISOString() : "",
       readTime: "5 min",
       likes: "0",
       comments: "0",
-      image: post.banner_image || "/no_image.jpg",
-      thumbnail: post.banner_image || "/no_image.jpg",
-      featuredImage: post.banner_image || "/no_image.jpg",
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
+      thumbnail: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
+      featuredImage: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
       tags: [],
     };
 
@@ -77,9 +77,9 @@ async function getRelatedPosts(currentPostId: number) {
       readTime: "5 min",
       likes: "0",
       comments: "0",
-      image: post.banner_image || "/no_image.jpg",
-      thumbnail: post.banner_image || "/no_image.jpg",
-      featuredImage: post.banner_image || "/no_image.jpg",
+      image: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
+      thumbnail: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
+      featuredImage: `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${post.banner_image}`,
       tags: [],
     }));
   } catch (error) {

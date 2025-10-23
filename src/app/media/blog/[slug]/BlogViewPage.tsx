@@ -203,13 +203,7 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
 
         <div className="absolute inset-0 z-20 flex items-center pt-6">
           <div className="max-w-6xl mx-auto px-6 md:px-10 w-full">
-            <button
-              onClick={() => router.push(`/media/blog`)}
-              className="flex items-center text-white/80 hover:text-white mb-4 transition-colors"
-            >
-              <ArrowLeft size={16} className="mr-2" />
-              Back to Blog
-            </button>
+            
 
             {/* <motion.span
               className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-[#FFE352] text-sm font-bold tracking-tight mb-2"
@@ -228,7 +222,7 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
             >
               {post.title}
             </motion.h1>
-
+<div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
             <motion.div
               className="flex flex-wrap items-center gap-4 text-gray-200"
               initial={{ opacity: 0 }}
@@ -261,6 +255,13 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
       </div>
 
       <main className="max-w-6xl mx-auto px-6 md:px-10 py-12 -mt-6 relative z-10">
+        <button
+              onClick={() => router.push(`/media/blog`)}
+              className="flex items-center text-[#F1B434] hover:text-gray-800 mb-4 transition-colors"
+            >
+              <ArrowLeft size={16} className="mr-2" />
+              Back to Blog
+            </button>
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
           {/* Main Content */}
           <div className="lg:col-span-3">
@@ -494,9 +495,11 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
           </div>
 
           {/* Right Column */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 relative">
+  <div className="sticky top-24 space-y-8">
+
             {/* Search Box */}
-            <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
+            {/* <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
               <h3 className="text-lg font-bold text-gray-800 mb-4">Search Articles</h3>
               <div className="relative">
                 <input
@@ -511,7 +514,7 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
               <button className="mt-3 text-sm text-[#F1B434] hover:underline">
                 Advanced Search
               </button>
-            </div>
+            </div> */}
 
             {/* Popular Posts */}
             <div className="bg-white rounded-xl shadow-lg p-6 mb-8">
@@ -572,7 +575,7 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
             </div>
 
             {/* Categories */}
-            <div className="bg-white rounded-xl shadow-lg p-6 mt-8">
+            {/* <div className="bg-white rounded-xl shadow-lg p-6 mt-8">
               <h3 className="text-lg font-bold text-gray-800 mb-4">Categories</h3>
               <div className="space-y-2">
                 {['Industry Insights', 'Construction Technology', 'Sustainable Technology', 'Equipment Management', 'Logistics Innovation'].map(category => (
@@ -586,8 +589,9 @@ const BlogViewPage: React.FC<BlogViewPageProps> = ({ post, relatedPosts }) => {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
           </div>
+        </div>
         </div>
       </main>
     </div>

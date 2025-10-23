@@ -1399,10 +1399,10 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support` }
+    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
+    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
+    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
+    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support/locations` }
   ];
 
   const submenuData = {
@@ -3146,8 +3146,8 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'locations', name: 'Locations', icon: <Mountain className="w-4 h-4" />, link: `/contact-us` },
-    { id: 'inquiry', name: 'Inquiry', icon: <Building className="w-4 h-4" />, link: `/contact-us` }
+    { id: 'locations', name: 'Locations', icon: <Mountain className="w-4 h-4" />, link: `/contact-us/locations` },
+    { id: 'inquiry', name: 'Inquiry', icon: <Building className="w-4 h-4" />, link: `/contact-us/inquiry` }
   ];
 
   const submenuData = {

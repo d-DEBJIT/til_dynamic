@@ -3146,8 +3146,8 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'locations', name: 'Locations', icon: <Mountain className="w-4 h-4" />, link: `/contact-us` },
-    { id: 'inquiry', name: 'Inquiry', icon: <Building className="w-4 h-4" />, link: `/contact-us` }
+    { id: 'locations', name: 'Locations', icon: <Mountain className="w-4 h-4" />, link: `/contact-us/locations` },
+    { id: 'inquiry', name: 'Inquiry', icon: <Building className="w-4 h-4" />, link: `/contact-us/inquiry` }
   ];
 
   const submenuData = {

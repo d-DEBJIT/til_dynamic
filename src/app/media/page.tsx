@@ -163,72 +163,68 @@ const Page = () => {
                 {/* Featured Content Section */}
                 <section className="mb-16">
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-bold text-gray-800">Featured Content</h2>
+                        <h2 className="text-2xl font-bold text-gray-800">Featured Blogs</h2>
                         <Link href="/media/blog" className="text-sm text-[#F1B434] hover:underline">
                             View All
                         </Link>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                        {/* Featured Blog Post */}
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        {/* Featured Blog Post 1 */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.1 }}
-                            className="lg:col-span-2 bg-white rounded-xl shadow-md overflow-hidden"
+                            className="bg-white rounded-xl shadow-md overflow-hidden"
                         >
-                            <Link href="/media/blog/future-of-construction">
+                            <Link href="/media/blog/5-key-benefits-of-hydraulic-cranes-in-india">
                                 <div className="relative h-64 md:h-80 overflow-hidden group">
                                     <img
-                                        src={`${basePath}/no_image.jpg`}
+                                        src={`${basePath}/1756125424_1755059716_1320-x-720_12826_BLOG.jpg`}
                                         alt="Featured Blog Post"
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                                     <div className="absolute bottom-0 left-0 p-6">
-
                                         <h3 className="text-xl md:text-2xl font-bold text-white mb-2">
-                                            The Future of Construction Technology in India
+                                            5 Key Benefits of Hydraulic Cranes in India
                                         </h3>
                                         <p className="text-gray-200 text-sm">
-                                            How emerging technologies are transforming the heavy equipment industry
+                                            For India's expanding infrastructure, hydraulic cranes are proving to be a game-changer.
                                         </p>
                                     </div>
                                 </div>
                             </Link>
                         </motion.div>
 
-                        {/* Featured Video */}
+                        {/* Featured Blog Post 2 */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="bg-white rounded-xl shadow-md overflow-hidden"
                         >
-                            <Link href="/media/video/new-product-launch">
+                            <Link href="/media/blog/diesel-vs-electric-engines-comparing-hydraulic-mobile-cranes-in-2025">
                                 <div className="relative h-64 md:h-80 overflow-hidden group">
                                     <img
-                                        src={`${basePath}/no_image.jpg`}
+                                        src={`${basePath}/1756976822_1755059715_1320-x-720_12825_BLOG.jpg`}
                                         alt="Featured Video"
                                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                                     />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent">
-                                        <div className="absolute inset-0 flex items-center justify-center">
-                                            <div className="w-16 h-16 bg-[#F1B434] rounded-full flex items-center justify-center">
-                                                <Play className="w-6 h-6 text-black fill-current" />
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
                                     <div className="absolute bottom-0 left-0 p-6">
-
                                         <h3 className="text-xl font-bold text-white">
-                                            Introducing Our New Hydrogen-Powered Crane
+                                            Let’s try to decide between diesel and electric mobile cranes for your next project.
                                         </h3>
+                                        <p className="text-gray-200 text-sm">
+                                            As construction projects are becoming more complex, simply depending on raw power will not be enough. You need to consider speed, agility
+                                        </p>
                                     </div>
                                 </div>
                             </Link>
                         </motion.div>
                     </div>
+
                 </section>
 
                 {/* Latest News Section */}
@@ -246,19 +242,22 @@ const Page = () => {
                                 image: `${basePath}/news1.png`,
                                 date: 'July 28, 2025',
                                 title: 'NBM & CW',
-                                description: 'Sunil Chaturvedi, The Man Behind Gainwell Group'
+                                description: 'Sunil Chaturvedi, The Man Behind Gainwell Group',
+                                url: 'https://www.tilindia.in/tilindia/assets/pdf/NBMCW-May-2025-SunilSir.pdf'
                             },
                             {
-                                image: `${basePath}/news4.png`,
+                                image: `${basePath}/pdf_file_689e926e3808b4.67632405_outlook.jpeg`,
                                 date: 'July 15, 2025',
-                                title: "TIL Launches India's First Hydrogen-Powered Forklift",
-                                description: 'Eco-friendly alternative to conventional forklifts with zero emissions'
+                                title: "Visionaries of $5 TRILLION ECONOMY",
+                                description: 'Accelerated Journey to $5Trillion Economy',
+                                url: 'https://www.tilindia.in/assets/docs/pdf/outlook-india.pdf'
                             },
                             {
-                                image: `${basePath}/news6.jpg`,
+                                image: `${basePath}/pdf_file_682585f4528146.15705021_TIL-Spotligh-April-2025.png`,
                                 date: 'June 30, 2025',
-                                title: 'TIL Wins "Best Employer Brand" Award for Third Consecutive Year',
-                                description: 'Company recognized for employee development and workplace culture'
+                                title: 'TIL Limited: Engineering India’s Crane Legacy and Future',
+                                description: "TIL Limited, in India's infrastructure evolution, carries a legacy of innovation and resilience. Established in 1944",
+                                url: 'https://www.tilindia.in/tilindia/assets/pdf/ConstructionOpportunities.pdf'
                             }
                         ].map((news, index) => (
                             <motion.div
@@ -268,12 +267,12 @@ const Page = () => {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 className="bg-white rounded-xl shadow-sm overflow-hidden group"
                             >
-                                <Link href="/media/news/til-expansion">
+                                <a href={news.url} target="_blank" rel="noopener noreferrer">
                                     <div className="relative h-48 overflow-hidden">
                                         <img
                                             src={news.image}
-                                            alt="News Article"
-                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                            alt={news.title}
+                                            className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105"
                                         />
                                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
                                         <div className="absolute bottom-0 left-0 p-4 w-full">
@@ -295,33 +294,34 @@ const Page = () => {
                                             <ArrowRight className="w-4 h-4 ml-1" />
                                         </div>
                                     </div>
-                                </Link>
+                                </a>
                             </motion.div>
                         ))}
                     </div>
                 </section>
 
+
                 {/* Upcoming Events Section */}
                 <section>
                     <div className="flex items-center justify-between mb-8">
-                        <h2 className="text-2xl font-bold text-gray-800">Upcoming Events</h2>
-                        <Link href="/media/events" className="text-sm text-[#F1B434] hover:underline">
+                        <h2 className="text-2xl font-bold text-gray-800">Events</h2>
+                        {/* <Link href="/media/events" className="text-sm text-[#F1B434] hover:underline">
                             View All Events
-                        </Link>
+                        </Link> */}
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         {[
                             {
-                                image: `${basePath}/no_image.jpg`,
+                                image: `${basePath}/gallery_image_d08ee53ed4e304803de31d03fed03698.jpeg`,
                                 date: 'November 15-18, 2025',
-                                title: 'EXCON 2025 - International Construction Equipment Trade Fair',
+                                title: 'Diwali Celebration 2025',
                                 description: 'Join us at India\'s largest construction equipment exhibition showcasing our latest innovations'
                             },
                             {
-                                image: `${basePath}/no_image.jpg`,
+                                image: `${basePath}/gallery_image_1f97c50034d5281cc66aa6ea06912ede.jpg`,
                                 date: 'September 5-7, 2025',
-                                title: 'India Construction Summit 2025',
+                                title: 'Partnered Crane Owners Association AGM Meet ...',
                                 description: 'Keynote presentation on sustainable construction practices'
                             }
                         ].map((event, index) => (
@@ -332,17 +332,17 @@ const Page = () => {
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                                 className="bg-white rounded-xl shadow-sm overflow-hidden group"
                             >
-                                <Link href="/media/events/excon-2025">
+                                <Link href="/media/events">
                                     <div className="flex flex-col md:flex-row">
-                                        <div className="md:w-1/3 h-48 md:h-auto relative overflow-hidden">
+                                        <div className="md:w-1/3 h-48 md:h-36 relative overflow-hidden">
                                             <img
                                                 src={event.image}
                                                 alt="Event"
-                                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                                className="w-full h-full object-fill transition-transform duration-500 group-hover:scale-105"
                                             />
-                                            <div className="absolute top-4 left-4 bg-[#F1B434] text-black text-xs font-bold px-2 py-1 rounded">
+                                            {/* <div className="absolute top-4 left-4 bg-[#F1B434] text-black text-xs font-bold px-2 py-1 rounded">
                                                 Upcoming
-                                            </div>
+                                            </div> */}
                                             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent md:hidden" />
                                             <div className="absolute bottom-0 left-0 p-4 w-full md:hidden">
                                                 <h3 className="text-sm font-bold text-white line-clamp-2">
@@ -351,19 +351,18 @@ const Page = () => {
                                             </div>
                                         </div>
                                         <div className="md:w-2/3 p-6">
-                                            <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                                            {/* <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
                                                 <CalendarDays className="w-4 h-4" />
                                                 <span>{event.date}</span>
-                                            </div>
+                                            </div> */}
                                             <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#F1B434] transition-colors">
                                                 {event.title}
                                             </h3>
-                                            <p className="text-sm text-gray-600 mb-4 line-clamp-2">
+                                            {/* <p className="text-sm text-gray-600 mb-4 line-clamp-2">
                                                 {event.description}
-                                            </p>
+                                            </p> */}
                                             <div className="flex items-center text-sm text-[#F1B434] font-medium">
-                                                <span>Event Details</span>
-                                                <ArrowRight className="w-4 h-4 ml-1" />
+                                                <span>All Events</span>
                                             </div>
                                         </div>
                                     </div>
