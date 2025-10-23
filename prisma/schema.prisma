@@ -1,0 +1,1093 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model blogs {
+  id                Int              @id @default(autoincrement())
+  title             String?          @db.VarChar(255)
+  slug              String?          @db.VarChar(255)
+  publisher         String?          @db.VarChar(255)
+  short_description String?          @db.VarChar(255)
+  description       String?          @db.Text
+  banner_image      String?          @db.VarChar(255)
+  publish_date      DateTime?        @db.DateTime(0)
+  is_active         blogs_is_active?
+  created_at        DateTime?        @db.DateTime(0)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model chapter_master {
+  chapter_id        Int                       @id @default(autoincrement())
+  name              String?                   @db.VarChar(255)
+  short_code        String?                   @db.VarChar(255)
+  address           String?                   @db.VarChar(255)
+  contact_person    String?                   @db.VarChar(255)
+  mobile            String?                   @db.VarChar(25)
+  other_contact_one String?                   @db.VarChar(25)
+  other_contact_two String?                   @db.VarChar(25)
+  email             String?                   @db.VarChar(255)
+  email_second      String?                   @db.VarChar(255)
+  is_active         chapter_master_is_active? @default(Y)
+  next_serial_no    Int?
+}
+
+model contact_us {
+  id                  Int       @id @default(autoincrement())
+  time                DateTime? @db.DateTime(0)
+  modification_time   DateTime? @default(now()) @db.Timestamp(0)
+  organization        String?   @db.VarChar(255)
+  name                String?   @db.VarChar(255)
+  phone               String?   @db.VarChar(45)
+  email               String?   @db.VarChar(255)
+  mail_sending_status String?   @db.Text
+  query               String    @db.Text
+  address             String?   @db.Text
+  country_id          Int?
+  country_name        String?   @db.VarChar(255)
+  state_id            Int?
+  state_name          String?   @db.VarChar(255)
+  nature_of_query_id  Int?
+  ip_address          String?   @db.VarChar(255)
+  request_headers     String?   @db.Text
+}
+
+model current_openings {
+  current_opening_id  Int                            @id @default(autoincrement())
+  opening_title       String?                        @db.VarChar(255)
+  opening_description String?                        @db.VarChar(500)
+  precedence          Int?
+  opening_type        current_openings_opening_type?
+  entry_date          DateTime?                      @default(now()) @db.DateTime(0)
+  is_disabled         Boolean?                       @default(false)
+}
+
+model customer_review {
+  id          Int                         @id @default(autoincrement())
+  name        String?                     @db.VarChar(255)
+  occupation  String?                     @db.VarChar(255)
+  review      String?                     @db.Text
+  rating      Decimal?                    @db.Decimal(10, 2)
+  image       String?                     @db.VarChar(400)
+  product_id  Int?
+  model_id    Int?
+  is_disabled Int?                        @default(0)
+  is_product  customer_review_is_product?
+}
+
+model customer_support_training {
+  id                  Int       @id @default(autoincrement())
+  training_id         Int?
+  training_year       Int?
+  training_month      Int?
+  location_id         Int?
+  company_name        String?   @db.VarChar(255)
+  customer_name       String?   @db.VarChar(255)
+  email               String?   @db.VarChar(255)
+  phone               String?   @db.VarChar(15)
+  address             String?   @db.Text
+  time                DateTime? @default(now()) @db.DateTime(0)
+  modification_time   DateTime? @default(now()) @db.Timestamp(0)
+  ip_address          String?   @db.VarChar(255)
+  request_headers     String?   @db.Text
+  mail_sending_status String?   @db.Text
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model document_details {
+  doc_id             Int       @id @default(autoincrement())
+  file_type          String?
+  table_name         String?
+  ref_id             Int?
+  uploaded_file_desc String?
+  random_file_name   String?
+  url                String?
+  publication        String?
+  user_file_name     String?
+  precedence         Int?
+  is_disabled        Boolean?  @default(false)
+  uploaded_by_user   Int?
+  uploaded_on        DateTime?
+  modified_on        DateTime?
+
+  @@map("document_details") // Map Prisma model to the actual SQL table name
+}
+
+model download_logs {
+  id            Int      @id @default(autoincrement())
+  filename      String   @db.VarChar(255)
+  description   String?  @db.VarChar(255)
+  current_url   String   @db.VarChar(255)
+  file_url      String?  @db.VarChar(255)
+  user_ip       String   @db.VarChar(50)
+  download_time DateTime @db.DateTime(0)
+}
+
+model email_detail {
+  id           Int       @id @default(autoincrement())
+  user_refid   Int?
+  email        String?   @db.VarChar(255)
+  sending_date DateTime? @default(now()) @db.DateTime(0)
+  table_name   String?   @db.VarChar(255)
+  sub          String?   @db.VarChar(1000)
+  msg          String?   @db.Text
+  to_cc_mail   String?   @db.VarChar(500)
+  to_bcc_mail  String?   @db.VarChar(1000)
+  file_link    String?   @db.Text
+  mail_status  String?   @db.VarChar(10)
+}
+
+model facilities {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(255)
+  precedence        Int?
+  images            String    @db.Text
+  modification_time DateTime? @default(now()) @db.Timestamp(0)
+  published         Int       @default(0) @db.TinyInt
+}
+
+model faq_details {
+  faq_del_id   Int                     @id @default(autoincrement())
+  faq_question String?                 @db.VarChar(500)
+  faq_answer   String?                 @db.Text
+  precedence   Int?
+  is_disabled  Boolean?                @default(false)
+  product_id   Int?
+  model_id     Int?
+  is_product   faq_details_is_product?
+}
+
+model financialyear {
+  year_id    Int                      @id @default(autoincrement())
+  year       String?                  @db.VarChar(255)
+  start_date DateTime?                @db.Date
+  end_date   DateTime?                @db.Date
+  is_active  financialyear_is_active? @default(Y)
+  short_year String?                  @db.VarChar(255)
+}
+
+model fuel_address {
+  id             Int      @id @default(autoincrement())
+  title          String   @db.VarChar(255)
+  office_type_id Int
+  address        String   @db.Text
+  email          String   @db.VarChar(255)
+  phone          String   @db.VarChar(255)
+  fax            String   @db.VarChar(255)
+  sequence       Int      @default(0)
+  lat            Float    @db.Float
+  lan            Float    @db.Float
+  time_modified  DateTime @default(now()) @db.Timestamp(0)
+  is_disabled    Boolean  @default(false)
+}
+
+model fuel_archives {
+  id                Int      @id @default(autoincrement()) @db.UnsignedInt
+  ref_id            Int      @db.UnsignedInt
+  table_name        String   @db.VarChar(50)
+  data              String   @db.Text
+  version           Int      @db.UnsignedSmallInt
+  version_timestamp DateTime @default(now()) @db.Timestamp(0)
+  archived_user_id  Int      @db.UnsignedInt
+}
+
+model fuel_blocks {
+  id            Int                   @id @default(autoincrement()) @db.UnsignedSmallInt
+  name          String                @db.VarChar(100)
+  description   String                @db.VarChar(255)
+  view          String                @db.Text
+  language      String                @default("english") @db.VarChar(30)
+  published     fuel_blocks_published @default(yes)
+  date_added    DateTime?             @db.DateTime(0)
+  last_modified DateTime?             @default(now()) @db.Timestamp(0)
+
+  @@unique([name, language], map: "name")
+}
+
+model fuel_catagory {
+  id                Int      @id @default(autoincrement())
+  name              String   @db.VarChar(255)
+  slug              String   @unique(map: "slug_UNIQUE") @db.VarChar(255)
+  meta_title        String?  @db.VarChar(255)
+  meta_description  String?  @db.VarChar(255)
+  meta_keywords     String?  @db.VarChar(255)
+  banner_image      String?  @db.VarChar(255)
+  banner_alt        String?  @db.VarChar(255)
+  catagory_image    String   @db.VarChar(225)
+  catagory_img_alt  String?  @db.VarChar(255)
+  parent_id         Int      @default(0)
+  short_description String   @db.Text
+  about             String   @db.Text
+  precedence        Int      @default(0)
+  time_modified     DateTime @default(now()) @db.Timestamp(0)
+  is_disabled       Boolean  @default(false)
+}
+
+model fuel_catagory_copy {
+  id                Int      @id @default(autoincrement())
+  name              String   @db.VarChar(255)
+  slug              String   @unique(map: "slug_UNIQUE") @db.VarChar(255)
+  meta_title        String?  @db.VarChar(255)
+  meta_description  String?  @db.VarChar(255)
+  meta_keywords     String?  @db.VarChar(255)
+  banner_image      String?  @db.VarChar(255)
+  banner_alt        String?  @db.VarChar(255)
+  catagory_image    String   @db.VarChar(225)
+  catagory_img_alt  String?  @db.VarChar(255)
+  parent_id         Int      @default(0)
+  short_description String   @db.Text
+  about             String   @db.Text
+  precedence        Int      @default(0)
+  time_modified     DateTime @default(now()) @db.Timestamp(0)
+  is_disabled       Boolean  @default(false)
+}
+
+model fuel_categories {
+  id                 Int                       @id @default(autoincrement()) @db.UnsignedInt
+  name               String                    @default("") @db.VarChar(255)
+  page_title         String?                   @db.VarChar(255)
+  meta_description   String?                   @db.VarChar(255)
+  meta_keywords      String?                   @db.VarChar(255)
+  slug               String                    @unique(map: "slug") @default("") @db.VarChar(255)
+  description        String                    @db.Text
+  context            String                    @default("") @db.VarChar(100)
+  language           String                    @default("english") @db.VarChar(30)
+  precedence         Int
+  parent_id          Int
+  published          fuel_categories_published @default(yes)
+  fuel_categoriescol String?                   @db.VarChar(45)
+}
+
+model fuel_emails {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  email         String   @db.VarChar(255)
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+model fuel_gallery {
+  id            Int      @id @default(autoincrement())
+  location_id   Int
+  image         String   @db.VarChar(255)
+  thumbnail     String?  @db.VarChar(255)
+  alt_text      String?  @db.VarChar(255)
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+model fuel_job {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  slug          String   @unique(map: "slug_UNIQUE") @db.VarChar(255)
+  location      String   @db.VarChar(255)
+  banner_image  String?  @db.VarChar(255)
+  qualification String   @db.Text
+  discription   String   @db.Text
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+model fuel_locations {
+  id            Int                      @id @default(autoincrement()) @db.UnsignedInt
+  name          String                   @default("") @db.VarChar(255)
+  slug          String                   @unique(map: "slug") @default("") @db.VarChar(255)
+  precedence    Int
+  published     fuel_locations_published @default(yes)
+  time_modified DateTime                 @default(now()) @db.Timestamp(0)
+}
+
+model fuel_logs {
+  id         Int      @id @default(autoincrement()) @db.UnsignedInt
+  entry_date DateTime @db.DateTime(0)
+  user_id    Int
+  message    String   @db.Text
+  type       String   @default("") @db.VarChar(30)
+}
+
+model fuel_nature_of_query {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(255)
+  email         String   @db.VarChar(255)
+  cc_to         String?  @db.VarChar(245)
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model fuel_navigation {
+  id         Int                       @id @default(autoincrement()) @db.UnsignedInt
+  location   String                    @db.VarChar(255)
+  group_id   Int                       @default(1) @db.UnsignedInt
+  nav_key    String                    @db.VarChar(255)
+  label      String                    @db.VarChar(255)
+  parent_id  Int                       @default(0) @db.UnsignedInt
+  precedence Int                       @default(0) @db.UnsignedInt
+  attributes String                    @db.VarChar(255)
+  selected   String                    @db.VarChar(255)
+  hidden     fuel_navigation_hidden    @default(no)
+  language   String                    @default("english") @db.VarChar(30)
+  published  fuel_navigation_published @default(yes)
+
+  @@unique([group_id, nav_key, language], map: "group_id_nav_key_language")
+}
+
+model fuel_navigation_groups {
+  id        Int                              @id @default(autoincrement()) @db.UnsignedInt
+  name      String                           @unique(map: "name") @db.VarChar(255)
+  published fuel_navigation_groups_published @default(yes)
+}
+
+model fuel_office_type {
+  id               Int      @id @default(autoincrement())
+  name             String   @db.VarChar(255)
+  display_in_a_row Int
+  time_modified    DateTime @default(now()) @db.Timestamp(0)
+  is_disabled      Boolean  @default(false)
+}
+
+model fuel_page_variables {
+  id       Int                        @id @default(autoincrement()) @db.UnsignedInt
+  page_id  Int                        @db.UnsignedInt
+  name     String                     @db.VarChar(50)
+  scope    String                     @db.VarChar(255)
+  value    String?                    @db.LongText
+  type     fuel_page_variables_type   @default(string)
+  language String                     @default("english") @db.VarChar(30)
+  active   fuel_page_variables_active @default(yes)
+
+  @@unique([page_id, name, language], map: "page_id")
+}
+
+model fuel_page_variables_copy {
+  id       Int                             @id @default(autoincrement()) @db.UnsignedInt
+  page_id  Int                             @db.UnsignedInt
+  name     String                          @db.VarChar(50)
+  scope    String                          @db.VarChar(255)
+  value    String                          @db.LongText
+  type     fuel_page_variables_copy_type   @default(string)
+  language String                          @default("english") @db.VarChar(30)
+  active   fuel_page_variables_copy_active @default(yes)
+
+  @@unique([page_id, name, language], map: "page_id")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model fuel_pages {
+  id               Int                  @id @default(autoincrement()) @db.UnsignedInt
+  location         String               @unique(map: "location") @db.VarChar(255)
+  layout           String               @db.VarChar(50)
+  published        fuel_pages_published @default(yes)
+  cache            fuel_pages_cache     @default(yes)
+  date_added       DateTime?            @db.DateTime(0)
+  last_modified    DateTime?            @default(now()) @db.Timestamp(0)
+  last_modified_by Int                  @db.UnsignedInt
+
+  @@index([layout], map: "layout")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model fuel_pages_copy {
+  id               Int                       @id @default(autoincrement()) @db.UnsignedInt
+  location         String                    @unique(map: "location") @db.VarChar(255)
+  layout           String                    @db.VarChar(50)
+  published        fuel_pages_copy_published @default(yes)
+  cache            fuel_pages_copy_cache     @default(yes)
+  date_added       DateTime?                 @db.DateTime(0)
+  last_modified    DateTime                  @default(now()) @db.Timestamp(0)
+  last_modified_by Int                       @db.UnsignedInt
+
+  @@index([layout], map: "layout")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model fuel_permissions {
+  id          Int                     @id @default(autoincrement()) @db.UnsignedInt
+  description String                  @db.VarChar(255)
+  name        String                  @unique(map: "name") @default("") @db.VarChar(50)
+  active      fuel_permissions_active @default(yes)
+}
+
+model fuel_product {
+  id            Int      @id @default(autoincrement())
+  categorie_id  Int
+  name          String   @db.VarChar(255)
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+model fuel_relationships {
+  id              BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
+  candidate_table String? @default("") @db.VarChar(100)
+  candidate_key   Int
+  foreign_table   String? @db.VarChar(100)
+  foreign_key     Int
+
+  @@unique([candidate_table, candidate_key, foreign_table, foreign_key], map: "unique_key")
+  @@index([candidate_table, candidate_key], map: "candidate_table")
+  @@index([foreign_table, foreign_key], map: "foreign_table")
+}
+
+model fuel_settings {
+  id     BigInt  @id @default(autoincrement()) @db.UnsignedBigInt
+  module String  @default("") @db.VarChar(50)
+  key    String  @default("") @db.VarChar(50)
+  value  String? @db.LongText
+
+  @@unique([module, key], map: "module")
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model fuel_site_variables {
+  id     Int                        @id @default(autoincrement()) @db.UnsignedInt
+  name   String                     @unique(map: "name") @db.VarChar(100)
+  value  String                     @db.Text
+  scope  String                     @db.VarChar(255)
+  active fuel_site_variables_active @default(yes)
+}
+
+model fuel_tags {
+  id          Int                 @id @default(autoincrement()) @db.UnsignedInt
+  name        String              @db.VarChar(50)
+  category_id Int                 @db.UnsignedInt
+  slug        String              @unique(map: "slug") @default("") @db.VarChar(255)
+  description String              @db.Text
+  context     String              @default("") @db.VarChar(100)
+  language    String              @default("english") @db.VarChar(30)
+  precedence  Int
+  published   fuel_tags_published @default(yes)
+}
+
+model fuel_users {
+  id          Int                    @id @default(autoincrement()) @db.UnsignedInt
+  user_name   String                 @db.VarChar(30)
+  password    String                 @default("") @db.VarChar(64)
+  email       String                 @unique(map: "email") @db.VarChar(100)
+  first_name  String                 @db.VarChar(30)
+  last_name   String                 @db.VarChar(30)
+  language    String                 @db.VarChar(30)
+  reset_key   String                 @db.VarChar(64)
+  salt        String                 @default("") @db.VarChar(32)
+  super_admin fuel_users_super_admin @default(no)
+  active      fuel_users_active      @default(yes)
+}
+
+model fuel_videos {
+  id            Int      @id @default(autoincrement())
+  title         String   @db.VarChar(255)
+  video_id      String   @db.VarChar(255)
+  precedence    Int      @default(0)
+  time_modified DateTime @default(now()) @db.Timestamp(0)
+  is_disabled   Boolean  @default(false)
+}
+
+model functions_career {
+  id                Int       @id @default(autoincrement())
+  name              String?   @db.VarChar(255)
+  precedence        Int?
+  modification_time DateTime? @default(now()) @db.Timestamp(0)
+  is_disabled       Int       @default(0) @db.TinyInt
+}
+
+model happenings {
+  id                Int       @id @default(autoincrement())
+  name              String    @db.VarChar(255)
+  precedence        Int?
+  images            String    
+  modification_time DateTime? @default(now()) @db.Timestamp(0)
+  published         Int       @default(0) @db.TinyInt
+  @@map("happenings")
+}
+
+model investor_relations_details {
+  relations_dtl_id    Int                                          @id @default(autoincrement())
+  relations_master_id Int?
+  title               String?                                      @db.VarChar(255)
+  page_url            String?                                      @db.VarChar(500)
+  description         String?                                      @db.Text
+  is_file_uploaded    investor_relations_details_is_file_uploaded? @default(N)
+  fileupload_count    Int?
+  is_disabled         Boolean?                                     @default(false)
+}
+
+model investor_relations_master {
+  relations_master_id    Int     @id @default(autoincrement())
+  investor_relation_head String? @db.VarChar(255)
+  is_disabled            Int?
+}
+
+model job_applications {
+  id                      Int       @id @default(autoincrement())
+  time                    DateTime? @db.DateTime(0)
+  modification_time       DateTime? @default(now()) @db.Timestamp(0)
+  current_organization    String?   @db.VarChar(255)
+  technical_qualification String?   @db.VarChar(255)
+  post_name               String?   @db.VarChar(255)
+  resume                  String?   @db.VarChar(255)
+  mail_sending_status     String?   @db.Text
+  job_id                  Int?
+  ip_address              String?   @db.VarChar(255)
+  request_headers         String?   @db.Text
+  candidte_name           String?   @db.VarChar(255)
+  email                   String?   @db.VarChar(255)
+  contact_number          String?   @db.VarChar(15)
+}
+
+model log_table {
+  log_id        Int       @id @default(autoincrement())
+  log_date      DateTime? @db.DateTime(0)
+  row_id        Int?
+  table_name    String?   @db.VarChar(500)
+  action        String?   @db.VarChar(500)
+  entry_type    String?   @db.VarChar(50)
+  data_array    String?   @db.Text
+  user_id       Int?
+  user_browser  String?   @db.VarChar(255)
+  user_platform String?   @db.VarChar(255)
+  ip_address    String?   @db.VarChar(255)
+
+  @@index([row_id], map: "fk_rowid")
+  @@index([table_name], map: "fk_tablename")
+  @@index([user_id], map: "user_id")
+}
+
+model magazine_download_table {
+  id           Int       @id @default(autoincrement())
+  organization String?   @db.VarChar(255)
+  name         String?   @db.VarChar(255)
+  phone        String?   @db.VarChar(255)
+  email        String?   @db.VarChar(255)
+  platform     String?   @db.VarChar(255)
+  browser      String?   @db.VarChar(255)
+  country_id   Int?
+  state_id     Int?
+  datetime     DateTime? @db.DateTime(0)
+}
+
+model media_master {
+  media_master_id Int                    @id @default(autoincrement())
+  menu_tag        media_master_menu_tag?
+  description     String?                @db.VarChar(255)
+  banner_name     String?                @db.VarChar(255)
+  banner_text     String?                @db.VarChar(255)
+}
+
+model menumaster {
+  id             Int                  @id @default(autoincrement()) @db.UnsignedInt
+  name           String               @db.VarChar(160)
+  link           String?              @db.VarChar(160)
+  is_parent      menumaster_is_parent
+  parent_id      Int?
+  menu_srl       Int
+  icon           String?              @db.VarChar(150)
+  is_active      menumaster_is_active
+  created_at     DateTime?            @db.Timestamp(0)
+  updated_at     DateTime?            @db.Timestamp(0)
+  menu_referance String?              @db.VarChar(255)
+}
+
+model menupermissions {
+  id         Int       @id @default(autoincrement()) @db.UnsignedInt
+  menu_id    Int
+  user_id    Int
+  created_at DateTime? @db.Timestamp(0)
+  updated_at DateTime? @db.Timestamp(0)
+}
+
+model no_user_restriction {
+  id         Int                            @id @default(autoincrement())
+  user_id    Int?
+  is_active  no_user_restriction_is_active? @default(Y)
+  created_on DateTime?                      @db.Timestamp(0)
+}
+
+model product_master {
+  product_master_id Int    @id @default(autoincrement())
+  name              String?
+  slug              String?
+  banner_image      String?
+  catagory_image    String?
+  parent_id         String?
+  short_description String? @db.VarChar(500)
+  about             String? @db.Text
+  general_description String? @db.Text
+  content           String? @db.Text
+  precedence        String? @default("0")
+  is_disabled       Int?    @default(0)
+  left_image        String?
+  route_parent_id   Int?
+
+  @@map("product_master")
+}
+
+model product_model_details {
+  prodect_model_dt_id    Int     @id @default(autoincrement())
+  product_master_id      Int?
+  template_master_id     Int?
+  old_template_master_id Int?
+  title                  String? @db.VarChar(255)
+  about                  String? @db.Text
+  is_disabled            Int?    @default(0)
+}
+
+model quotation_received {
+  id                  Int       @id @default(autoincrement())
+  time                DateTime? @default(now()) @db.DateTime(0)
+  modification_time   DateTime? @default(now()) @db.Timestamp(0)
+  organization        String?   @db.VarChar(255)
+  name                String?   @db.VarChar(255)
+  phone               String?   @db.VarChar(45)
+  email               String?   @db.VarChar(255)
+  mail_sending_status String?   @db.Text
+  address             String?   @db.Text
+  c_id                Int?
+  country_name        String?   @db.VarChar(255)
+  s_id                Int?
+  state_name          String?   @db.VarChar(255)
+  query               String?   @db.Text
+  product_id          Int?
+  spec_sheet_dt_id    Int?
+  ip_address          String?   @db.VarChar(255)
+  request_headers     String?   @db.Text
+}
+
+model redirect_url {
+  id              Int                           @id @default(autoincrement())
+  old_url         String?                       @db.VarChar(500)
+  new_url         String?                       @db.VarChar(500)
+  is_product_page redirect_url_is_product_page?
+}
+
+model restricted_url_master {
+  restricted_id Int                              @id @default(autoincrement())
+  url           String?                          @db.VarChar(500)
+  user_role     restricted_url_master_user_role?
+  is_active     restricted_url_master_is_active?
+  creted_on     DateTime?                        @db.DateTime(0)
+}
+
+model resume_submission {
+  id                      Int       @id @default(autoincrement())
+  candidte_name           String    @db.VarChar(225)
+  function_id             Int
+  role_id                 Int?
+  email                   String?   @db.VarChar(255)
+  contact                 String?   @db.VarChar(255)
+  work_experience         Int?
+  ctc                     Int?
+  technical_qualification String    @db.VarChar(255)
+  highest_qaulification   String?   @db.VarChar(255)
+  current_organisation    String?   @db.VarChar(255)
+  linkedIn_profile        String?   @db.VarChar(255)
+  time                    DateTime? @default(now()) @db.DateTime(0)
+  modification_time       DateTime? @default(now()) @db.Timestamp(0)
+  massage                 String?   @db.Text
+  resume                  String?   @db.VarChar(255)
+  mail_sending_status     String?   @db.Text
+  ip_address              String?   @db.VarChar(255)
+  request_headers         String?   @db.TinyText
+  current_opening_id      Int?
+}
+
+model role_master {
+  id                 Int                    @id @default(autoincrement())
+  function_master_id Int?
+  role               String?                @db.VarChar(255)
+  is_active          role_master_is_active? @default(Y)
+}
+
+model search_index {
+  id            Int      @id @default(autoincrement())
+  page_location String   @db.VarChar(255)
+  name          String   @db.VarChar(255)
+  content       String   @db.Text
+  date_modified DateTime @default(now()) @db.Timestamp(0)
+  date_added    DateTime @db.DateTime(0)
+}
+
+model seo_details {
+  seo_dtl_id       Int     @id @default(autoincrement())
+  page_url         String? @db.VarChar(500)
+  page_title       String? @db.VarChar(500)
+  meta_tag         String? @db.VarChar(500)
+  seo_keyword      String? @db.VarChar(500)
+  meta_description String? @db.VarChar(500)
+  schema_markup    String? @db.VarChar(500)
+  canonical_url    String? @db.VarChar(500)
+  table_name       String? @db.VarChar(255)
+  ref_id           Int?
+}
+
+model serialmaster {
+  id             Int     @id @default(autoincrement())
+  next_serial_no Int
+  moduleTag      String? @db.VarChar(50)
+  module         String? @db.VarChar(255)
+}
+
+model spec_sheet_details {
+  spec_sheet_dt_id         Int     @id @default(autoincrement())
+  product_model_dt_id      Int?
+  product_master_id        Int?
+  model                    String? @db.VarChar(255)
+  slug                     String? @db.VarChar(255)
+  capacity                 String? @db.Text
+  main_boom                String? @db.VarChar(255)
+  fixed_jib_on_main_boom   String? @db.VarChar(255)
+  luffing_jib_on_main_boom String? @db.VarChar(255)
+  load_capacity            String? @db.Text
+  unladen_weight           String? @db.VarChar(255)
+  engine                   String? @db.VarChar(255)
+  drive_control            String? @db.VarChar(255)
+  series_code              String? @db.VarChar(255)
+  type                     String? @db.VarChar(255)
+  load_centre              String? @db.VarChar(255)
+  transmission             String? @db.VarChar(255)
+  spec_sheet               String? @db.VarChar(255)
+  left_image               String? @db.VarChar(255)
+  image                    String? @db.VarChar(255)
+  short_description        String? @db.Text
+  about                    String? @db.Text
+  general_description      String? @db.Text
+  specifications           String? @db.Text
+  features                 String? @db.Text
+  is_disabled              Int?    @default(0)
+  videos                   String? @db.VarChar(255)
+}
+
+model tbl_cities {
+  id       Int    @id @default(autoincrement())
+  name     String @db.VarChar(255)
+  state_id Int
+}
+
+model tbl_countries {
+  id        Int    @id @default(autoincrement())
+  sortname  String @db.VarChar(3)
+  name      String @db.VarChar(150)
+  phonecode Int
+}
+
+model tbl_states {
+  id         Int    @id @default(autoincrement())
+  name       String @db.VarChar(255)
+  country_id Int    @default(1)
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+model team_member_master {
+  team_member_id   Int                                  @id @default(autoincrement())
+  team_member_type team_member_master_team_member_type?
+  member_name      String?                              @db.VarChar(255)
+  member_pic       String?                              @db.VarChar(255)
+  designation      String?                              @db.VarChar(255)
+  about            String?                              @db.Text
+  address          String?                              @db.VarChar(500)
+  din_no           String?                              @db.VarChar(255)
+  precedence       Int?
+  is_disabled      Boolean?                             @default(false)
+}
+
+model temp_tbl {
+  id          Int     @id @default(autoincrement())
+  url         String? @db.VarChar(255)
+  title       String? @db.VarChar(255)
+  description String? @db.VarChar(255)
+}
+
+model template_master {
+  template_id   Int     @id @default(autoincrement())
+  template_name String? @db.VarChar(255)
+  column_names  String? @db.Text
+  is_disabled   Int?    @default(0)
+}
+
+model training {
+  id                Int       @id @default(autoincrement())
+  name              String?   @db.VarChar(255)
+  precedence        Int?
+  is_disabled       Int?      @default(0) @db.TinyInt
+  modification_time DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model training_locations {
+  id                Int       @id @default(autoincrement())
+  name              String?   @db.VarChar(255)
+  precedence        Int?
+  is_disabled       Int?      @default(0) @db.TinyInt
+  modification_time DateTime? @default(now()) @db.Timestamp(0)
+}
+
+model url_master {
+  url_id    Int                   @id @default(autoincrement())
+  url       String?               @db.VarChar(150)
+  label     String?               @db.VarChar(150)
+  type      String?               @db.VarChar(150)
+  menu_id   Int?
+  is_active url_master_is_active? @default(Y)
+}
+
+model url_permission_detail {
+  id                Int     @id @default(autoincrement())
+  url_id            Int?
+  menu_id           Int?
+  user_id           Int?
+  permission_access String? @db.VarChar(155)
+}
+
+model user_account_activity {
+  id            Int       @id @default(autoincrement())
+  user_id       Int
+  ip_address    String?   @db.VarChar(150)
+  user_browser  String?   @db.VarChar(150)
+  user_platform String?   @db.VarChar(150)
+  login_time    DateTime? @db.DateTime(0)
+  logout_time   DateTime? @db.DateTime(0)
+}
+
+model user_role {
+  id   Int    @id @default(autoincrement())
+  role String @db.VarChar(160)
+}
+
+model users {
+  id                Int                   @id @default(autoincrement())
+  name              String                @db.VarChar(160)
+  user_name         String                @unique(map: "users_email_unique") @db.VarChar(160)
+  password          String                @db.VarChar(160)
+  created_at        DateTime?             @db.Timestamp(0)
+  updated_at        DateTime?             @db.Timestamp(0)
+  mobile_no         String?               @db.VarChar(11)
+  user_role_id      Int
+  is_online         users_is_online?
+  is_active         users_is_active?      @default(Y)
+  created_by        Int?
+  chapter_ids       String?               @db.VarChar(255)
+  access_permission String?               @db.VarChar(255)
+  is_ir_person      users_is_ir_person?   @default(N)
+  allocation_tag    users_allocation_tag?
+  is_deal_manger    users_is_deal_manger? @default(N)
+}
+
+enum media_master_menu_tag {
+  NEWS
+  TIL_TALK
+  TIL_TOUCH
+  BUMA
+}
+
+enum team_member_master_team_member_type {
+  BOD
+  MT
+}
+
+enum fuel_navigation_groups_published {
+  yes
+  no
+}
+
+enum no_user_restriction_is_active {
+  Y
+  N
+}
+
+enum restricted_url_master_user_role {
+  Developer
+  Admin
+  User
+}
+
+enum fuel_pages_published {
+  yes
+  no
+}
+
+enum fuel_pages_copy_published {
+  yes
+  no
+}
+
+enum fuel_permissions_active {
+  yes
+  no
+}
+
+enum menumaster_is_parent {
+  P
+  SM
+  SSM
+  C
+}
+
+enum redirect_url_is_product_page {
+  Y
+  N
+}
+
+enum restricted_url_master_is_active {
+  Y
+  N
+}
+
+enum role_master_is_active {
+  Y
+  N
+}
+
+enum current_openings_opening_type {
+  PT
+  FT
+}
+
+enum financialyear_is_active {
+  Y
+  N
+}
+
+enum fuel_locations_published {
+  yes
+  no
+}
+
+enum fuel_pages_cache {
+  yes
+  no
+}
+
+enum fuel_pages_copy_cache {
+  yes
+  no
+}
+
+enum fuel_site_variables_active {
+  yes
+  no
+}
+
+enum fuel_blocks_published {
+  yes
+  no
+}
+
+enum fuel_page_variables_type {
+  string
+  int
+  boolean
+  array
+}
+
+enum fuel_page_variables_copy_type {
+  string
+  int
+  boolean
+  array
+}
+
+enum investor_relations_details_is_file_uploaded {
+  Y
+  N
+}
+
+enum url_master_is_active {
+  Y
+  N
+}
+
+enum faq_details_is_product {
+  Y
+  N
+}
+
+enum fuel_page_variables_active {
+  yes
+  no
+}
+
+enum fuel_page_variables_copy_active {
+  yes
+  no
+}
+
+enum menumaster_is_active {
+  Y
+  N
+}
+
+enum blogs_is_active {
+  Y
+  N
+}
+
+enum fuel_tags_published {
+  yes
+  no
+}
+
+enum users_is_online {
+  Y
+  N
+}
+
+enum customer_review_is_product {
+  Y
+  N
+}
+
+enum fuel_navigation_hidden {
+  yes
+  no
+}
+
+enum fuel_users_super_admin {
+  yes
+  no
+}
+
+enum users_is_active {
+  Y
+  N
+}
+
+enum chapter_master_is_active {
+  Y
+  N
+}
+
+enum fuel_users_active {
+  yes
+  no
+}
+
+enum fuel_categories_published {
+  yes
+  no
+}
+
+enum fuel_navigation_published {
+  yes
+  no
+}
+
+enum users_is_ir_person {
+  Y
+  N
+}
+
+enum users_allocation_tag {
+  M
+  A
+}
+
+enum users_is_deal_manger {
+  Y
+  N
+}
