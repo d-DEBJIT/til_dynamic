@@ -105,7 +105,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Corporate Profile',
       icon: <Building className="w-4 h-4" />,
       description: 'Our heritage and leadership in construction equipment',
-      link: '/about-us/corporate'
+      link: '/about-us//corporate'
     },
     {
       id: 'leadership',
@@ -119,7 +119,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Milestones',
       icon: <Shield className="w-4 h-4" />,
       description: 'Key achievements and historical moments',
-      link: '/about-us/milestones'
+      link: '/about-us//milestones'
     },
     {
       id: 'values',
@@ -160,7 +160,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         {
           name: 'Company History',
           description: 'Explore our 80+ years of engineering excellence',
-          image: `${basePath}/no_image.jpg`,
+          image: `${basePath}/company-history.jpeg`,
           link: `/about-us?tab=history`
         },
         {
@@ -169,30 +169,30 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           image: `${basePath}/milestone.png`,
           link: `/about-us?tab=milestones`
         },
-        // {
-        //   name: 'Awards & Recognition',
-        //   description: 'Industry accolades and certifications',
-        //   image: `${basePath}/awards.jpg`,
-        //   link: `/about-us?tab=awards`
-        // },
-        // {
-        //   name: 'Global Presence',
-        //   description: 'Our international footprint and partnerships',
-        //   image: `${basePath}/global-presence.jpg`,
-        //   link: `/about-us?tab=global`
-        // },
-        // {
-        //   name: 'Manufacturing Facilities',
-        //   description: 'State-of-the-art production plants',
-        //   image: `${basePath}/manufacturing.jpg`,
-        //   link: `/about-us`
-        // },
-        // {
-        //   name: 'Quality Standards',
-        //   description: 'Our commitment to excellence',
-        //   image: `${basePath}/quality-standards.jpg`,
-        //   link: `/about-us`
-        // }
+        {
+          name: 'Awards & Recognition',
+          description: 'Industry accolades and certifications',
+          image: `${basePath}/awards.jpg`,
+          link: `/about-us?tab=awards`
+        },
+        {
+          name: 'Global Presence',
+          description: 'Our international footprint and partnerships',
+          image: `${basePath}/global-presence.jpg`,
+          link: `/about-us?tab=global`
+        },
+        {
+          name: 'Manufacturing Facilities',
+          description: 'State-of-the-art production plants',
+          image: `${basePath}/manufacturing.jpg`,
+          link: `/about-us`
+        },
+        {
+          name: 'Quality Standards',
+          description: 'Our commitment to excellence',
+          image: `${basePath}/quality-standards.jpg`,
+          link: `/about-us`
+        }
       ],
       media: {
         image: `${basePath}/legacy.jpg`,
@@ -215,19 +215,19 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Executive Team',
           description: 'Our day-to-day leadership team',
           image: `${basePath}/executive-team.jpg`,
-          link: 'about-us?tab=leadership'
+          link: '/about-us'
         },
         {
           name: 'Management Committee',
           description: 'Department heads and functional leaders',
           image: `${basePath}/management-committee.jpg`,
-          link: 'about-us?tab=leadership'
+          link: '/about-us'
         },
         {
           name: 'Advisory Board',
           description: 'Industry experts guiding our strategy',
           image: `${basePath}/advisory-board.jpg`,
-          link: 'about-us?tab=leadership'
+          link: '/about-us'
         }
       ],
       media: {
@@ -244,29 +244,29 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Foundation & Early Years',
           description: 'Our humble beginnings and initial successes',
           image: `${basePath}/foundation.jpg`,
-          link: '/about-us?tab=history'
+          link: '/about-us'
         },
         {
           name: 'Key Innovations',
           description: 'Breakthrough products and technologies',
           image: `${basePath}/innovations.jpg`,
-          link: '/about-us?tab=history'
+          link: '/about-us'
         },
         {
           name: 'Expansion Phases',
           description: 'Growth of our operations and facilities',
           image: `${basePath}/expansion.jpg`,
-          link: '/about-us?tab=history'
+          link: '/about-us'
         },
         {
           name: 'Recent Achievements',
           description: 'Our latest accomplishments and awards',
           image: `${basePath}/achievements.jpg`,
-          link: '/about-us?tab=history'
+          link: '/about-us'
         }
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/milestone.png`,
         title: 'Our Journey',
         description: 'Key milestones that define our growth and success in the industry.',
         cta: 'View Timeline',
@@ -279,29 +279,29 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Mission Statement',
           description: 'Our purpose and reason for being',
           image: `${basePath}/mission.jpg`,
-          link: '/about-us?tab=values'
+          link: '/about-us'
         },
         {
           name: 'Vision 2030',
           description: 'Our aspirations for the future',
           image: `${basePath}/vision.jpg`,
-          link: '/about-us?tab=values'
+          link: '/about-us'
         },
         {
           name: 'Core Values',
           description: 'Principles that guide our actions',
           image: `${basePath}/values.jpg`,
-          link: '/about-us?tab=values'
+          link: '/about-us'
         },
         {
           name: 'Ethics & Integrity',
           description: 'Our commitment to doing business right',
           image: `${basePath}/ethics.jpg`,
-          link: '/about-us?tab=values'
+          link: '/about-us'
         }
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/vision.jpg`,
         title: 'Our Values',
         description: 'Committed to excellence, innovation, and sustainable growth.',
         cta: 'Our Philosophy',
@@ -314,29 +314,29 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Environmental Policy',
           description: 'Our commitment to sustainable operations',
           image: `${basePath}/environmental.jpg`,
-          link: '/about-us?tab=awards'
+          link: '/about-us'
         },
         {
           name: 'Green Manufacturing',
           description: 'Eco-friendly production processes',
           image: `${basePath}/green-manufacturing.jpg`,
-          link: '/about-us?tab=awards'
+          link: '/about-us'
         },
         {
           name: 'Community Impact',
           description: 'Initiatives that benefit local communities',
           image: `${basePath}/community.jpg`,
-          link: '/about-us?tab=awards'
+          link: '/about-us'
         },
         {
           name: 'Employee Welfare',
           description: 'Programs for our workforce wellbeing',
           image: `${basePath}/employee-welfare.jpg`,
-          link: '/about-us?tab=awards'
+          link: '/about-us'
         }
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/social.jpg`,
         title: 'Sustainability',
         description: 'Leading the way in environmentally responsible manufacturing and operations.',
         cta: 'Green Initiatives',
@@ -349,23 +349,23 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Business Ethics',
           description: 'Our standards for ethical business practices',
           image: `${basePath}/ethics.jpg`,
-          link: '/about-us?tab=global'
+          link: '/about-us'
         },
         {
           name: 'Anti-Corruption',
           description: 'Policies against bribery and corruption',
           image: `${basePath}/anti-corruption.jpg`,
-          link: '/about-us?tab=global'
+          link: '/about-us'
         },
         {
           name: 'Compliance Framework',
           description: 'Ensuring adherence to laws and regulations',
           image: `${basePath}/compliance.jpg`,
-          link: '/about-us?tab=global'
+          link: '/about-us'
         }
       ],
       media: {
-        image: `${basePath}/code-of-conduct.jpg`,
+        image: `${basePath}/code_of_conduct.png`,
         title: 'Code of Conduct',
         description: 'Our commitment to ethical business practices and corporate governance.',
         cta: 'View Policy',
@@ -375,16 +375,28 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     facilities: {
       items: [
         {
-          name: 'Kharagpur Facility',
-          description: 'The state-of-the-art Changual facility at Kharagpur,',
-          image: `${basePath}/kharagpur-facility.jpg`,
-          link: '/about-us?tab=facility'
+          name: 'Kolkata Headquarters',
+          description: 'Our corporate office and main facility',
+          image: `${basePath}/kol.jpeg`,
+          link: '/about-us'
         },
         {
-          name: 'Kamarhati Facility',
-          description: 'TIL’s Kamarhati factory built Mobile Crane Factory in India.',
-          image: `${basePath}/kamarhati-facility.jpg`,
-          link: '/about-us?tab=facility'
+          name: 'Manufacturing Plants',
+          description: 'State-of-the-art production facilities',
+          image: `${basePath}/plants.jpg`,
+          link: '/about-us'
+        },
+        {
+          name: 'R&D Centers',
+          description: 'Innovation hubs driving product development',
+          image: `${basePath}/rd-centers.jpg`,
+          link: '/about-us'
+        },
+        {
+          name: 'Regional Offices',
+          description: 'Our presence across India',
+          image: `${basePath}/regional-offices.jpg`,
+          link: '/about-us'
         }
       ],
       media: {
@@ -454,7 +466,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         router.push(category.link);
                         onClose();
@@ -487,7 +499,8 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       About Us
@@ -537,7 +550,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Middle: Items */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
@@ -550,7 +563,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                           key={index}
                           onMouseEnter={() => setActiveItem(item)}
                           onMouseLeave={() => setActiveItem(null)}
-                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                           onClick={() => {
                             router.push(item.link);
                             onClose();
@@ -572,7 +585,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Details */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -619,7 +632,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                         <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                           <motion.button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
                             whileHover={{ scale: 1.02, boxShadow: "0 0 15px rgba(255, 193, 7, 0.3)" }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -872,7 +885,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         router.push(category.link);
                         onClose();
@@ -905,7 +918,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Product Categories
@@ -957,7 +970,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Middle: Product Items */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Products'}
@@ -969,7 +982,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         <li
                           key={index}
                           onMouseEnter={() => setActiveProduct(product)}
-                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                           onClick={() => {
                             router.push(product.link);
                             onClose();
@@ -998,7 +1011,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Dynamic Media Panel */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -1051,7 +1064,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                         <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                           <motion.button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
                             whileHover={{ scale: 1.02, boxShadow: "0 0 15px rgba(255, 193, 7, 0.3)" }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -1117,7 +1130,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
         { name: 'Annual Reports', description: 'Download annual reports and disclosures', link: `/investor-relations` },
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/corporate-governance.jpg`,
         title: 'Corporate Governance',
         description:
           'TIL is committed to maintaining the highest standards of corporate governance and ethics, ensuring transparency and accountability to our stakeholders.',
@@ -1132,7 +1145,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
         { name: 'Registrar & Transfer Agent', description: 'Contact info for shareholder services' },
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/shareholders.jpg`,
         title: 'Shareholders Information',
         description:
           'Access detailed information for shareholders including ownership patterns, dividends, and investor services.',
@@ -1141,12 +1154,13 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
     },
     financials: {
       points: [
-        { name: 'Quarterly / Annual Results', description: 'Latest quarterly financial statements' },
-        { name: 'Annual Report', description: 'Annual audited financial reports' },
-        { name: 'Annual Results - Subsidiary', description: 'Historical and current stock prices' },
+        { name: 'Quarterly Results', description: 'Latest quarterly financial statements' },
+        { name: 'Audited Financials', description: 'Annual audited financial reports' },
+        { name: 'Stock Price Information', description: 'Historical and current stock prices' },
+        { name: 'Credit Ratings', description: 'Credit rating details and reports' },
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/financials.jpg`,
         title: 'Financials',
         description:
           'Stay updated with TIL’s financial performance through detailed reports and market data.',
@@ -1155,14 +1169,13 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
     },
     notice: {
       points: [
-        { name: 'Board Meeting Notice', description: 'Important statutory filings and disclosures' },
-        { name: 'AGM / EGM Notice', description: 'Latest news and announcements' },
-        { name: 'E-Voting Results', description: 'Updates on company developments' },
-        { name: 'Postal Ballot', description: 'Alerts and notifications for investors' },
-        { name: 'Closure of Trading Window', description: 'Alerts and notifications for investors' }
+        { name: 'Regulatory Filings', description: 'Important statutory filings and disclosures' },
+        { name: 'Press Releases', description: 'Latest news and announcements' },
+        { name: 'Corporate Announcements', description: 'Updates on company developments' },
+        { name: 'Investor Alerts', description: 'Alerts and notifications for investors' },
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/notice.jpg`,
         title: 'Notice',
         description:
           'Keep track of important notices, press releases, and official communications from TIL.',
@@ -1224,7 +1237,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
                   {categories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         router.push(category.link);
                         onClose();
@@ -1241,7 +1254,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
               // Desktop View
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Investor Relations
@@ -1281,7 +1294,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
                 </div>
 
                 {/* Middle: Points */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {categories.find((cat) => cat.id === activeCategory)?.name || 'Details'}
@@ -1294,7 +1307,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
 
                           <li
                             key={index}
-                            className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                            className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                             onClick={() => {
                               router.push('link' in point ? point.link : '/investor-relations');
                               onClose();
@@ -1326,7 +1339,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
                 </div>
 
                 {/* Right: Media */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -1359,7 +1372,7 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
 
                         <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                           <motion.button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -1398,12 +1411,12 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
   }, []);
 
   const router = useRouter();
-  const primaryCategories = [
-    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
-    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
-    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
-    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support/locations` }
-  ];
+ const primaryCategories = [
+     { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
+     { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
+     { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
+     { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support/locations` }
+   ];
 
   const submenuData = {
     'heavy-industries': {
@@ -1619,7 +1632,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         router.push(category.link);
                         onClose();
@@ -1652,7 +1665,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Support Categories
@@ -1697,7 +1710,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                 </div>
 
                 {/* Middle: Point-wise Info */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Support Info'}
@@ -1714,7 +1727,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                               setActivePoint(point);
                             }
                           }}
-                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                           onClick={() => {
                             router.push(point.link);
                             onClose();
@@ -1754,7 +1767,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                 </div>
 
                 {/* Right: Media Panel */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -1787,7 +1800,7 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
 
                         <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                           <motion.button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -1843,7 +1856,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const primaryCategories = [
     {
-      id: 'blogs',
+      id: 'blog',
       name: 'Blogs',
       icon: <Building className="w-4 h-4" />,
       description: 'Industry insights and company updates',
@@ -1854,7 +1867,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Videos',
       icon: <Users className="w-4 h-4" />,
       description: 'Product demos and company highlights',
-      link: '/media/video'
+      link: '/media/videos'
     },
     {
       id: 'news',
@@ -2040,7 +2053,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           title: 'Construction And Architecture Magazine',
           description: 'FUELING INNOVATION AND GROWTH IN INDIA\'S MATERIAL HANDLING AND CONSTRUCTION...',
           image: `${basePath}/til1.png`,
-          link: '/media/til/bauma',
+          link: '/media/til/innovation-growth',
           type: 'event',
           date: '2024-10-15'
         },
@@ -2048,7 +2061,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           title: 'Construction And Architecture Magazine',
           description: 'TIL: A LEGACY OF INNOVATION AND STRATEGIC GROWTH IN MATERIAL HANDLING AT BA...',
           image: `${basePath}/til2.jpeg`,
-          link: '/media/til/bauma',
+          link: '/media/til/legacy-innovation',
           type: 'event',
           date: '2024-10-12'
         },
@@ -2056,7 +2069,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           title: 'BAUMA 2024',
           description: 'We are committed to increasing local manufacturing in India.',
           image: `${basePath}/til3.jpg`,
-          link: '/media/til/bauma',
+          link: '/media/til/local-manufacturing',
           type: 'event',
           date: '2024-10-10'
         },
@@ -2064,7 +2077,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           title: 'Construction Week',
           description: 'Bauma ConExpo India 2024: TIL debuts Snorkel A62JRT articulating boom lift',
           image: `${basePath}/til4.jpg`,
-          link: '/media/til/bauma',
+          link: '/media/til/snorkel-debut',
           type: 'event',
           date: '2024-10-08'
         }
@@ -2293,7 +2306,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => handleNavigation(category.link)}
                       whileHover={{ x: 4 }}
                       whileTap={{ scale: 0.98 }}
@@ -2325,7 +2338,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Media Center
@@ -2369,7 +2382,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Middle: Content Items */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Content'}
@@ -2426,7 +2439,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       // Press Release Table Layout
                       <div className="bg-white border border-gray-700/40 rounded-lg overflow-hidden">
                         <div className="grid grid-cols-12 bg-yellow-500 text-black font-bold text-sm">
-                          <div className="col-span-8 px-4 py-3 border-r border-yellow-600">
+                          <div className="col-span-8 px-4 py-3 border-r border-yellow-500">
                             Details
                           </div>
                           <div className="col-span-4 px-4 py-3">
@@ -2562,7 +2575,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Media Panel */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Highlights
@@ -2610,7 +2623,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                         <div className="space-y-3 sticky bottom-0 bg-white/80 backdrop-blur-sm py-3 -mx-4 px-4">
                           <button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2.5 px-4 rounded-lg font-bold text-sm transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
                             onClick={() => handleNavigation(`/media`)}
                           >
                             <Eye className="w-4 h-4" />
@@ -2671,10 +2684,10 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'life', name: 'Life @TIL', icon: <Mountain className="w-4 h-4" />, link: `/careers` },
-    { id: 'team', name: 'Meet our Team', icon: <Building className="w-4 h-4" />, link: `/careers` },
-    { id: 'vacant', name: 'Vacancies', icon: <Shield className="w-4 h-4" />, link: `/careers` },
-    { id: 'equal', name: 'Equal Opportunity Employer', icon: <Zap className="w-4 h-4" />, link: `/careers` }
+    { id: 'life', name: 'Life @TIL', icon: <Mountain className="w-4 h-4" />, link: `/careers/life-til` },
+    { id: 'team', name: 'Meet our Team', icon: <Building className="w-4 h-4" />, link: `/careers/meet-our-team` },
+    { id: 'vacant', name: 'Vacancies', icon: <Shield className="w-4 h-4" />, link: `/careers/vacancies` },
+    { id: 'equal', name: 'Equal Opportunity Employer', icon: <Zap className="w-4 h-4" />, link: `/careers/equal-opportunity-employer` }
   ];
 
   const submenuData = {
@@ -2748,7 +2761,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         }
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/team-placeholder.jpg`,
         title: 'Meet Our Team',
         description:
           'Get to know the passionate minds building the future of infrastructure. Our leadership team brings decades of experience and innovation.',
@@ -2880,7 +2893,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         router.push(category.link);
                         onClose();
@@ -2912,7 +2925,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Contact Channels
@@ -2956,7 +2969,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Middle: Info List */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Contact'}
@@ -2981,7 +2994,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             return (
                               <li
                                 key={index}
-                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white"
+                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20"
                               >
                                 <div className="pt-1">
                                   {contact.icon}
@@ -3018,7 +3031,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                 router.push(location.link ?? '/careers');
                                 onClose();
                               }}
-                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                             >
                               <div className="pt-1">
                                 <svg
@@ -3055,7 +3068,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Dynamic Media Panel */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -3100,7 +3113,7 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
                         <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                           <motion.button
-                            className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 shadow-lg"
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
@@ -3225,7 +3238,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         }
       ],
       media: {
-        image: `${basePath}/no_image.jpg`,
+        image: `${basePath}/photo-1486406146926-c627a92ad1ab.jpg`,
         title: 'Get In Touch',
         description: "Reach out to our team through your preferred channel. We're here to help.",
         cta: 'Contact Us'
@@ -3290,7 +3303,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   {primaryCategories.map((category) => (
                     <motion.button
                       key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
                         // Handle category selection
                         router.push(category.link);
@@ -3320,8 +3333,8 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
-                  <div className="p-4 sticky top-0 bg-white z-10">
+<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Contact Channels
                     </h3>
@@ -3368,7 +3381,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Middle: Info List */}
-                <div className="lg:col-span-6 border-r border-gray-700/50 min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Contact'}
@@ -3393,7 +3406,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             return (
                               <li
                                 key={index}
-                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white"
+                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20"
                               >
                                 <div className="pt-1">
                                   {contact.icon}
@@ -3430,7 +3443,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                                 router.push(location.link ?? '/contact-us');
                                 onClose();
                               }}
-                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white cursor-pointer"
+                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                             >
                               <div className="pt-1">
                                 <svg
@@ -3467,7 +3480,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Dynamic Media Panel */}
-                <div className="lg:col-span-3 bg-gradient-to-br from-white to-gray-100 min-w-0 h-full overflow-y-auto scroll-hover">
+<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -3513,7 +3526,7 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                         {'cta' in (activeMedia || {}) && (activeMedia as { cta?: string }).cta && (
                           <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
                             <motion.button
-                              className="w-full bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#F1B434] hover:to-[#F1B434] text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
+                              className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 shadow-lg"
                               whileHover={{ scale: 1.02 }}
                               whileTap={{ scale: 0.98 }}
                             >
@@ -3680,7 +3693,7 @@ const MainNavigation: React.FC = () => {
       <motion.nav
         data-component="MainNavigation"
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${isScrollingDown && !isMobileMenuOpen ? '-translate-y-full' : 'translate-y-0'
-          } ${isScrolled ? 'bg-white ' : 'bg-[#ffffff14]'
+          } ${isScrolled ? 'bg-white/85 backdrop-blur-md shadow-2xl' : 'bg-[#ffffff14]'
           }`}
         style={{ marginTop: isScrolled ? '53px' : '60px' }}
       >
@@ -3696,12 +3709,12 @@ const MainNavigation: React.FC = () => {
               >
                 <motion.button
                   onClick={() => {
-                    router.push(`${item.path}`);
+                    router.push(`${item.path}`); 
                     setActiveMenu(null); // close hover menu
                   }}
                   className={`flex items-center justify-center space-x-1 px-4 font-bold text-sm uppercase tracking-wide transition-all duration-200 w-full h-full ${activeMenu === item.name
-                    ? 'bg-[#fbb53d] text-[#000]'
-                    : 'text-[#fbb53d] hover:text-black hover:bg-[#fbb53d]'
+                      ? 'bg-[#fbb53d] text-[#000]'
+                      : 'text-[#fbb53d] hover:text-black hover:bg-[#fbb53d]'
                     }`}
                   whileHover={{ scale: 1.005 }}
                   whileTap={{ scale: 0.995 }}
@@ -3848,8 +3861,8 @@ const MainNavigation: React.FC = () => {
                       <button
                         onClick={() => item.hasSubmenu && handleMobileMenuClick(item.name)}
                         className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-left transition-all duration-200 ${activeMenu === item.name
-                          ? 'text-[#fbb53d] bg-gray-800'
-                          : 'text-black hover:text-[#fbb53d] hover:bg-gray-800'
+                          ? 'text-[#fbb53d] bg-white'
+                          : 'text-black hover:text-[#fbb53d] hover:bg-white'
                           }`}
                         disabled={!item.hasSubmenu}
                       >
@@ -3872,7 +3885,7 @@ const MainNavigation: React.FC = () => {
                             transition={{ duration: 0.3 }}
                             className="overflow-hidden mt-2"
                           >
-                            <div className="bg-gray-800/50 rounded-lg p-4 max-h-96 overflow-y-auto">
+                            <div className="bg-white/50 rounded-lg p-4 max-h-96 overflow-y-auto">
                               {renderMegamenu(item.name)}
                             </div>
                           </motion.div>

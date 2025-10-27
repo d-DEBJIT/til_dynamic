@@ -39,10 +39,10 @@ const Testimonials: React.FC = () => {
   }, [expandedCard]);
 
   const topTestimonials = [
-    { id: 1, name: 'Sarah Johnson', position: 'Marketing Director', company: 'TechCorp', image: `${basePath}/no_image.jpg`, rating: 5, text: "TIL's equipment revolutionized our construction projects. The reliability and performance exceeded our expectations." },
-    { id: 2, name: 'Michael Chen', position: 'CTO', company: 'StartUp Labs', image: `${basePath}/no_image.jpg`, rating: 4, text: "We've been using TIL cranes for 5 years. Their durability in harsh conditions is unmatched in the industry." },
-    { id: 3, name: 'Emma Williams', position: 'Project Manager', company: 'DesignHub', image: `${basePath}/no_image.jpg`, rating: 5, text: "The technical support from TIL is exceptional. They've helped us optimize our equipment usage significantly." },
-    { id: 4, name: 'David Kim', position: 'Operations Lead', company: 'LogiChain', image: `${basePath}/no_image.jpg`, rating: 5, text: "TIL's reach stackers have transformed our port operations. The efficiency gains have been remarkable." },
+    { id: 1, name: 'Mr. Sudhir Goel', position: 'Customer', company: 'Shri Durga Crane Company', image: `${basePath}/blank-profile-picture-973460_1280.webp`, rating: 5, text: "We have been associated with TIL Limited for the last 23 years, ever since they have started manufacturing ReachStackers, which is a vital machine for our container handling business." },
+    { id: 2, name: 'Mr. Uday Chaudhary', position: 'Customer', company: 'Gurudev Impex Pvt. Ltd', image: `${basePath}/blank-profile-picture-973460_1280.webp`, rating: 4, text: "TIL and GIPL go a long way back, and GIPL bought the first ReachStacker from TIL Limited in 2008. We are happy to be back and have added another TIL HYSTER ReachStacker to our fleet this year, 2024." },
+    { id: 3, name: 'Ben Newey', position: 'VP of Sales & Marketing APIC', company: 'Hyster-Yale Materials Handling', image: `${basePath}/blank-profile-picture-973460_1280.webp`, rating: 5, text: "It was really good to see the manufacturing process that has gone into it. It looks like really good quality, and I just think some of the technology that has been invested in the facility just adds credibility to the trucks. The test truck is really impressive, and I understand this is the only test track in India for a ReachStacker" },
+    { id: 4, name: 'Mr. Tony Unsworth', position: 'VP of Aftermarket, Service, and Fleet', company: 'APIC, Hyster-Yale Group', image: `${basePath}/blank-profile-picture-973460_1280.webp`, rating: 5, text: "The best part about the Kharagpur facility is that you get sheet metals that come in all different thicknesses, all of them, of fabrication for every component of the truck and chassis is built without any outside supply. All the semi-automated welding on the boom is very good. I found it very efficient the way they run." },
   ];
 
   const bottomTestimonials = [
@@ -243,7 +243,8 @@ const TestimonialCard: React.FC<{ testimonial: any; onReadMore: (e: React.MouseE
       <img src={testimonial.image} alt={testimonial.name} className="w-10 h-10 md:w-12 md:h-12 rounded-full object-cover mr-3 border-2 border-yellow-100" />
       <div className="text-left">
         <h3 className="font-bold text-gray-800 text-sm md:text-base" style={{ fontFamily: 'Arial Narrow, sans-serif' }}>{testimonial.name}</h3>
-        <p className="text-xs md:text-sm text-yellow-600 font-medium">{testimonial.position} | {testimonial.company}</p>
+        <p className="text-xs md:text-sm text-yellow-600 font-medium">{testimonial.position} </p>
+        <p className="text-xs md:text-sm text-yellow-600 font-medium">{testimonial.company} </p>
       </div>
     </div>
     <div className="flex mb-2 md:mb-3">

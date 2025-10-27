@@ -105,49 +105,49 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Corporate Profile',
       icon: <Building className="w-4 h-4" />,
       description: 'Our heritage and leadership in construction equipment',
-      link: '/about-us'
+      link: '/about-us/corporate'
     },
     {
       id: 'leadership',
       name: 'Board of Directors',
       icon: <Users className="w-4 h-4" />,
       description: 'Meet our executive team and board of directors',
-      link: '/about-us'
+      link: '/about-us/board-of-directors'
     },
     {
       id: 'milestones',
       name: 'Milestones',
       icon: <Shield className="w-4 h-4" />,
       description: 'Key achievements and historical moments',
-      link: '/about-us'
+      link: '/about-us/milestones'
     },
     {
       id: 'values',
       name: 'Values & Vision',
       icon: <Star className="w-4 h-4" />,
       description: 'Our mission, vision, and core values',
-      link: '/about-us'
+      link: '/about-us/vision-values'
     },
     {
       id: 'corporate',
       name: 'Corporate Social Responsibility',
       icon: <Shield className="w-4 h-4" />,
       description: 'Environmental responsibility and green initiatives',
-      link: '/about-us'
+      link: '/about-us/csr'
     },
     {
       id: 'codeofconduct',
       name: 'Code of Conduct',
       icon: <Shield className="w-4 h-4" />,
       description: 'Our ethical guidelines and business practices',
-      link: '/about-us'
+      link: '/about-us/code-of-conduct'
     },
     {
       id: 'facilities',
       name: 'Facilities',
       icon: <Shield className="w-4 h-4" />,
       description: 'Our manufacturing plants and offices',
-      link: '/about-us'
+      link: '/about-us/facility'
     }
   ];
   const router = useRouter();
@@ -215,19 +215,19 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
           name: 'Executive Team',
           description: 'Our day-to-day leadership team',
           image: `${basePath}/executive-team.jpg`,
-          link: '/about-us'
+          link: 'about-us?tab=leadership'
         },
         {
           name: 'Management Committee',
           description: 'Department heads and functional leaders',
           image: `${basePath}/management-committee.jpg`,
-          link: '/about-us'
+          link: 'about-us?tab=leadership'
         },
         {
           name: 'Advisory Board',
           description: 'Industry experts guiding our strategy',
           image: `${basePath}/advisory-board.jpg`,
-          link: '/about-us'
+          link: 'about-us?tab=leadership'
         }
       ],
       media: {
@@ -1399,10 +1399,10 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support` },
-    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support` }
+    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
+    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
+    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
+    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support/locations` }
   ];
 
   const submenuData = {
@@ -3789,14 +3789,9 @@ const MainNavigation: React.FC = () => {
                 transition={{ duration: 0.2 }}
                 className="absolute top-full left-0 right-0 z-50"
               >
-                <div
-  className="max-w-7xl mx-auto px-6 md:px-12 xl:px-20 
-             rounded-b-2xl 
-             shadow-[0_6px_15px_-2px_rgba(0,0,0,0.2)] 
-             bg-white"
->
-  {renderMegamenu(activeMenu)}
-</div>
+                <div className="max-w-7xl mx-auto px-6 md:px-12 xl:px-20">
+                  {renderMegamenu(activeMenu)}
+                </div>
               </motion.div>
             )}
           </AnimatePresence>

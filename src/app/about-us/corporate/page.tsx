@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Factory, Users, Clock, HeartHandshake, Trophy, Globe, Shield } from 'lucide-react';
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
@@ -34,65 +34,114 @@ const CorporateProfilePage = () => {
 
   return (
     <>
-      {/* Hero Section */}
+      {/* Hero Section - Matching About Page Style */}
       <div className="relative h-72 w-full overflow-hidden">
         <img
           src={`${basePath}/corporate-profile-banner.png`}
           alt="Corporate Profile"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
           loading="eager"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
-        <div className="absolute inset-0 z-20 flex items-center">
+
+        {/* Enhanced Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
+
+        {/* Content Container */}
+        <div className="absolute inset-0 z-20 flex items-center pt-8">
           <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
-            <div className="max-w-2xl">
-              <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight">
-                Corporate <span className="text-[#F1B434]">Profile</span>
-              </h1>
-              <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
-            </div>
+            <motion.div
+              className="max-w-2xl"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
+            >
+              <motion.span
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2, duration: 0.8 }}
+              >
+                {/* CORPORATE PROFILE */}
+              </motion.span>
+
+              <motion.h1
+                className="text-5xl md:text-6xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight tracking-tight"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+              >
+                Corporate <span className="text-[#F1B434] drop-shadow-lg">Profile</span>
+              </motion.h1>
+
+              <motion.div
+                className="w-32 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-6 shadow-lg"
+                initial={{ scaleX: 0 }}
+                animate={{ scaleX: 1 }}
+                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+              />
+
+              <motion.p
+                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5, duration: 0.8 }}
+              >
+                Learn about our company structure and profile
+              </motion.p>
+            </motion.div>
           </div>
         </div>
       </div>
 
-      {/* Content Section */}
-      <section className="py-16 bg-white">
+      {/* Main Content */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
         <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
           {/* Back Link */}
-          <div className="flex items-center space-x-4 text-black mb-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center space-x-4 text-gray-600 mb-8"
+          >
             <Link
               href="/about-us"
-              className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors"
+              className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
             >
               <ArrowLeft className="w-4 h-4" />
               <span>Back to About</span>
             </Link>
-          </div>
+          </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Left Image */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="space-y-6"
-            >
-              <div className="rounded-lg overflow-hidden shadow-xl">
+          {/* Main Content Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+          >
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Left Image */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="relative h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
+              >
                 <img
                   src={contentData.image}
                   alt="TIL Corporate"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
-              </div>
-            </motion.div>
-            {/* Right Content */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <div className="space-y-6">
+              </motion.div>
+
+              {/* Right Content */}
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
+                className="space-y-6"
+              >
                 {contentData.content.map((paragraph, index) => {
                   // Special case for first paragraph with "here" hyperlink
                   if (index === 0) {
@@ -102,12 +151,12 @@ const CorporateProfilePage = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-700 leading-relaxed text-base"
+                        className="text-gray-700 leading-relaxed text-base tracking-wide"
                       >
                         TIL Limited was formerly known as Tractors India Limited. Today TIL is now expanded and the company is simply known as TIL Limited. The company has adopted new values after becoming a part of the Gainwell Group. You can learn more about the values{' '}
                         <Link
                           href="/about-us/vision-values"
-                          className="text-gray-700 font-bold underline decoration-gray-700 hover:decoration-[#F1B434] hover:text-[#F1B434]"
+                          className="text-[#F1B434] font-semibold hover:text-[#e0a42d] transition-colors duration-300"
                         >
                           here
                         </Link>
@@ -123,48 +172,72 @@ const CorporateProfilePage = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="text-gray-700 leading-relaxed text-base"
+                      className="text-gray-700 leading-relaxed text-base tracking-wide"
                     >
                       {paragraph}
                     </motion.p>
                   );
                 })}
-              </div>
-            </motion.div>
-
-            
-          </div>
+              </motion.div>
+            </div>
+          </motion.div>
 
           {/* Products on Offer Section */}
-          <div className="flex flex-col items-center mt-16">
-            <div className="max-w-2xl text-center">
-              <h2 className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-[#F1B434] mb-4 leading-tight">
-                Products on <span className="text-black">offer include</span>
-              </h2>
-              <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mx-auto mb-8" />
-            </div>
-
-            {/* Highlight Cards */}
-            <div className="flex flex-wrap justify-center gap-4 max-w-5xl">
-              {contentData.highlights.map((item, index) => (
-                <Link
-                  key={index}
-                  href={`/category/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="px-6 py-3 bg-[#F1B434] border border-[#F1B434]/30 
-                    rounded-full shadow-sm font-medium text-gray-800 whitespace-nowrap
-                    hover:bg-[#F1B434]/10 transition"
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+          >
+            <div className="flex flex-col items-center">
+              <div className="max-w-2xl text-center mb-12">
+                <motion.h2
+                  className="text-3xl font-bold mb-4 tracking-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6 }}
                 >
-                  {item}
-                </Link>
-              ))}
+                  <span className="text-[#F1B434] drop-shadow-sm">Products</span>{' '}
+                  <span className="text-gray-900">on offer include</span>
+                </motion.h2>
+                <motion.div
+                  className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </div>
+
+              {/* Highlight Cards */}
+              <motion.div
+                className="flex flex-wrap justify-center gap-4 max-w-5xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+              >
+                {contentData.highlights.map((item, index) => (
+                  <Link
+                    key={index}
+                    href={`/category/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                    className="px-6 py-3 bg-[#F1B434] border border-[#F1B434]/30 
+                      rounded-full shadow-lg font-medium text-gray-800 whitespace-nowrap
+                      hover:shadow-xl hover:scale-105 transition-all duration-300 transform"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </motion.div>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Image + Text Section */}
-          <div className="mt-16 max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
+          {/* Commitment Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="bg-white rounded-2xl shadow-2xl p-10 border border-gray-100"
+          >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              
-
               {/* Left Side - Text */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
@@ -172,32 +245,59 @@ const CorporateProfilePage = () => {
                 transition={{ duration: 0.6 }}
                 className="space-y-6"
               >
-                <p className="text-gray-700 text-base leading-relaxed">
+                <motion.h3
+                  className="text-2xl font-bold text-gray-900 tracking-tight"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  Our <span className="text-[#F1B434]">Commitment</span> to Excellence
+                </motion.h3>
+                
+                <motion.p
+                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                >
                   Our unwavering commitment lies in the pursuit of establishing a sustainable institution and securing a sustainable future for all stakeholders.
-                </p>
-                <p className="text-gray-700 text-base leading-relaxed">
+                </motion.p>
+                
+                <motion.p
+                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                >
                   The ISO 9001 certification signifies our unwavering dedication to upholding the utmost quality standards. The numerous CSR initiatives TIL undertakes are aimed at the betterment of society, community and environment.
-                </p>
-                <p className="text-gray-700 text-base leading-relaxed">
+                </motion.p>
+                
+                <motion.p
+                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.5 }}
+                >
                   At TIL, quality is engineered to stringent and predetermined process parameters. Engineers, workmen, marketers and even vendors, all committed to a shared singular purpose…Customer Satisfaction. The unyielding commitment of the entire TIL team is reflected in the ISO: 9001 certification from the Bureau Veritas Quality International.
-                </p>
+                </motion.p>
               </motion.div>
-              {/* Right Side - Image */}
+
+              {/* Right Side - Image - Fixed to fit properly */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="rounded-lg overflow-hidden shadow-xl"
+                className="relative w-full h-full min-h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
               >
                 <img
                   src={`${basePath}/iso.jpg`}
-                  alt="Highlight Image"
-                  className="w-full h-full object-cover"
+                  alt="ISO Certification"
+                  className="w-full h-full object-contain object-center bg-white"
                   loading="lazy"
                 />
               </motion.div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </section>
     </>

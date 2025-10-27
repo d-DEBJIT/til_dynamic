@@ -1,114 +1,101 @@
 // app/products/page.tsx
-import React from "react";
-import { prisma } from "../../lib/prisma";
-import ProductsClient from "./ProductsClient";
+import React from 'react';
+import { prisma } from '../../lib/prisma';
+import ProductsClient from './ProductsClient';
 
-// Type aligned with your Prisma model
-interface FuelCategory {
-  id: number;
-  name: string;
-  slug: string;
-  meta_title: string | null;
-  meta_description: string | null;
-  meta_keywords: string | null;
+interface Product {
+  product_master_id: number;
+  name: string | null;              // <- made nullable
+  slug: string | null;
   banner_image: string | null;
-  banner_alt: string | null;
   catagory_image: string | null;
-  catagory_img_alt: string | null;
-  parent_id: number;
+  parent_id: string | null;
   short_description: string | null;
   about: string | null;
-  precedence: number;
-  is_disabled: boolean;
+  general_description: string | null;
+  content: string | null;
+  left_image: string | null;
 }
 
-// Fetch categories and products from Prisma
+// Server component that fetches data
 async function getProducts(): Promise<{
-  categories: FuelCategory[];
-  allProducts: FuelCategory[];
+  categories: Product[];
+  allProducts: Product[];
 }> {
   try {
-    // Fetch all main categories (parent_id = 2 → “Material Handling Solutions”)
-    const categories = await prisma.fuel_catagory.findMany({
+    // Fetch main categories (parent_id = '2' for Material Handling Solutions)
+    const categories = await prisma.product_master.findMany({
       where: {
-        parent_id: 2,
-        is_disabled: false,
+        parent_id: '2',
+        is_disabled: 0
       },
       orderBy: {
-        precedence: "asc",
-      },
+        precedence: 'asc'
+      }
     });
 
     // Fetch all products under these categories
-    const allProducts = await prisma.fuel_catagory.findMany({
+    const allProducts = await prisma.product_master.findMany({
       where: {
         parent_id: {
-          in: categories.map((cat) => cat.id),
+          in: categories.map(cat => cat.product_master_id.toString())
         },
-        is_disabled: false,
+        is_disabled: 0
       },
       orderBy: {
-        precedence: "asc",
-      },
-    });
-
-    const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
-
-    // Helper: prepend base path for image URLs
-    const formatImagePaths = (item: FuelCategory): FuelCategory => ({
-      ...item,
-      banner_image: item.banner_image
-        ? `${basePath}/${item.banner_image}`
-        : null,
-      catagory_image: item.catagory_image
-        ? `${basePath}/${item.catagory_image}`
-        : null,
+        precedence: 'asc'
+      }
     });
 
     return {
-      categories: categories.map(formatImagePaths),
-      allProducts: allProducts.map(formatImagePaths),
+      categories: categories.map(cat => ({
+        ...cat,
+        banner_image: cat.banner_image ? `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${cat.banner_image}` : null,
+        catagory_image: cat.catagory_image ? `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${cat.catagory_image}` : null
+      })),
+      allProducts: allProducts.map(product => ({
+        ...product,
+        banner_image: product.banner_image ? `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${product.banner_image}` : null,
+        catagory_image: product.catagory_image ? `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${product.catagory_image}` : null,
+        left_image: product.left_image ? `${process.env.NEXT_PUBLIC_BASE_PATH || ''}/${product.left_image}` : null
+      }))
     };
   } catch (error) {
-    console.error("Error fetching products:", error);
+    console.error('Error fetching products:', error);
     return { categories: [], allProducts: [] };
   }
 }
 
 export default async function ProductsPage() {
   const { categories, allProducts } = await getProducts();
-  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
-  const TIL_PRIMARY = "#F1B434";
+  // TIL brand colors
+  const TIL_PRIMARY = '#F1B434';
 
-  // Format categories for UI
-  const primaryCategories = categories.map((category) => ({
-    id: category.slug || category.id.toString(),
-    name: category.name || "Unnamed Category",
-    description: category.short_description || "No description available",
+  // Map categories to the format expected by the UI
+  const primaryCategories = categories.map(category => ({
+    id: category.slug || category.product_master_id.toString(),
+    name: category.name || 'Unnamed Category',
+    description: category.short_description || 'No description available',
     color: TIL_PRIMARY,
-    bgColor: `${TIL_PRIMARY}20`,
+    bgColor: `${TIL_PRIMARY}20`
   }));
 
   // Group products by category
-  const categoryProducts = categories.reduce(
-    (acc, category) => {
-      const categoryId = category.slug || category.id.toString();
-
-      acc[categoryId] = allProducts.filter(
-        (product) => product.parent_id === category.id
-      );
-
-      return acc;
-    },
-    {} as Record<string, FuelCategory[]>
-  );
+  const categoryProducts = categories.reduce((acc, category) => {
+    const categoryId = category.slug || category.product_master_id.toString();
+    acc[categoryId] = allProducts.filter(
+      product => product.parent_id === category.product_master_id.toString()
+    );
+    return acc;
+  }, {} as Record<string, Product[]>);
 
   const quickLinks = [
-    { name: "Product Brochures", url: "#brochures" },
-    { name: "Product Comparisons", url: "#compare" },
-    { name: "Maintenance Guides", url: "#maintenance" },
-    { name: "Safety Standards", url: "#safety" },
+    { name: 'Product Brochures', url: '#brochures' },
+    { name: 'Product Comparisons', url: '#compare' },
+    { name: 'Maintenance Guides', url: '#maintenance' },
+    { name: 'Safety Standards', url: '#safety' }
   ];
 
   return (
@@ -121,7 +108,7 @@ export default async function ProductsPage() {
           className="w-full h-full object-cover"
         />
 
-        {/* Gradient overlays */}
+        {/* Left-to-right overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/30 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-transparent z-20" />
 
@@ -129,8 +116,7 @@ export default async function ProductsPage() {
           <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
             <div className="max-w-2xl">
               <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight">
-                Material Handling{" "}
-                <span className="text-[#F1B434]">Solutions</span>
+                Material Handling <span className="text-[#F1B434]">Solutions</span>
               </h1>
 
               <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
@@ -143,9 +129,8 @@ export default async function ProductsPage() {
         </div>
       </div>
 
-      {/* Main Section */}
       <main className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 py-16 -mt-6 relative z-10">
-        <ProductsClient
+        <ProductsClient 
           categories={primaryCategories}
           categoryProducts={categoryProducts}
           allProducts={allProducts}

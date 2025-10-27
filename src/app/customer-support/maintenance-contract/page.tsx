@@ -74,17 +74,19 @@ const Page = () => {
                         transition={{ duration: 0.6 }}
                         className="pt-12 text-center"
                     >
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                            Maintenance Contract
-                        </h2>
-                        <p className="text-gray-600 leading-relaxed">
-                            TIL's range of customer support agreements and Service Contracts
-                            guarantees an enhanced level of machine productivity. Through
-                            prompt identification of machine issues, you will experience a
-                            reduced frequency of repairs and unplanned periods of inactivity.
-                            In essence, this will result in seamless operation and a sense of
-                            tranquillity.
-                        </p>
+                        <div className="bg-white rounded-2xl shadow-lg p-8 md:p-10 max-w-4xl mx-auto border border-gray-100">
+                            <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                                Maintenance Contract
+                            </h2>
+                            <p className="text-gray-600 leading-relaxed text-lg">
+                                TIL's range of customer support agreements and Service Contracts
+                                guarantees an enhanced level of machine productivity. Through
+                                prompt identification of machine issues, you will experience a
+                                reduced frequency of repairs and unplanned periods of inactivity.
+                                In essence, this will result in seamless operation and a sense of
+                                tranquillity.
+                            </p>
+                        </div>
                     </motion.div>
 
                     {/* Customer Support Offerings Section */}
@@ -96,23 +98,25 @@ const Page = () => {
                     >
                         {/* Left Column - Bulleted Text */}
                         <div className="w-full lg:w-2/3 space-y-4">
-                            <h2 className="text-3xl font-bold text-gray-800 mb-6">
-                                Our customer support offerings include:
-                            </h2>
-                            <ul className="list-disc pl-6 text-gray-700 space-y-2 leading-relaxed">
-                                <li>Pre-Purchase Consultancy & Equipment Investment Analysis</li>
-                                <li>Quick Parts Availability</li>
-                                <li>
-                                    Preventive Maintenance Through Annual Service Contracts
-                                </li>
-                                <li>Prompt On-Site Service</li>
-                                <li>Complete Equipment Rebuild</li>
-                                <li>All-India Network</li>
-                                <li>Qualified Engineers on Call</li>
-                                <li>
-                                    Operation and Maintenance Training for Customers
-                                </li>
-                            </ul>
+                            <div className="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                                <h2 className="text-3xl font-bold text-gray-800 mb-6">
+                                    Our customer support offerings include:
+                                </h2>
+                                <ul className="list-disc pl-6 text-gray-700 space-y-2 leading-relaxed">
+                                    <li>Pre-Purchase Consultancy & Equipment Investment Analysis</li>
+                                    <li>Quick Parts Availability</li>
+                                    <li>
+                                        Preventive Maintenance Through Annual Service Contracts
+                                    </li>
+                                    <li>Prompt On-Site Service</li>
+                                    <li>Complete Equipment Rebuild</li>
+                                    <li>All-India Network</li>
+                                    <li>Qualified Engineers on Call</li>
+                                    <li>
+                                        Operation and Maintenance Training for Customers
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
 
                         {/* Right Column - Image */}

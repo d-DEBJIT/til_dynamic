@@ -7,6 +7,7 @@ import NewsInsights from '../components/NewsInsights/NewsInsights';
 import BlogSection from '../components/BlogSection';
 import RegionalOffices from '../components/RegionalOffices';
 import Testimonials from '../components/Testimonials';
+import CoffeeTableBook from '../components/CoffeeTableBook';
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <NewsInsights />
       <BlogSection />
       <RegionalOffices />
+      < CoffeeTableBook/>
       <Testimonials />
     </>
   );

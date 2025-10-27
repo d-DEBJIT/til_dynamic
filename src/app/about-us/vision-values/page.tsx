@@ -56,197 +56,318 @@ const VisionValuesPage = () => {
     };
 
     return (
-        <div className="flex flex-col min-h-screen bg-gradient-to-b from-gray-50 to-gray-100">
-            {/* Hero Section */}
-            <div className="relative h-60 w-full overflow-hidden">
+        <>
+            {/* Hero Section - Following Brand Guidelines */}
+            <div className="relative h-72 w-full overflow-hidden">
                 <img
                     src={`${basePath}/vision_values.png`}
                     alt="Vision and Values"
                     className="w-full h-full object-cover object-center"
+                    loading="eager"
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-transparent" />
 
-                <div className="absolute inset-0 flex items-center">
+                {/* Enhanced Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
+
+                {/* Content Container */}
+                <div className="absolute inset-0 z-20 flex items-center pt-8">
                     <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
-                        <div className="max-w-2xl">
-                            <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight">
-                                What We <span className="text-[#F1B434]">Stand For</span>
-                            </h1>
-                            <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
-                        </div>
+                        <motion.div
+                            className="max-w-2xl"
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
+                        >
+                            <motion.span
+                                className="inline-block text-[#F1B434] text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                                style={{ fontFamily: 'Arial, sans-serif' }}
+                            >
+                                {/* OUR FOUNDATION */}
+                            </motion.span>
+
+                            <motion.h1
+                                className="text-5xl md:text-6xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.8 }}
+                                style={{ fontFamily: 'Arial, sans-serif' }}
+                            >
+                                What We <span className="text-[#F1B434] drop-shadow-lg">Stand For</span>
+                            </motion.h1>
+
+                            <motion.div
+                                className="w-32 h-2 bg-[#F1B434] rounded-full mb-6 shadow-lg"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            />
+
+                            <motion.p
+                                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                                style={{ fontFamily: 'Arial, sans-serif' }}
+                            >
+                                Our guiding principles and aspirations for the future
+                            </motion.p>
+                        </motion.div>
                     </div>
                 </div>
             </div>
 
-            
+            {/* Main Content */}
+            <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
+                    {/* Back Link */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="flex items-center space-x-4 text-gray-600 mb-8"
+                    >
+                        <Link 
+                            href="/about-us" 
+                            className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
+                            style={{ fontFamily: 'Arial, sans-serif' }}
+                        >
+                            <ArrowLeft className="w-4 h-4" />
+                            <span>Back to About</span>
+                        </Link>
+                    </motion.div>
 
-            {/* Content */}
-            <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 py-12">
-                <div className="flex items-center space-x-4 text-black mb-4">
-                            <Link href="/about-us" className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors">
-                                <ArrowLeft className="w-4 h-4" />
-                                <span>Back to About</span>
-                            </Link>
-                        </div>
-                {/* Vision Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-16"
-                >
-                    <div className="bg-white rounded-2xl p-8 border border-gray-100 flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
-                        {/* Left side — Image + Title */}
-                        <div className="flex items-center md:items-start gap-4 w-full md:w-1/3">
-                            <div className="col-md-4">
-                                {/* Replace SVG with local image */}
-                                <img
-                                    src={`${basePath}/vision-123.png`}
-                                    alt="Vision Icon"
-                                    className="w-full h-full object-contain"
+                    {/* Vision Section */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="mb-20"
+                    >
+                        <div className="flex flex-col lg:flex-row items-center gap-16">
+                            {/* Left side - Image with center to left animation */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 200, scale: 0.7 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ 
+                                    duration: 1, 
+                                    ease: [0.22, 1, 0.36, 1],
+                                    type: "spring",
+                                    stiffness: 50
+                                }}
+                                className="flex-shrink-0 w-full lg:w-2/5"
+                            >
+                                <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition-transform duration-700">
+                                    <img
+                                        src={`${basePath}/vision-123.png`}
+                                        alt="Vision Icon"
+                                        className="w-full h-full object-contain p-12"
+                                    />
+                                </div>
+                            </motion.div>
+
+                            {/* Right side - Content with center to right animation */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -200, scale: 0.7 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ 
+                                    duration: 1, 
+                                    ease: [0.22, 1, 0.36, 1],
+                                    type: "spring",
+                                    stiffness: 50,
+                                    delay: 0.3
+                                }}
+                                className="flex-1"
+                            >
+                                <motion.p
+                                    className="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight mb-8"
+                                    initial={{ opacity: 0, y: 40 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ 
+                                        duration: 0.8, 
+                                        delay: 0.6,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
+                                    style={{ fontFamily: 'Arial, sans-serif' }}
+                                >
+                                    {contentData.vision.content}
+                                </motion.p>
+                                <motion.div
+                                    className="w-32 h-2 bg-[#F1B434] rounded-full shadow-xl"
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{ 
+                                        duration: 1, 
+                                        delay: 0.9,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
                                 />
-                            </div>
+                            </motion.div>
                         </div>
-                        {/* Right side — Text */}
-                        <div className="md:w-2/3">
-                            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                                {contentData.vision.content}
-                            </p>
-                        </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
 
-                {/* Mission Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 }}
-                    className="mb-16"
-                >
-                    <div className="bg-white rounded-2xl p-8 border border-gray-100 flex flex-col md:flex-row items-center md:items-start gap-8 shadow-sm">
-                        {/* Left side — Text */}
-                        <div className="md:w-2/3">
-                            <p className="text-xl text-gray-700 leading-relaxed max-w-4xl mx-auto">
-                                {contentData.mission.content}
-                            </p>
-                        </div>
-                        {/* Right side — Image + Title */}
-                        <div className="flex items-center md:items-start gap-4 w-full md:w-1/3">
-                            <div className="col-md-4">
-                                {/* Replace SVG with local image */}
-                                <img
-                                    src={`${basePath}/mission-123.png`}
-                                    alt="mission Icon"
-                                    className="w-full h-full object-contain"
+                    {/* Mission Section */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="mb-20"
+                    >
+                        <div className="flex flex-col lg:flex-row items-center gap-16">
+                            {/* Left side - Content with center to left animation */}
+                            <motion.div
+                                initial={{ opacity: 0, x: -200, scale: 0.7 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ 
+                                    duration: 1, 
+                                    ease: [0.22, 1, 0.36, 1],
+                                    type: "spring",
+                                    stiffness: 50
+                                }}
+                                className="flex-1 order-2 lg:order-1"
+                            >
+                                <motion.p
+                                    className="text-3xl lg:text-4xl font-bold text-gray-800 leading-tight mb-8"
+                                    initial={{ opacity: 0, y: 40 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ 
+                                        duration: 0.8, 
+                                        delay: 0.6,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
+                                    style={{ fontFamily: 'Arial, sans-serif' }}
+                                >
+                                    {contentData.mission.content}
+                                </motion.p>
+                                <motion.div
+                                    className="w-32 h-2 bg-[#F1B434] rounded-full shadow-xl"
+                                    initial={{ scaleX: 0 }}
+                                    animate={{ scaleX: 1 }}
+                                    transition={{ 
+                                        duration: 1, 
+                                        delay: 0.9,
+                                        ease: [0.22, 1, 0.36, 1]
+                                    }}
                                 />
-                            </div>
+                            </motion.div>
+
+                            {/* Right side - Image with center to right animation */}
+                            <motion.div
+                                initial={{ opacity: 0, x: 200, scale: 0.7 }}
+                                animate={{ opacity: 1, x: 0, scale: 1 }}
+                                transition={{ 
+                                    duration: 1, 
+                                    ease: [0.22, 1, 0.36, 1],
+                                    type: "spring",
+                                    stiffness: 50,
+                                    delay: 0.3
+                                }}
+                                className="flex-shrink-0 w-full lg:w-2/5 order-1 lg:order-2"
+                            >
+                                <div className="relative h-96 rounded-3xl overflow-hidden shadow-2xl transform hover:scale-[1.03] transition-transform duration-700">
+                                    <img
+                                        src={`${basePath}/mission-123.png`}
+                                        alt="Mission Icon"
+                                        className="w-full h-full object-contain p-12"
+                                    />
+                                </div>
+                            </motion.div>
                         </div>
-                    </div>
-                </motion.div>
+                    </motion.div>
 
-                {/* Values Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                    className="mb-16"
-                >
-                    <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-                        <img
-                            src={`${basePath}/values.png`}
-                            alt="mission Icon"
-                            className="w-72 h-72 object-contain mx-auto"
-                        />
+                    {/* Values Section */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.4 }}
+                    >
+                        {/* Values Header Image */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8, y: 50 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            transition={{ 
+                                duration: 1, 
+                                ease: [0.22, 1, 0.36, 1],
+                                type: "spring",
+                                stiffness: 60
+                            }}
+                            className="text-center mb-16"
+                        >
+                            <img
+                                src={`${basePath}/values.png`}
+                                alt="Our Values"
+                                className="w-80 h-80 lg:w-96 lg:h-96 object-contain mx-auto transform hover:scale-105 transition-transform duration-700"
+                            />
+                        </motion.div>
 
-
-                        {/* Values Grid - 2 columns */}
-                        <div className="grid md:grid-cols-2 gap-8">
+                        {/* Values Grid */}
+                        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                             {contentData.values.values.map((value, index) => (
                                 <motion.div
                                     key={index}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: index * 0.1 }}
-                                    className="bg-gray-50 p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300"
+                                    initial={{ opacity: 0, y: 60, scale: 0.8 }}
+                                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                                    transition={{ 
+                                        duration: 0.8, 
+                                        delay: 0.6 + (index * 0.15),
+                                        ease: [0.22, 1, 0.36, 1],
+                                        type: "spring",
+                                        stiffness: 70
+                                    }}
+                                    className="bg-white rounded-3xl p-10 shadow-2xl border border-gray-200 hover:shadow-3xl transform hover:scale-[1.05] hover:-translate-y-2 transition-all duration-500 group"
                                 >
-                                    <img
-                                        src={value.image}
-                                        className="w-24 h-24 object-contain mx-auto"
-                                        loading="lazy"
-                                    />
-                                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                                    <motion.div
+                                        initial={{ scale: 0, rotate: -180 }}
+                                        animate={{ scale: 1, rotate: 0 }}
+                                        transition={{ 
+                                            duration: 0.8, 
+                                            delay: 0.8 + (index * 0.15),
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }}
+                                        className="w-28 h-28 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 p-5 shadow-inner group-hover:shadow-lg transition-all duration-500"
+                                    >
+                                        <img
+                                            src={value.image}
+                                            alt={value.title}
+                                            className="w-full h-full object-contain transform group-hover:scale-110 group-hover:rotate-3 transition-transform duration-500"
+                                            loading="lazy"
+                                        />
+                                    </motion.div>
+                                    <motion.h3
+                                        className="text-2xl font-bold text-gray-800 mb-6 text-center leading-tight"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ 
+                                            duration: 0.6, 
+                                            delay: 1 + (index * 0.15),
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }}
+                                        style={{ fontFamily: 'Arial, sans-serif' }}
+                                    >
                                         {value.title}
-                                    </h3>
-                                    <p className="text-gray-600 leading-relaxed">
+                                    </motion.h3>
+                                    <motion.p
+                                        className="text-gray-800 leading-relaxed text-lg text-center"
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ 
+                                            duration: 0.6, 
+                                            delay: 1.2 + (index * 0.15),
+                                            ease: [0.22, 1, 0.36, 1]
+                                        }}
+                                        style={{ fontFamily: 'Arial, sans-serif' }}
+                                    >
                                         {value.description}
-                                    </p>
+                                    </motion.p>
                                 </motion.div>
                             ))}
                         </div>
-                    </div>
-                </motion.div>
-                
-                {/* Impact Section */}
-                {/* <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="bg-gradient-to-r from-[#f1b434] to-[#f1b434] rounded-2xl p-8 text-white mb-12"
-                >
-                    <h2 className="text-2xl font-bold text-center mb-8">Living Our Values</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold mb-2">80+</div>
-                            <p className="font-medium">Years of Ethical Business</p>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold mb-2">1000+</div>
-                            <p className="font-medium">Employees Living Our Values</p>
-                        </div>
-                        <div className="text-center">
-                            <div className="text-3xl md:text-4xl font-bold mb-2">50+</div>
-                            <p className="font-medium">Countries Trust Our Values</p>
-                        </div>
-                    </div>
-                </motion.div> */}
-
-                {/* Contact CTA */}
-                {/* <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="bg-white rounded-xl shadow-md p-8 border border-gray-100"
-                >
-                    <div className="max-w-2xl mx-auto text-center">
-                        <h2 className="text-2xl font-bold text-gray-800 mb-3">
-                            Want to learn more about our values?
-                        </h2>
-                        <p className="text-gray-600 mb-6">
-                            Our team is ready to share how our values drive everything we do
-                            and how they can benefit your partnership with us.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                            <Link href="/contact-us" passHref>
-                                <motion.button
-                                    className="px-6 py-3 bg-[#f1b434] text-white font-medium rounded-lg hover:bg-[#d9a122] transition-colors shadow-md"
-                                    whileHover={{ scale: 1.05 }}
-                                    whileTap={{ scale: 0.95 }}
-                                >
-                                    Contact Us
-                                </motion.button>
-                            </Link>
-                            <motion.button
-                                className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                            >
-                                Download Culture Deck
-                            </motion.button>
-                        </div>
-                    </div>
-                </motion.div> */}
-            </div>
-        </div>
+                    </motion.div>
+                </div>
+            </section>
+        </>
     );
 };
 

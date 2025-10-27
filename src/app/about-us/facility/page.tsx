@@ -8,20 +8,6 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const FacilityPage = () => {
     const facilities = [
-        // {
-        //     name: 'Kolkata Headquarters',
-        //     type: 'Corporate Office & Main Facility',
-        //     image: `${basePath}/kol.jpeg`,
-        //     location: 'Kolkata, West Bengal',
-        //     area: '50,000 sq. ft.',
-        //     features: [
-        //         'Corporate Headquarters',
-        //         'R&D Center',
-        //         'Training Academy',
-        //         'Central Warehouse'
-        //     ],
-        //     description: 'Our flagship facility housing corporate offices, research and development center, and main administrative functions.'
-        // },
         {
             name: 'Kharagpur Manufacturing Plant',
             type: 'ERP-Enabled Factory',
@@ -49,18 +35,7 @@ const FacilityPage = () => {
                 'Testing & Quality Control',
                 'Spare Parts Production'
             ],
-            description: `
-        <p>
-            TIL’s Kamarhati factory started operations in 1962 – the first and only purpose-built Mobile Crane Factory in India.
-            The plant is equipped with fully modern machine shop, fabrication and assembly shop and test bed.
-            The state-of-the-art fabrication shop has automatic welding machines and processes that conform to ISO 3834, AWSD 14.3, etc.
-            Other than TIL’s own indigenous range of products, the facility also manufactures products under technical collaboration with Grove, a part of Manitowoc Group.
-            TIL’s plant at Kamarhati, Kolkata, is located approximately 5 km from the Netaji Subhas Chandra Bose International Airport, and about 16 km and 100 km from the maritime ports at Kolkata and Haldia respectively.
-        </p>
-        <p>    
-            The track record of TIL’s Kamarhati plant shows many <b>“Firsts”</b> in India.
-        </p>
-    `,
+            description: "TIL's Kamarhati factory started operations in 1962 – the first and only purpose-built Mobile Crane Factory in India. The plant is equipped with fully modern machine shop, fabrication and assembly shop and test bed. The state-of-the-art fabrication shop has automatic welding machines and processes that conform to ISO 3834, AWSD 14.3, etc. Other than TIL's own indigenous range of products, the facility also manufactures products under technical collaboration with Grove, a part of Manitowoc Group. TIL's plant at Kamarhati, Kolkata, is located approximately 5 km from the Netaji Subhas Chandra Bose International Airport, and about 16 km and 100 km from the maritime ports at Kolkata and Haldia respectively. The track record of TIL's Kamarhati plant shows many Firsts in India.",
             highlights: [
                 'The First Rough Terrain Crane',
                 'The First Truck Crane',
@@ -69,45 +44,7 @@ const FacilityPage = () => {
                 'The First Self Propelled Diesel Electric Crane'
             ]
         },
-
-        // {
-        //     name: 'Regional Offices Network',
-        //     type: 'Sales & Service Centers',
-        //     image: `${basePath}/regional-offices.jpg`,
-        //     location: 'Pan-India Presence',
-        //     area: 'Multiple Locations',
-        //     features: [
-        //         'Sales & Marketing',
-        //         'After-Sales Service',
-        //         'Spare Parts Distribution',
-        //         'Customer Training'
-        //     ],
-        //     description: 'Strategic network of regional offices across India ensuring prompt service and support to our customers nationwide.'
-        // }
     ];
-
-    // const certifications = [
-    //     {
-    //         name: 'ISO 9001:2015',
-    //         description: 'Quality Management System Certification',
-    //         icon: <Award className="w-6 h-6" />
-    //     },
-    //     {
-    //         name: 'DIN EN ISO 3834-2',
-    //         description: 'Quality Requirements for Fusion Welding',
-    //         icon: <Shield className="w-6 h-6" />
-    //     },
-    //     {
-    //         name: 'ISO 14001:2015',
-    //         description: 'Environmental Management System',
-    //         icon: <Shield className="w-6 h-6" />
-    //     },
-    //     {
-    //         name: 'OHSAS 18001',
-    //         description: 'Occupational Health & Safety',
-    //         icon: <Shield className="w-6 h-6" />
-    //     }
-    // ];
 
     const capabilities = [
         {
@@ -132,89 +69,207 @@ const FacilityPage = () => {
         }
     ];
 
+    // Fixed TypeScript variants with proper typing
+    const containerVariants: any = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2
+            }
+        }
+    };
+
+    const itemVariants: any = {
+        hidden: { opacity: 0, y: 30 },
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: {
+                duration: 0.6,
+                ease: [0.22, 1, 0.36, 1] as any
+            }
+        }
+    };
+
+    const slideInLeft: any = {
+        hidden: { opacity: 0, x: -50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1] as any
+            }
+        }
+    };
+
+    const slideInRight: any = {
+        hidden: { opacity: 0, x: 50 },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.8,
+                ease: [0.22, 1, 0.36, 1] as any
+            }
+        }
+    };
+
     return (
         <>
             {/* Hero Section */}
-            <div className="relative h-60 w-full overflow-hidden">
-                <img
+            <div className="relative h-72 w-full overflow-hidden">
+                <motion.img
                     src={`${basePath}/facilities.jpg`}
                     alt="Facilities"
                     className="w-full h-full object-cover"
                     loading="eager"
+                    initial={{ scale: 1.1 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
                 />
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/50 z-10" />
+                <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
 
-                <div className="absolute inset-0 z-20 flex items-center">
+                <div className="absolute inset-0 z-20 flex items-center pt-8">
                     <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
-                        <div className="max-w-2xl">
-                            <h1 className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight">
-                                Precision <span className="text-[#F1B434]">Meets Innovation</span>
-                            </h1>
-                            <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
-                        </div>
+                        <motion.div
+                            className="max-w-2xl"
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
+                        >
+                            <motion.span
+                                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.2, duration: 0.8 }}
+                            >
+                                {/* OUR INFRASTRUCTURE */}
+                            </motion.span>
+
+                            <motion.h1
+                                className="text-4xl md:text-5xl base:text-[3.5rem] font-bold text-white mb-6 leading-tight tracking-tight"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3, duration: 0.8 }}
+                            >
+                                Precision <span className="text-[#F1B434] drop-shadow-lg">Meets Innovation</span>
+                            </motion.h1>
+
+                            <motion.div
+                                className="w-32 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-6 shadow-lg"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            />
+
+                            <motion.p
+                                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ delay: 0.5, duration: 0.8 }}
+                            >
+                                State-of-the-art manufacturing facilities driving excellence
+                            </motion.p>
+                        </motion.div>
                     </div>
                 </div>
             </div>
 
             {/* Content Section */}
-            <section className="py-16 bg-white">
+            <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
                 <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
-                    <div className="flex items-center space-x-4 text-black mb-4">
-                        <Link href="/about-us" className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors">
-                            <ArrowLeft className="w-4 h-4" />
-                            <span>Back to About</span>
-                        </Link>
-                    </div>
-                    {/* Introduction */}
+                    {/* Back Link */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
+                        className="flex items-center space-x-4 text-gray-600 mb-8"
                     >
-                        <h2 className="text-3xl font-bold text-gray-800 mb-6">Facilities</h2>
-                        
-                        <p className="text-gray-600 text-lg max-w-4xl mx-auto leading-relaxed">
-                            TIL has two factories in Eastern India, located at Kamarhati (Kolkata) and Changual (Kharagpur) in West Bengal – representing cutting-edge technology in material handling and road building solutions. In areas of design excellence, our dedicated team of engineers and R&D experts work constantly at the R&D center equipped with the latest software and cutting edge technologies to enhance design excellence.
-                        </p>
+                        <Link
+                            href="/about-us"
+                            className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
+                        >
+                            <ArrowLeft className="w-4 h-4" />
+                            <span>Back to About</span>
+                        </Link>
+                    </motion.div>
+
+                    {/* Introduction */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+                    >
+                        <div className="text-center max-w-4xl mx-auto">
+                            <motion.h2
+                                className="text-3xl font-bold mb-4 tracking-tight"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <span className="text-[#F1B434] drop-shadow-sm">World-Class</span>{' '}
+                                <span className="text-gray-900">Manufacturing Facilities</span>
+                            </motion.h2>
+                            <motion.div
+                                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            />
+                            <motion.p
+                                className="text-gray-600 text-lg leading-relaxed tracking-wide"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.6, delay: 0.2 }}
+                            >
+                                TIL has two factories in Eastern India, located at Kamarhati (Kolkata) and Changual (Kharagpur) in West Bengal – representing cutting-edge technology in material handling and road building solutions. In areas of design excellence, our dedicated team of engineers and R&D experts work constantly at the R&D center equipped with the latest software and cutting edge technologies to enhance design excellence.
+                            </motion.p>
+                        </div>
                     </motion.div>
 
                     {/* Facilities Grid */}
-                    <div className="space-y-12 mb-16">
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        className="space-y-20 mb-20"
+                    >
                         {facilities.map((facility, index) => (
                             <motion.div
                                 key={facility.name}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: index * 0.2 }}
-                                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-8 items-start`}
+                                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start`}
                             >
-                                {/* Facility Image */}
-                                <div className="lg:w-1/2">
-                                    <div className="rounded-2xl overflow-hidden shadow-xl">
+                                {/* Facility Image/Video */}
+                                <motion.div
+                                    className="lg:w-1/2"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                >
+                                    <motion.div
+                                        className="relative rounded-2xl overflow-hidden shadow-2xl"
+                                        variants={index % 2 === 0 ? slideInLeft : slideInRight}
+                                    >
                                         <img
                                             src={facility.image}
                                             alt={facility.name}
-                                            className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                                            className="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-700"
                                             loading="lazy"
                                         />
-                                    </div>
-                                </div>
+                                        <div className="absolute inset-0 bg-black/10 hover:bg-black/5 transition-colors duration-300" />
+                                    </motion.div>
 
-                                {/* Facility Content */}
-                                <div className="lg:w-1/2">
-                                    <div className="flex items-center gap-3 mb-4">
-                                        <Building className="w-6 h-6 text-[#F1B434]" />
-                                        <h3 className="text-2xl font-bold text-gray-800">{facility.name}</h3>
-                                    </div>
-
-                                    {/* Description with bold support */}
-                                    <div
-                                        className="text-gray-600 mb-6 leading-relaxed space-y-4"
-                                        dangerouslySetInnerHTML={{ __html: facility.description }}
-                                    />
+                                    {/* Video Embed */}
                                     {facility.videoUrl && (
-                                        <div className="my-6 rounded-2xl overflow-hidden shadow-lg">
+                                        <motion.div
+                                            initial={{ opacity: 0, height: 0 }}
+                                            whileInView={{ opacity: 1, height: 'auto' }}
+                                            transition={{ duration: 0.6, delay: 0.3 }}
+                                            viewport={{ once: true }}
+                                            className="mt-6 rounded-2xl overflow-hidden shadow-2xl"
+                                        >
                                             <iframe
                                                 width="100%"
                                                 height="400"
@@ -224,111 +279,141 @@ const FacilityPage = () => {
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen
                                                 className="w-full h-80 rounded-2xl"
-                                            ></iframe>
-                                        </div>
+                                            />
+                                        </motion.div>
                                     )}
-                                    {/* Highlight Cards (if available) */}
-                                    {facility.highlights && facility.highlights.length > 0 && (
-                                        <div className="flex flex-wrap gap-4 mt-4">
-                                            {facility.highlights.map((highlight, i) => (
+                                </motion.div>
+
+                                {/* Facility Content */}
+                                <motion.div
+                                    className="lg:w-1/2"
+                                    initial="hidden"
+                                    whileInView="visible"
+                                    viewport={{ once: true, margin: "-100px" }}
+                                >
+                                    <motion.div
+                                        className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100"
+                                        variants={index % 2 === 0 ? slideInRight : slideInLeft}
+                                    >
+                                        <div className="flex items-center gap-3 mb-6">
+                                            <div className="w-12 h-12 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-xl flex items-center justify-center shadow-lg">
+                                                <Building className="w-6 h-6 text-white" />
+                                            </div>
+                                            <div>
+                                                <h3 className="text-2xl font-bold text-gray-800 tracking-tight">{facility.name}</h3>
+                                                <div className="flex items-center gap-2 mt-1">
+                                                    <MapPin className="w-4 h-4 text-[#F1B434]" />
+                                                    <span className="text-gray-600 text-sm">{facility.location}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Description */}
+                                        <div className="text-gray-700 mb-8 leading-relaxed tracking-wide text-base">
+                                            {facility.description}
+                                        </div>
+
+                                        {/* Features */}
+                                        <div className="grid grid-cols-2 gap-3 mb-6">
+                                            {facility.features.map((feature, i) => (
                                                 <motion.div
                                                     key={i}
-                                                    initial={{ opacity: 0, y: 10 }}
-                                                    animate={{ opacity: 1, y: 0 }}
-                                                    transition={{ delay: i * 0.1 }}
-                                                    className="inline-flex items-center justify-center px-6 py-3 bg-[#F1B434] border border-[#F1B434]/30 
-                           rounded-full shadow-sm font-medium text-gray-800 whitespace-nowrap 
-                           hover:bg-[#F1B434]/10 transition"
+                                                    initial={{ opacity: 0, x: -20 }}
+                                                    whileInView={{ opacity: 1, x: 0 }}
+                                                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                                                    viewport={{ once: true }}
+                                                    className="flex items-center gap-2 text-sm text-gray-600"
                                                 >
-                                                    {highlight}
+                                                    <div className="w-2 h-2 bg-[#F1B434] rounded-full" />
+                                                    {feature}
                                                 </motion.div>
                                             ))}
                                         </div>
-                                    )}
-                                </div>
+
+                                        {/* Highlights */}
+                                        {facility.highlights && facility.highlights.length > 0 && (
+                                            <motion.div
+                                                initial={{ opacity: 0, y: 20 }}
+                                                whileInView={{ opacity: 1, y: 0 }}
+                                                transition={{ duration: 0.6 }}
+                                                viewport={{ once: true }}
+                                                className="border-t border-gray-200 pt-6"
+                                            >
+                                                <h4 className="font-semibold text-gray-800 mb-4 text-lg">Key Achievements:</h4>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {facility.highlights.map((highlight, i) => (
+                                                        <motion.span
+                                                            key={i}
+                                                            initial={{ opacity: 0, scale: 0.8 }}
+                                                            whileInView={{ opacity: 1, scale: 1 }}
+                                                            transition={{ duration: 0.4, delay: i * 0.1 }}
+                                                            viewport={{ once: true }}
+                                                            className="px-4 py-2 bg-gradient-to-r from-[#F1B434]/10 to-yellow-400/10 border border-[#F1B434]/20 
+                                                            rounded-full text-sm font-medium text-gray-700 whitespace-nowrap
+                                                            hover:shadow-lg hover:border-[#F1B434]/30 transition-all duration-300"
+                                                        >
+                                                            {highlight}
+                                                        </motion.span>
+                                                    ))}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </motion.div>
+                                </motion.div>
                             </motion.div>
                         ))}
-                    </div>
-                    {/* Capabilities */}
-                    {/* <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.8 }}
-                        className="bg-gray-50 rounded-2xl p-8 mb-16"
+                    </motion.div>
+
+                    {/* Capabilities Section */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        viewport={{ once: true }}
+                        className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
                     >
-                        <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Our Manufacturing Capabilities</h3>
+                        <div className="text-center mb-12">
+                            <motion.h2
+                                className="text-3xl font-bold mb-4 tracking-tight"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.6 }}
+                            >
+                                <span className="text-[#F1B434] drop-shadow-sm">Manufacturing</span>{' '}
+                                <span className="text-gray-900">Capabilities</span>
+                            </motion.h2>
+                            <motion.div
+                                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                                initial={{ scaleX: 0 }}
+                                animate={{ scaleX: 1 }}
+                                transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                            />
+                        </div>
+
                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                             {capabilities.map((capability, index) => (
                                 <motion.div
                                     key={capability.title}
-                                    initial={{ opacity: 0, scale: 0.9 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ duration: 0.5, delay: 1 + index * 0.1 }}
-                                    className="bg-white rounded-xl p-6 text-center shadow-md"
-                                >
-                                    <div className="w-12 h-12 bg-[#F1B434] rounded-lg flex items-center justify-center mx-auto mb-4">
-                                        {React.cloneElement(capability.icon, { className: "w-6 h-6 text-white" })}
-                                    </div>
-                                    <h4 className="font-bold text-gray-800 mb-2">{capability.title}</h4>
-                                    <p className="text-gray-600 text-sm">{capability.description}</p>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div> */}
-
-                    {/* Certifications */}
-                    {/* <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.2 }}
-                    >
-                        <h3 className="text-2xl font-bold text-gray-800 text-center mb-8">Quality Certifications</h3>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                            {certifications.map((certification, index) => (
-                                <motion.div
-                                    key={certification.name}
                                     initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.5, delay: 1.4 + index * 0.1 }}
-                                    className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 text-center hover:shadow-xl transition-shadow"
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                                    viewport={{ once: true }}
+                                    whileHover={{ y: -5 }}
+                                    className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
                                 >
-                                    <div className="w-12 h-12 bg-[#F1B434] rounded-full flex items-center justify-center mx-auto mb-4">
-                                        {React.cloneElement(certification.icon, { className: "w-6 h-6 text-white" })}
-                                    </div>
-                                    <h4 className="font-bold text-gray-800 mb-2">{certification.name}</h4>
-                                    <p className="text-gray-600 text-sm">{certification.description}</p>
+                                    <motion.div
+                                        className="w-16 h-16 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                                        whileHover={{ rotate: 5 }}
+                                    >
+                                        {React.cloneElement(capability.icon, { className: "w-8 h-8 text-white" })}
+                                    </motion.div>
+                                    <h4 className="font-bold text-gray-800 mb-3 text-lg tracking-tight">{capability.title}</h4>
+                                    <p className="text-gray-600 text-sm leading-relaxed tracking-wide">{capability.description}</p>
                                 </motion.div>
                             ))}
                         </div>
-                    </motion.div> */}
-
-                    {/* Stats */}
-                    {/* <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 1.6 }}
-                        className="mt-16 bg-gradient-to-r from-[#F1B434] to-yellow-400 rounded-2xl p-8 text-white text-center"
-                    >
-                        <h3 className="text-2xl font-bold mb-8">Facility Statistics</h3>
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                            <div>
-                                <div className="text-3xl font-bold mb-2">2</div>
-                                <div className="text-sm">Manufacturing Plants</div>
-                            </div>
-                            <div>
-                                <div className="text-3xl font-bold mb-2">350,000+</div>
-                                <div className="text-sm">Sq. Ft. Total Area</div>
-                            </div>
-                            <div>
-                                <div className="text-3xl font-bold mb-2">50+</div>
-                                <div className="text-sm">Years of Operation</div>
-                            </div>
-                            <div>
-                                <div className="text-3xl font-bold mb-2">4</div>
-                                <div className="text-sm">Quality Certifications</div>
-                            </div>
-                        </div>
-                    </motion.div> */}
+                    </motion.div>
+ 
                 </div>
             </section>
         </>

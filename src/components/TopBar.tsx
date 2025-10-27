@@ -45,7 +45,7 @@ const TopBar: React.FC = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#f1b434] h-14' : 'bg-[#f1b434] h-16'
+          isScrolled ? 'bg-[#F1B434] h-14' : 'bg-[#F1B434] h-16'
         } border-b border-black/20`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 h-full">

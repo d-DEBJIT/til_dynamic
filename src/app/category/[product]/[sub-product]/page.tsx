@@ -278,15 +278,11 @@ const allSubProducts: Record<string, SubProduct[]> = {
       name: 'PIXEF 215',
       description: 'Pick and carry crane offereing Precision , Speed & Durability',
       introTitle: "Meet the PIXEF 215",
-      introDescription: "",
+      introDescription: "Pixef 215 - Pick and carry crane offereing Precision , Speed & Durability",
       image: `${basePath}/pixef215.jpg`,
       features: ['360° Mobility', 'Quick Setup', 'Easy Operation'],
       brochure: `${basePath}/brochures/pnc-150.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '' },
-        { name: 'Lifting Height', value: '' },
-        { name: 'Engine Power', value: '' }
-      ],
+      specifications: [],
       parentProduct: 'pick-n-carry-cranes'
     },
     {
@@ -294,33 +290,25 @@ const allSubProducts: Record<string, SubProduct[]> = {
       name: 'MOBILOAD 315',
       description: 'Pick and carry crane offereing Precision , Speed & Durability',
       introTitle: "Meet the MOBILOAD 315",
-      introDescription: "",
+      introDescription: "Mobiload 315 - Pick and carry crane offereing Precision , Speed & Durability",
       image: `${basePath}/pixef315.jpg`,
       features: ['360° Mobility', 'Quick Setup', 'Easy Operation'],
       brochure: `${basePath}/brochures/pnc-150.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '' },
-        { name: 'Lifting Height', value: '' },
-        { name: 'Engine Power', value: '' }
-      ],
+      specifications: [],
       parentProduct: 'pick-n-carry-cranes'
     }
   ],
   'articulating-crane': [
     {
-      id: 'ac-120',
-      name: 'AC 120',
+      id: 'n80a',
+      name: 'TIL N80A',
       description: 'Compact articulating crane for tight spaces',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/ac-120.jpg`,
+      introTitle: "TIL N80A",
+      introDescription: "Meet the TIL N80A",
+      image: `${basePath}/articulating.jpg`,
       features: ['Knuckle Boom Design', 'Remote Control', 'Precision Movement'],
       brochure: `${basePath}/brochures/ac-120.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '' },
-        { name: 'Reach', value: '15 Meters' },
-        { name: 'Engine Power', value: '90 HP' }
-      ],
+      specifications: [],
       parentProduct: 'articulating-crane'
     }
   ],
@@ -411,15 +399,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'a62jrt',
       name: 'A62JRT',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the A62JRT",
+      introDescription: "The Snorkel A62JRT articulating boom lift delivers a superb working envelope with zero tailswing. Offering the largest platform in its class, it can lift two people with tools to a working height of 67 ft. 8 in. (20.8m). A compact length when stowed makes it easy to transport the lift between jobsites. An oscillating front axle keeps the A62JRT steady on uneven ground for all-terrain performance.",
       image: `${basePath}/a62jrt.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'boom-lifts'
     }
@@ -429,15 +414,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'rs46-33ch',
       name: 'RS 46 - 33CH',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the RS 46 - 33CH",
+      introDescription: "RS 46 - 33CH - World class ReachStacker made in india I Moving material from port to home",
       image: `${basePath}/rs46-33ch.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'reachstackers'
     },
@@ -445,485 +427,367 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'rs45-31cha336-a404',
       name: 'RS 45 - 31CH A366 / A404',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the RS 45 - 31CH A366 / A404",
+      introDescription: "RS 45 - 31CH A366 / A404 - World class ReachStacker made in india I Moving material from port to home",
       image: `${basePath}/rs45-31cha336-a404.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'reachstackers'
     }
   ],
   'grove-range': [
-    {
-      id: 'rt-530e-2',
-      name: 'RT 530E-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt530e2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'rt-540e',
-      name: 'RT 540E',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt540e.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'rt-550e',
-      name: 'RT 550E',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt550e.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'rt765e-2',
-      name: 'RT 765E-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt765e-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'rt770e',
-      name: 'RT 770E',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt770e.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'rt9130e-2',
-      name: 'RT 9130E-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/rt9130e-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'grt9165',
-      name: 'GRT 9165',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt9165.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    // 
-    {
-      id: 'grt655',
-      name: 'GRT 655',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt655.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'grt655l',
-      name: 'GRT 655L',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt655l.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'grt880',
-      name: 'GRT 880',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt880.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'grt8100-1',
-      name: 'GRT 8100-1',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt8100-1.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'grt8120',
-      name: 'GRT 8120',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/grt8120.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'tms500-2',
-      name: 'TMS 500-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/tms500-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'tms800-2',
-      name: 'TMS 800-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/tms800-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    // 
-    {
-      id: 'tms875-2',
-      name: 'TMS 875-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/tms875-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'tms9000-2',
-      name: 'TMS 9000-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/tms9000-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'tts9000-2',
-      name: 'TTS 9000-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/tts9000-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-3050-2',
-      name: 'GMK 3050-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk3050-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-3060l',
-      name: 'GMK 3060L',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk3060l.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-4070l',
-      name: 'GMK 4070L',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk4070l.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-4080-2',
-      name: 'GMK 4080-2',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk4080-2.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-4080l',
-      name: 'GMK 4080L',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk4080l.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-4090',
-      name: 'GMK 4090',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk4090.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gmk-6400',
-      name: 'GMK 6400',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gmk6400.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gcd-09',
-      name: 'GCD 09',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gcd09.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gcd-15',
-      name: 'GCD-15',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gcd15.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gcd-20',
-      name: 'GCD-20',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gcd20.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    },
-    {
-      id: 'gcd-25',
-      name: 'GCD 25',
-      description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/gcd25.jpg`,
-      features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
-      brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
-      parentProduct: 'grove-range'
-    }
-  ],
+  {
+    id: 'rt-530e-2',
+    name: 'RT 530E-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 530E-2",
+    introDescription: "RT 530E-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt530e2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'rt-540e',
+    name: 'RT 540E',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 540E",
+    introDescription: "RT 540E - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt540e.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'rt-550e',
+    name: 'RT 550E',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 550E",
+    introDescription: "RT 550E - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt550e.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'rt765e-2',
+    name: 'RT 765E-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 765E-2",
+    introDescription: "RT 765E-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt765e-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'rt770e',
+    name: 'RT 770E',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 770E",
+    introDescription: "RT 770E - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt770e.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'rt9130e-2',
+    name: 'RT 9130E-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the RT 9130E-2",
+    introDescription: "RT 9130E-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/rt9130e-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt9165',
+    name: 'GRT 9165',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 9165",
+    introDescription: "GRT 9165 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt9165.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt655',
+    name: 'GRT 655',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 655",
+    introDescription: "GRT 655 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt655.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt655l',
+    name: 'GRT 655L',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 655L",
+    introDescription: "GRT 655L - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt655l.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt880',
+    name: 'GRT 880',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 880",
+    introDescription: "GRT 880 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt880.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt8100-1',
+    name: 'GRT 8100-1',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 8100-1",
+    introDescription: "GRT 8100-1 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt8100-1.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'grt8120',
+    name: 'GRT 8120',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GRT 8120",
+    introDescription: "GRT 8120 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/grt8120.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'tms500-2',
+    name: 'TMS 500-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the TMS 500-2",
+    introDescription: "TMS 500-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/tms500-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'tms800-2',
+    name: 'TMS 800-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the TMS 800-2",
+    introDescription: "TMS 800-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/tms800-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'tms875-2',
+    name: 'TMS 875-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the TMS 875-2",
+    introDescription: "TMS 875-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/tms875-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'tms9000-2',
+    name: 'TMS 9000-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the TMS 9000-2",
+    introDescription: "TMS 9000-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/tms9000-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'tts9000-2',
+    name: 'TTS 9000-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the TTS 9000-2",
+    introDescription: "TTS 9000-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/tts9000-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-3050-2',
+    name: 'GMK 3050-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 3050-2",
+    introDescription: "GMK 3050-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk3050-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-3060l',
+    name: 'GMK 3060L',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 3060L",
+    introDescription: "GMK 3060L - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk3060l.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-4070l',
+    name: 'GMK 4070L',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 4070L",
+    introDescription: "GMK 4070L - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk4070l.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-4080-2',
+    name: 'GMK 4080-2',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 4080-2",
+    introDescription: "GMK 4080-2 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk4080-2.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-4080l',
+    name: 'GMK 4080L',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 4080L",
+    introDescription: "GMK 4080L - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk4080l.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-4090',
+    name: 'GMK 4090',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 4090",
+    introDescription: "GMK 4090 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk4090.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gmk-6400',
+    name: 'GMK 6400',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GMK 6400",
+    introDescription: "GMK 6400 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gmk6400.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gcd-09',
+    name: 'GCD 09',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GCD 09",
+    introDescription: "GCD 09 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gcd09.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gcd-15',
+    name: 'GCD-15',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GCD-15",
+    introDescription: "GCD-15 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gcd15.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gcd-20',
+    name: 'GCD-20',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GCD-20",
+    introDescription: "GCD-20 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gcd20.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  },
+  {
+    id: 'gcd-25',
+    name: 'GCD 25',
+    description: 'Advanced all-terrain crane from the Grove range',
+    introTitle: "Meet the GCD 25",
+    introDescription: "GCD 25 - Rough Terrain Cranes for Challenging Work Sites | Industry-Leading Performance and Safety",
+    image: `${basePath}/gcd25.jpg`,
+    features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
+    brochure: `${basePath}/brochures/gmk-3050.pdf`,
+    specifications: [],
+    parentProduct: 'grove-range'
+  }
+],
   'crawler-cranes': [
     {
       id: 'mlc80a-1',
       name: 'MLC 80A-1',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 80A-1",
+      introDescription: "MLC 80A-1 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc80a-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -931,15 +795,13 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc90A-1',
       name: 'MLC 90A-1',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 90A-1",
+      introDescription: "MLC 90A-1 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc90a-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -947,15 +809,13 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc100-1',
       name: 'MLC 100-1',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC100-1",
+      introDescription: "MLC 100-1 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc100-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -963,15 +823,13 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc150-1',
       name: 'MLC 150-1',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 150-1",
+      introDescription: "MLC 150-1 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc150a-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -979,15 +837,13 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc165-1',
       name: 'MLC 165-1',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 165-1",
+      introDescription: "MLC 165-1 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc165-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -995,15 +851,13 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: '14000',
       name: '14000',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the 14000",
+      introDescription: "14000 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/14000.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
+        
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1011,15 +865,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc250',
       name: 'MLC 250',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 250",
+      introDescription: "MLC 250 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc250.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1027,15 +878,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: '999',
       name: '999',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the 999",
+      introDescription: "999 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/999.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1043,15 +891,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc300',
       name: 'MLC 300',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 300",
+      introDescription: "MLC 300 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc300.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1059,15 +904,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: '16000',
       name: '16000',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the 16000",
+      introDescription: "16000 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/16000.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1075,15 +917,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: 'mlc650',
       name: 'MLC 650',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the MLC 650",
+      introDescription: "MLC 650 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/mlc650.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1091,15 +930,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: '18000',
       name: '18000',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the 18000",
+      introDescription: "18000 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/18000.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     },
@@ -1107,15 +943,12 @@ const allSubProducts: Record<string, SubProduct[]> = {
       id: '31000',
       name: '31000',
       description: 'Advanced all-terrain crane from the Grove range',
-      introTitle: "",
-      introDescription: "",
+      introTitle: "Meet the 31000",
+      introDescription: "31000 - Crawler Crane with innovative features & greater velocity",
       image: `${basePath}/31000.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
       ],
       parentProduct: 'crawler-cranes'
     }
@@ -1337,32 +1170,35 @@ function SubProductContent({ params }: { params: Promise<{ product: string; "sub
               </ul>
             </div> */}
 
-            <div className="mb-12">
-              <h2 className="text-xl font-bold text-gray-800 mb-4">Specifications</h2>
+            {subProduct.specifications && subProduct.specifications.length > 0 && (
+  <div className="mb-12"> 
+    <h2 className="text-xl font-bold text-gray-800 mb-4">Specifications</h2>
 
-              <div className="overflow-x-auto">
-                <table className="w-full border border-gray-300">
-                  <thead>
-                    <tr className="bg-yellow-400 text-left text-gray-800">
-                      <th className="px-4 py-2 font-bold border border-gray-300">Feature</th>
-                      <th className="px-4 py-2 font-bold border border-gray-300">Details</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {subProduct.specifications?.map((spec, index) => (
-                      <tr key={index}>
-                        <td className="px-4 py-2 border border-gray-300 font-medium">
-                          {spec.name}
-                        </td>
-                        <td className="px-4 py-2 border border-gray-300">
-                          {spec.value}
-                        </td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
+    <div className="overflow-x-auto">
+      <table className="w-full border border-gray-300">
+        <thead>
+          <tr className="bg-yellow-400 text-left text-gray-800">
+            <th className="px-4 py-2 font-bold border border-gray-300">Feature</th>
+            <th className="px-4 py-2 font-bold border border-gray-300">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          {subProduct.specifications.map((spec, index) => (
+            <tr key={index}>
+              <td className="px-4 py-2 border border-gray-300 font-medium">
+                {spec.name}
+              </td>
+              <td className="px-4 py-2 border border-gray-300">
+                {spec.value}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  </div>
+)}
+
 
             <div className="flex flex-wrap gap-4">
               <button
@@ -1403,7 +1239,8 @@ function SubProductContent({ params }: { params: Promise<{ product: string; "sub
                 Contact Our Experts
               </button>
               <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
-                Call Us Now
+                <Link href="/contact-us">Call Us Now</Link>
+                
               </button>
             </div>
           </div>

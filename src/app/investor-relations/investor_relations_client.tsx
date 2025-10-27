@@ -1,7 +1,8 @@
 // app/investor-relations/InvestorRelationsClient.tsx
 'use client';
-import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import {
   ArrowRight,
   ChevronDown,
@@ -26,6 +27,26 @@ const InvestorRelationsClient: React.FC<InvestorRelationsClientProps> = ({
 }) => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
   const [activePage, setActivePage] = useState<string | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  // Set client-side flag
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  // Sync URL with active page (client-side only)
+  useEffect(() => {
+    if (isClient) {
+      const pageFromUrl = searchParams?.get('page');
+      if (pageFromUrl && contentPages[pageFromUrl]) {
+        setActivePage(pageFromUrl);
+      } else {
+        setActivePage(null);
+      }
+    }
+  }, [searchParams, contentPages, isClient]);
 
   const handleMenuToggle = (id: string) => {
     setActiveMenu(prev => (prev === id ? null : id));
@@ -33,8 +54,16 @@ const InvestorRelationsClient: React.FC<InvestorRelationsClientProps> = ({
 
   const handlePageChange = (pageId: string) => {
     setActivePage(pageId);
+    // Update URL without page reload
+    router.push(`/investor-relations?page=${pageId}`, { scroll: false });
   };
 
+  const handleBackToResources = () => {
+    setActivePage(null);
+    router.push('/investor-relations', { scroll: false });
+  };
+
+  // In your renderContentPage function, update the back button:
   const renderContentPage = () => {
     if (!activePage) return null;
     
@@ -51,7 +80,7 @@ const InvestorRelationsClient: React.FC<InvestorRelationsClientProps> = ({
         <div className="flex items-center justify-between mb-6">
           <h2 className="text-2xl font-bold text-gray-800">{page.title}</h2>
           <button
-            onClick={() => setActivePage(null)}
+            onClick={handleBackToResources}
             className="text-gray-500 hover:text-gray-700 px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition-colors"
           >
             Back to Resources
@@ -168,7 +197,7 @@ const InvestorRelationsClient: React.FC<InvestorRelationsClientProps> = ({
             >
               <div className="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-100 sticky top-6">
                 <div className="bg-[#F1B434] p-6">
-                  <h2 className="text-2xl font-bold text-white">Investor Resources</h2>
+                  <h2 className="text-2xl font-bold text-white">Investor Relations</h2>
                 </div>
                 
                 <div className="p-4">
@@ -200,19 +229,22 @@ const InvestorRelationsClient: React.FC<InvestorRelationsClientProps> = ({
                               <p className="text-gray-700 mb-3 text-sm">{item.content}</p>
                               <ul className="space-y-2">
                                 {item.subItems.map(subItem => {
-                                  const pageId = subItem.title?.toLowerCase().replace(/\s+/g, '-') || '';
-                                  return (
-                                    <li key={subItem.relations_dtl_id}>
-                                      <button
-                                        onClick={() => handlePageChange(pageId)}
-                                        className="flex items-center text-gray-600 hover:text-[#F1B434] transition-colors text-sm w-full"
-                                      >
-                                        <ArrowRight size={12} className="text-[#F1B434] mr-2" />
-                                        {subItem.title || 'Untitled'}
-                                      </button>
-                                    </li>
-                                  );
-                                })}
+    const pageId = subItem.page_url 
+      ? subItem.page_url.toLowerCase().replace(/\s+/g, '-')
+      : subItem.title?.toLowerCase().replace(/\s+/g, '-') || '';
+    
+    return (
+      <li key={subItem.relations_dtl_id}>
+        <button
+          onClick={() => handlePageChange(pageId)}
+          className="flex items-center text-gray-600 hover:text-[#F1B434] transition-colors text-sm w-full"
+        >
+          <ArrowRight size={12} className="text-[#F1B434] mr-2" />
+          {subItem.title || 'Untitled'}
+        </button>
+      </li>
+    );
+  })}
                               </ul>
                             </div>
                           </motion.div>

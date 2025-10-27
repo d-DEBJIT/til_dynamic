@@ -425,7 +425,7 @@ const MilestonesPage = () => {
     return (
         <>
             {/* Hero Section */}
-            <div className="relative h-60 w-full overflow-hidden">
+            <div className="relative h-72 w-full overflow-hidden">
                 <img
                     src={`${basePath}/milestone-banners.png`}
                     alt="Milestones"
@@ -441,6 +441,14 @@ const MilestonesPage = () => {
                                 Our <span className="text-[#F1B434]">Milestones</span>
                             </h1>
                             <div className="w-24 h-1.5 bg-[#F1B434] rounded-full mb-4" />
+                            <motion.p
+                                            className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 0.5, duration: 0.8 }}
+                                          >
+                                            Our Step Towards Success
+                                          </motion.p>
                         </div>
                     </div>
                 </div>
@@ -490,7 +498,7 @@ const MilestonesPage = () => {
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div className="text-center p-6 bg-gray-50 rounded-lg">
-                                <div className="text-4xl font-bold text-[#F1B434] mb-2">75+</div>
+                                <div className="text-4xl font-bold text-[#F1B434] mb-2">80+</div>
                                 <div className="text-gray-800 font-medium">Years of Experience</div>
                                 <p className="text-gray-600 text-sm mt-2">Serving India's infrastructure since 1944</p>
                             </div>

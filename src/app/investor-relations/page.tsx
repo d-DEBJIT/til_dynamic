@@ -1,5 +1,4 @@
-// app/investor-relations/page.tsx
-import React from 'react';
+import React, { Suspense } from 'react';
 import { prisma } from '../../lib/prisma';
 import InvestorRelationsClient from './investor_relations_client';
 
@@ -40,8 +39,11 @@ async function getInvestorRelationsData(): Promise<SidebarData[]> {
     // First, get all master records
     const masters = await prisma.investor_relations_master.findMany({
       where: {
-        is_disabled: 0
-      }
+    AND: [
+      { is_disabled: 0 },
+      { relations_master_id: { not: 5 } }
+    ]
+  }
     });
 
     // Then, get all details for these masters
@@ -81,14 +83,17 @@ async function getInvestorRelationsData(): Promise<SidebarData[]> {
   }
 }
 
-// Transform to content pages using description column
+// Transform to content pages using description column and page_url for metalinks
 function transformToContentPages(sidebarData: SidebarData[]): Record<string, ContentPage> {
   const contentPages: Record<string, ContentPage> = {};
 
   sidebarData.forEach(master => {
     master.subItems.forEach(detail => {
       if (detail.title) {
-        const pageId = detail.title.toLowerCase().replace(/\s+/g, '-');
+        // Use page_url for the metalink if available, otherwise fallback to title
+        const pageId = detail.page_url 
+          ? detail.page_url.toLowerCase().replace(/\s+/g, '-')
+          : detail.title.toLowerCase().replace(/\s+/g, '-');
         
         contentPages[pageId] = {
           id: detail.relations_dtl_id.toString(),
@@ -107,10 +112,12 @@ export default async function InvestorRelationsPage() {
   const sidebarData = await getInvestorRelationsData();
   const contentPages = transformToContentPages(sidebarData);
 
-  return (
-    <InvestorRelationsClient 
-      sidebarData={sidebarData} 
-      contentPages={contentPages} 
-    />
+ return (
+    <Suspense fallback={<div className="text-center py-20 text-gray-500">Loading investor relations...</div>}>
+      <InvestorRelationsClient 
+        sidebarData={sidebarData} 
+        contentPages={contentPages} 
+      />
+    </Suspense>
   );
 }

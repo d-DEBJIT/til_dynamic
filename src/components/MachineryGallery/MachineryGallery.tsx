@@ -46,6 +46,7 @@ async function getMachineryData(): Promise<Machine[]> {
         AND: [
           { parent_id: { not: "0" } },
           { parent_id: { not: "1" } },
+          { parent_id: { not: "2" } },
           { name: { not: null } }
         ]
       },
@@ -88,7 +89,7 @@ async function getMachineryData(): Promise<Machine[]> {
           { precedence: "asc" },
           { product_master_id: "asc" },
         ],
-        take: 9,
+        // take: 9,
       });
       console.log(`📋 Approach 3 results:`, products.length);
     }

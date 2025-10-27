@@ -70,28 +70,24 @@ const SleekFooter: React.FC = () => {
         'Snorkel Range': `${basePath}/category`,
       },
       Services: {
-        'Equipment Rental': ``,
-        'Maintenance & Repair': ``,
-        'Parts & Accessories': ``,
-        'Training Programs': ``,
-        'Technical Support': ``,
-        'Warranty Services': ``,
+        'Maintenance Contract': `${basePath}/customer-support/maintenance-contract`,
+        'Parts & Warehouse': `${basePath}/customer-support/parts-warehouse`,
+        'Training': `${basePath}/customer-support/training`,
+        'Service Locations': `${basePath}/customer-support/locations`,
       },
       Company: {
         'About Us': `${basePath}/about-us`,
-        'Our History': `${basePath}/about-us`,
-        'Leadership Team': `${basePath}/about-us`,
-        'Careers': `${basePath}/about-us`,
-        'News & Events': `${basePath}/about-us`,
-        'Investor Relations': `${basePath}/about-us`,
+        'Board of Directors': `${basePath}/about-us/board-of-directors`,
+        'Milestones': `${basePath}/about-us/milestones`,
+        'Values & Vision': `${basePath}/about-us/vision-values`,
+        'Code of Conduct': `${basePath}/about-us/code-of-conduct`,
+        'Facilities': `${basePath}/about-us/facility`
       },
       Support: {
         'Contact Us': `${basePath}/contact-us`,
-        'Find a Dealer': `${basePath}/contact-us`,
-        'Service Locator': `${basePath}/contact-us`,
-        'Documentation': `${basePath}/contact-us`,
-        'FAQs': `${basePath}/contact-uss`,
-        'Customer Portal': `${basePath}/contact-us`,
+        'Locations': `${basePath}/contact-us/locations`,
+        'Inquiry': `${basePath}/contact-us/inquiry`
+
       },
     };
 
@@ -106,28 +102,23 @@ const SleekFooter: React.FC = () => {
       'Snorkel Range',
     ],
     Services: [
-      'Equipment Rental',
-      'Maintenance & Repair',
-      'Parts & Accessories',
-      'Training Programs',
-      'Technical Support',
-      'Warranty Services'
+      'Maintenance Contract',
+      'Parts & Warehouse',
+      'Training',
+      'Service Locations',
     ],
     Company: [
       'About Us',
-      'Our History',
-      'Leadership Team',
-      'Careers',
-      'News & Events',
-      'Investor Relations'
+      'Board of Directors',
+      'Milestones',
+      'Values & Vision',
+      'Code of Conduct',
+      'Facilities'
     ],
     Support: [
       'Contact Us',
-      'Find a Dealer',
-      'Service Locator',
-      'Documentation',
-      'FAQs',
-      'Customer Portal'
+      'Locations',
+      'Inquiry'
     ]
   };
 
