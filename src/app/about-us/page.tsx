@@ -2,79 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import {
-    Factory,
-    Users,
-    Clock,
-    HeartHandshake,
-    Trophy,
-    Globe,
-    Shield
-} from 'lucide-react';
+
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
 
 const AboutOverviewPage = () => {
-    const [hoveredItem, setHoveredItem] = useState<string | null>(null);
-
-    const menuItems = [
-        {
-            id: 'corporate',
-            title: 'Corporate Profile',
-            icon: <Factory className="w-6 h-6" />,
-            description: 'Learn about our company structure and profile',
-            image: `${basePath}/corporate.jpg`,
-            path: '/about/corporate'
-        },
-        {
-            id: 'board-of-directors',
-            title: 'Board of Directors',
-            icon: <Users className="w-6 h-6" />,
-            description: 'Meet our leadership and governance team',
-            image: `${basePath}/leadership.jpg`,
-            path: '/about/board-of-directors'
-        },
-        {
-            id: 'milestones',
-            title: 'Milestones',
-            icon: <Clock className="w-6 h-6" />,
-            description: 'Explore our journey through decades',
-            image: `${basePath}/milestone.png`,
-            path: '/about/milestones'
-        },
-        {
-            id: 'vision-values',
-            title: 'Vision and Values',
-            icon: <HeartHandshake className="w-6 h-6" />,
-            description: 'Our mission, vision and core values',
-            image: `${basePath}/vision.jpg`,
-            path: '/about/vision-values'
-        },
-        {
-            id: 'csr',
-            title: 'Corporate Social Responsibility',
-            icon: <Trophy className="w-6 h-6" />,
-            description: 'Our commitment to society and environment',
-            image: `${basePath}/csr.jpg`,
-            path: '/about/csr'
-        },
-        {
-            id: 'code-of-conduct',
-            title: 'Code of Conduct',
-            icon: <Shield className="w-6 h-6" />,
-            description: 'Our ethical business practices',
-            image: `${basePath}/code_of_conduct.png`,
-            path: '/about/code-of-conduct'
-        },
-        {
-            id: 'facility',
-            title: 'Facility',
-            icon: <Globe className="w-6 h-6" />,
-            description: 'Our manufacturing plants and offices',
-            image: `${basePath}/facilities.jpg`,
-            path: '/about/facility'
-        }
-    ];
+    
 
     return (
         <>

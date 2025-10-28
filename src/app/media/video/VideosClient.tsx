@@ -49,6 +49,12 @@ const VideosClient: React.FC<VideosClientProps> = ({ videosData }) => {
               >
                 TIL <span className="text-[#F1B434]">Videos</span>
               </motion.h1>
+              <motion.div
+                                              className="w-24 sm:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-4 sm:mb-6 shadow-lg"
+                                              initial={{ scaleX: 0 }}
+                                              animate={{ scaleX: 1 }}
+                                              transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                                          />
               <motion.p
                 className="text-lg text-gray-200 max-w-xl leading-relaxed"
                 initial={{ opacity: 0 }}

@@ -1,7 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Calendar, Clock, Heart, MessageCircle, Search } from 'lucide-react';
+import { Calendar, Clock, Heart, MessageCircle, Search, Share2 } from 'lucide-react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -13,7 +13,6 @@ interface Author {
   role?: string;
   bio?: string;
 }
-
 
 interface Post {
   id: number;
@@ -28,6 +27,7 @@ interface Post {
   image: string;
   thumbnail: string;
   column?: string;
+  slug: string;
 }
 
 interface ClientPageProps {
@@ -41,12 +41,11 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeTags, setActiveTags] = useState<string[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [shareMenu, setShareMenu] = useState<number | null>(null);
   const postsPerPage = 5;
 
   // ✅ use posts from DB instead of hardcoded
   const featuredPosts = initialPosts;
-
-  const allTags = Array.from(new Set(featuredPosts.flatMap(post => post.tags || [])));
 
   const formatDate = (dateString: string) =>
     new Date(dateString).toLocaleDateString('en-US', {
@@ -68,25 +67,46 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
     setExpandedAuthor(prev => (prev === postId ? null : postId));
   };
 
+  const toggleShareMenu = (postId: number, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setShareMenu(prev => (prev === postId ? null : postId));
+  };
+
   const handlePostClick = (slug: string) => {
     navigate.push(`/media/blog/${slug}`);
   };
 
+  const handleShare = (platform: string, post: Post, e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    
+    const url = `${window.location.origin}/media/blog/${post.slug}`;
+    const title = post.title;
+    const text = post.excerpt;
 
-  const handleTagClick = (tag: string) => {
-    setActiveTags(prev =>
-      prev.includes(tag) ? prev.filter(t => t !== tag) : [...prev, tag]
-    );
-    setSearchQuery('');
-    setCurrentPage(1);
+    switch (platform) {
+      case 'twitter':
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'facebook':
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'linkedin':
+        window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`, '_blank');
+        break;
+      case 'copy':
+        navigator.clipboard.writeText(url);
+        // You could add a toast notification here
+        break;
+    }
+    
+    setShareMenu(null);
   };
 
-  const handleCategoryChange = (category: 'featured' | 'popular' | 'latest') => {
-    setActiveTab(category);
-    setCurrentPage(1);
-  };
+ 
 
-  // Filter posts based on search query, active tags, and category
+  // Filter posts based on search query and category
   const filteredPosts = featuredPosts.filter((post: Post) => {
     if (searchQuery) {
       return (
@@ -96,10 +116,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
         post.tags.some((tag: string) =>
           tag.toLowerCase().includes(searchQuery.toLowerCase()))
       );
-    }
-
-    if (activeTags.length > 0) {
-      return activeTags.every(tag => post.tags.includes(tag));
     }
 
     if (activeTab === 'popular') {
@@ -152,7 +168,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
               >
-
               </motion.span>
 
               <motion.h1
@@ -184,7 +199,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
         </div>
       </div>
 
-
       <main className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 py-16 -mt-6 relative z-10">
         {/* Search and Tabs */}
         <div className="mb-8 flex flex-col md:flex-row items-center justify-between gap-4">
@@ -199,12 +213,11 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
               value={searchQuery}
               onChange={e => {
                 setSearchQuery(e.target.value);
-                setActiveTags([]);
               }}
             />
           </div>
 
-          <div className="flex space-x-4">
+          {/* <div className="flex space-x-4">
             <button
               className={`text-sm font-medium px-4 py-2 rounded-md ${activeTab === 'featured' ? 'bg-[#F1B434] text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}`}
               onClick={() => handleCategoryChange('featured')}
@@ -223,10 +236,10 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
             >
               Latest
             </button>
-          </div>
+          </div> */}
         </div>
 
-        {(activeTags.length > 0 || searchQuery) && (
+        {searchQuery && (
           <div className="mb-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-gray-600">Showing results for:</span>
@@ -242,28 +255,15 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                   </button>
                 </span>
               )}
-
-              {activeTags.map(tag => (
-                <span key={tag} className="px-3 py-1 bg-[#F1B434]/10 text-[#F1B434] rounded-full flex items-center">
-                  {tag}
-                  <button
-                    onClick={() => setActiveTags(prev => prev.filter(t => t !== tag))}
-                    className="ml-2 text-[#F1B434] hover:text-[#d89c2a]"
-                  >
-                    &times;
-                  </button>
-                </span>
-              ))}
             </div>
 
             <button
               onClick={() => {
-                setActiveTags([]);
                 setSearchQuery('');
               }}
               className="text-sm text-[#F1B434] hover:underline"
             >
-              Clear all filters
+              Clear search
             </button>
           </div>
         )}
@@ -299,8 +299,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                           />
                         </button>
                         <div className="text-xs text-gray-600">
-                          {/* <span>In </span>
-                          <span className="font-semibold text-gray-700">{post.column}</span> */}
                           <span> by </span>
                           <button
                             onClick={e => toggleAuthorDetails(post.id, e)}
@@ -349,6 +347,50 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                           </div>
                         </div>
                         <div className="flex items-center gap-3">
+                          {/* Share Button */}
+                          <div className="relative">
+                            <button
+                              className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#F1B434]"
+                              onClick={e => toggleShareMenu(post.id, e)}
+                            >
+                              <Share2 size={14} />
+                              <span>Share</span>
+                            </button>
+                            
+                            {/* Share Dropdown Menu */}
+                            {shareMenu === post.id && (
+                              <div 
+                                className="absolute bottom-full mb-2 left-0 bg-white rounded-lg shadow-lg border border-gray-200 p-2 z-10 min-w-[120px]"
+                                onClick={e => e.stopPropagation()}
+                              >
+                                <button
+                                  onClick={e => handleShare('twitter', post, e)}
+                                  className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md flex items-center gap-2"
+                                >
+                                  Twitter
+                                </button>
+                                <button
+                                  onClick={e => handleShare('facebook', post, e)}
+                                  className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md flex items-center gap-2"
+                                >
+                                  Facebook
+                                </button>
+                                <button
+                                  onClick={e => handleShare('linkedin', post, e)}
+                                  className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md flex items-center gap-2"
+                                >
+                                  LinkedIn
+                                </button>
+                                <button
+                                  onClick={e => handleShare('copy', post, e)}
+                                  className="w-full text-left px-3 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-md flex items-center gap-2"
+                                >
+                                  Copy Link
+                                </button>
+                              </div>
+                            )}
+                          </div>
+
                           <button
                             className="flex items-center gap-1 text-xs text-gray-500 hover:text-[#F1B434]"
                             onClick={e => toggleSavePost(post.id, e)}
@@ -471,7 +513,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
 
           {/* Sidebar */}
           <div className="lg:col-span-1 lg:sticky lg:top-6 self-start">
-            {/* <h3 className="text-2xl font-bold text-gray-800 mb-6">Popular Reads</h3> */}
             <div className="bg-white rounded-xl shadow-lg overflow-hidden self-start">
               <div
                 className="block group relative cursor-pointer"
@@ -487,7 +528,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-5">
                     <div>
-                      {/* <span className="text-xs font-medium text-[#F1B434] mb-1 block">Editor's Pick</span> */}
                       <h3 className="text-xl font-bold text-white">6 Proven Factors That Affect Truck Crane Durability</h3>
                       <div className="flex items-center gap-2 text-xs text-white/80 mt-2">
                         <span>Oct 22, 2025</span>
@@ -543,32 +583,6 @@ const ClientPage: React.FC<ClientPageProps> = ({ initialPosts = [] }) => {
                 </div>
               </div>
             </div>
-
-            {/* <div className="bg-white rounded-xl shadow-sm p-6 mt-8">
-              <div className="flex items-center justify-between mb-4">
-                <h3 className="text-lg font-bold text-gray-900">Topics</h3>
-                <button
-                  className="text-sm text-[#F1B434] hover:underline"
-                  onClick={() => setActiveTags([])}
-                >
-                  See all
-                </button>
-              </div>
-              <div className="flex flex-wrap gap-2">
-                {allTags.map(topic => (
-                  <button
-                    key={topic}
-                    onClick={() => handleTagClick(topic)}
-                    className={`text-sm px-3 py-1.5 rounded-full transition-colors ${activeTags.includes(topic)
-                      ? 'bg-[#F1B434] text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                      }`}
-                  >
-                    {topic}
-                  </button>
-                ))}
-              </div>
-            </div> */}
 
             <div className="bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-xl shadow-sm p-6 mt-8 text-white">
               <h3 className="text-lg font-bold mb-2">Subscribe to our newsletter</h3>

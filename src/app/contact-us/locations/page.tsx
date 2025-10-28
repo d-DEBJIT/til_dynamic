@@ -104,29 +104,28 @@ const Page = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative h-72 w-full overflow-hidden">
-        <img
+<div className="relative h-64 sm:h-72 w-full overflow-hidden">        <img
           src={`${basePath}/location-banner.png`}
           alt="Customer Support"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent z-10" />
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-black/70 to-transparent z-10" />
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-black/70 to-transparent z-10" />
-        <div className="absolute inset-0 z-20 flex items-center pt-6">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
-            <motion.div
-              className="max-w-2xl"
-              initial={{ opacity: 0, x: -30 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
-            >
-              <motion.h1
-                className="text-4xl md:text-5xl lg:text-[2.75rem] font-bold text-white mb-4 leading-tight"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.8 }}
-              >
+        <div className="absolute inset-0 z-20 flex items-center pt-4 sm:pt-8">
+                  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20 w-full">
+                    <motion.div
+                      className="max-w-2xl"
+                      initial={{ opacity: 0, x: -30 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
+                    >
+                      <motion.h1
+                        className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3, duration: 0.8 }}
+                      >
                 Delivering Excellence <span className="text-[#F1B434]">at Every Corner</span>
               </motion.h1>
               <motion.div

@@ -7,7 +7,7 @@ import BrochureDownloadModal from '../../components/BrochureDownload';
 
 interface Product {
     product_master_id: number;
-    name: string | null;              // <- made nullable
+    name: string | null;
     slug: string | null;
     banner_image: string | null;
     catagory_image: string | null;
@@ -38,13 +38,13 @@ interface ProductsClientProps {
 // Category icons mapping
 const getCategoryIcon = (categoryName: string) => {
     const icons = {
-        'TIL Range': <Package className="w-4 h-4" />,
-        'Manitowoc Range': <Zap className="w-4 h-4" />,
-        'Hyster-TIL Range': <Star className="w-4 h-4" />,
-        'Snorkel Range': <Settings className="w-4 h-4" />
+        'TIL Range': <Package className="w-4 h-4 sm:w-5 sm:h-5" />,
+        'Manitowoc Range': <Zap className="w-4 h-4 sm:w-5 sm:h-5" />,
+        'Hyster-TIL Range': <Star className="w-4 h-4 sm:w-5 sm:h-5" />,
+        'Snorkel Range': <Settings className="w-4 h-4 sm:w-5 sm:h-5" />
     };
 
-    return icons[categoryName as keyof typeof icons] || <Package className="w-4 h-4" />;
+    return icons[categoryName as keyof typeof icons] || <Package className="w-4 h-4 sm:w-5 sm:h-5" />;
 };
 
 export default function ProductsClient({
@@ -80,7 +80,7 @@ export default function ProductsClient({
     return (
         <>
             {/* Top Section - Introduction and Quick Links */}
-            <div className="flex flex-col lg:flex-row gap-8 mb-12">
+            <div className="flex flex-col lg:flex-row gap-6 sm:gap-8 mb-8 sm:mb-12">
                 {/* Introduction Section */}
                 <motion.section
                     className="lg:w-2/3 text-left"
@@ -94,18 +94,18 @@ export default function ProductsClient({
                         }
                     }}
                 >
-                    <h2 className="text-3xl font-bold text-gray-800 mb-4">
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-3 sm:mb-4">
                         Explore Our Comprehensive Product Range
                     </h2>
 
                     <motion.div
                         initial={{ width: 0 }}
-                        animate={{ width: "200px" }}
+                        animate={{ width: "120px sm:150px md:200px" }}
                         transition={{ duration: 0.6, ease: "easeOut", delay: 0.3 }}
-                        className="h-1.5 bg-[#F1B434] rounded-full mb-6"
+                        className="h-1 sm:h-1.5 bg-[#F1B434] rounded-full mb-4 sm:mb-6"
                     />
 
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed">
                         TIL offers a diverse portfolio of material handling and construction equipment designed to meet the toughest
                         industrial challenges. From cranes to forklifts, our products combine global technology with local expertise
                         to deliver unmatched performance in Indian conditions.
@@ -119,56 +119,37 @@ export default function ProductsClient({
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.2 }}
                 >
-                    {/* <div className="bg-white border border-gray-100 rounded-xl shadow-sm p-6 h-full">
-                        <h3 className="text-lg font-bold text-gray-800 mb-4">Quick Links</h3>
-                        <ul className="space-y-3">
-                            {quickLinks.map((link, index) => (
-                                <motion.li
-                                    key={index}
-                                    whileHover={{ x: 5 }}
-                                    className="flex items-center"
-                                >
-                                    <ChevronRight className="w-4 h-4 text-[#F1B434] mr-2" />
-                                    <a
-                                        href={link.url}
-                                        className="text-gray-700 hover:text-[#F1B434] transition-colors"
-                                    >
-                                        {link.name}
-                                    </a>
-                                </motion.li>
-                            ))}
-                        </ul>
-                    </div> */}
+                    {/* Quick links content commented out as per original */}
                 </motion.div>
             </div>
 
             {/* Category Navigation */}
-            <section className="mb-12">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <section className="mb-8 sm:mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
                     {categories.map((category) => (
                         <motion.div
                             key={category.id}
-                            whileHover={{ y: -5 }}
+                            whileHover={{ y: -3 }}
                             whileTap={{ scale: 0.98 }}
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.5 }}
-                            className={`relative p-6 rounded-xl cursor-pointer transition-all ${activeCategory === category.id
+                            className={`relative p-4 sm:p-6 rounded-lg sm:rounded-xl cursor-pointer transition-all ${activeCategory === category.id
                                 ? `bg-[${category.color}] text-white`
                                 : 'bg-white hover:bg-gray-50 border border-gray-200'
                                 }`}
                             onClick={() => handleCategoryClick(category.id)}
                         >
-                            <div className="flex items-center gap-3 mb-3">
-                                <div className={`p-2 rounded-lg ${activeCategory === category.id
+                            <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+                                <div className={`p-1.5 sm:p-2 rounded-md sm:rounded-lg ${activeCategory === category.id
                                     ? 'bg-white/20'
                                     : `bg-[${category.bgColor}]`
                                     }`}>
                                     {getCategoryIcon(category.name)}
                                 </div>
-                                <h3 className="text-lg font-bold">{category.name}</h3>
+                                <h3 className="text-base sm:text-lg font-bold">{category.name}</h3>
                             </div>
-                            <p className={`text-sm ${activeCategory === category.id
+                            <p className={`text-xs sm:text-sm ${activeCategory === category.id
                                 ? 'text-white/90'
                                 : 'text-gray-600'
                                 }`}>
@@ -178,58 +159,6 @@ export default function ProductsClient({
                     ))}
                 </div>
             </section>
-
-            {/* Default Products Grid */}
-            {/* {!activeCategory && (
-                <motion.section
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="mb-16"
-                >
-                    <div className="flex items-center justify-between mb-6">
-                        <h2 className="text-2xl font-bold text-gray-800">Featured Products</h2>
-                        <button className="text-sm font-medium text-[#F1B434] hover:underline">
-                            View All Products
-                        </button>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {allProducts.map((product, index) => (
-                            <motion.div
-                                key={product.product_master_id}
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                whileHover={{ y: -5 }}
-                                className="bg-white rounded-xl shadow-md overflow-hidden group cursor-pointer border border-gray-100"
-                            >
-                                <div className="relative h-48 overflow-hidden">
-                                    <img
-                                        src={product.catagory_image || `${basePath}/default-product.jpg`}
-                                        alt={product.name || 'Product'}
-                                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                    />
-                                </div>
-                                <div className="p-6">
-                                    <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-[#F1B434] transition-colors">
-                                        {product.name}
-                                    </h3>
-                                    <p className="text-sm text-gray-600 mb-4">
-                                        {product.short_description || 'No description available'}
-                                    </p>
-                                    <div className="flex items-center text-sm text-[#F1B434] font-medium">
-                                        <Link href={`/products/${product.slug}`}>
-                                            <span>Explore Product</span>
-                                            <ChevronRight className="w-4 h-4 ml-1" />
-                                        </Link>
-                                    </div>
-                                </div>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.section>
-            )} */}
 
             {/* Category-Specific Carousel */}
             <AnimatePresence>
@@ -253,9 +182,9 @@ export default function ProductsClient({
                                 scale: { duration: 0.4, ease: [0.22, 1, 0.36, 1] }
                             }
                         }}
-                        className="relative mb-16"
+                        className="relative mb-12 sm:mb-16"
                     >
-                        <div className="p-8 bg-white rounded-xl border border-gray-200 shadow-sm">
+                        <div className="p-4 sm:p-6 md:p-8 bg-white rounded-lg sm:rounded-xl border border-gray-200 shadow-sm">
                             <motion.div
                                 initial={{ y: -20 }}
                                 animate={{ y: 0 }}
@@ -263,31 +192,31 @@ export default function ProductsClient({
                                 transition={{ duration: 0.3 }}
                                 className="rounded-xl"
                             >
-                                <div className="flex items-center justify-between mb-6">
-                                    <h2 className="text-2xl font-bold text-gray-800">
+                                <div className="flex items-center justify-between mb-4 sm:mb-6">
+                                    <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800">
                                         {categories.find(c => c.id === activeCategory)?.name}
                                     </h2>
-                                    <div className="flex items-center gap-2">
+                                    <div className="flex items-center gap-1 sm:gap-2">
                                         <button
                                             onClick={handlePrevSlide}
-                                            className="p-2 rounded-full bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-gray-300"
+                                            className="p-1.5 sm:p-2 rounded-full bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-gray-300"
                                             disabled={categoryProducts[activeCategory].length <= 1}
                                         >
-                                            <ChevronLeft className="w-5 h-5" />
+                                            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                                         </button>
                                         <button
                                             onClick={handleNextSlide}
-                                            className="p-2 rounded-full bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-gray-300"
+                                            className="p-1.5 sm:p-2 rounded-full bg-white text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-gray-300"
                                             disabled={categoryProducts[activeCategory].length <= 1}
                                         >
-                                            <ChevronRight className="w-5 h-5" />
+                                            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                                         </button>
                                     </div>
                                 </div>
 
-                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                                <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 md:gap-8">
                                     {/* Product Image */}
-                                    <div className="relative h-96 rounded-lg overflow-hidden shadow-lg border border-gray-200">
+                                    <div className="relative h-48 sm:h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg border border-gray-200">
                                         <AnimatePresence mode="wait">
                                             <motion.img
                                                 key={currentSlide}
@@ -303,12 +232,12 @@ export default function ProductsClient({
                                     </div>
 
                                     {/* Product Info */}
-                                    <div>
+                                    <div className="flex flex-col justify-center">
                                         <motion.h3
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.1 }}
-                                            className="text-2xl font-bold text-gray-800 mb-2"
+                                            className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3"
                                         >
                                             {categoryProducts[activeCategory][currentSlide].name}
                                         </motion.h3>
@@ -316,7 +245,7 @@ export default function ProductsClient({
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.2 }}
-                                            className="text-gray-600 mb-6"
+                                            className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6"
                                         >
                                             {categoryProducts[activeCategory][currentSlide].short_description || 'No description available'}
                                         </motion.p>
@@ -325,16 +254,16 @@ export default function ProductsClient({
                                             initial={{ opacity: 0, y: 10 }}
                                             animate={{ opacity: 1, y: 0 }}
                                             transition={{ delay: 0.6 }}
-                                            className="flex flex-wrap gap-3"
+                                            className="flex flex-col sm:flex-row gap-2 sm:gap-3"
                                         >
-                                            <button className="px-6 py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md">
+                                            <button className="px-4 sm:px-6 py-2 sm:py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md text-sm sm:text-base">
                                                 <Link href={`/category/${categoryProducts[activeCategory][currentSlide].slug}`}>
                                                     View Details
                                                 </Link>
                                             </button>
                                             <button
                                                 onClick={() => setIsModalOpen(true)}
-                                                className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm"
+                                                className="px-4 sm:px-6 py-2 sm:py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm text-sm sm:text-base"
                                             >
                                                 Download Brochure
                                             </button>
@@ -352,24 +281,23 @@ export default function ProductsClient({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="mb-16"
+                className="mb-12 sm:mb-16"
             >
-                <div className={`bg-[#F1B434] rounded-xl shadow-sm p-8 text-white`}>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div className={`bg-[#F1B434] rounded-lg sm:rounded-xl shadow-sm p-4 sm:p-6 md:p-8 text-white`}>
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">Why Choose TIL Products?</h2>
-                            <p className="mb-6">
+                            <h2 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Why Choose TIL Products?</h2>
+                            <p className="mb-4 sm:mb-6 text-sm sm:text-base">
                                 Our equipment is engineered for performance, durability and safety in the most demanding Indian working conditions.
                             </p>
-                            <button className="px-6 py-3 bg-white text-[#F1B434] font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-md">
+                            <button className="px-4 sm:px-6 py-2 sm:py-3 bg-white text-[#F1B434] font-medium rounded-lg hover:bg-gray-100 transition-colors shadow-md text-sm sm:text-base">
                                 <Link href="/contact-us/inquiry">
                                     Contact Our Experts
                                 </Link>
-
                             </button>
                         </div>
                         <div>
-                            <ul className="space-y-4">
+                            <ul className="space-y-3 sm:space-y-4">
                                 {[
                                     'Industry-leading durability',
                                     'Advanced safety features',
@@ -383,12 +311,12 @@ export default function ProductsClient({
                                         animate={{ opacity: 1, x: 0 }}
                                         transition={{ delay: 0.1 + index * 0.1 }}
                                     >
-                                        <div className="flex-shrink-0 h-6 w-6 text-white mr-3">
+                                        <div className="flex-shrink-0 h-5 w-5 sm:h-6 sm:w-6 text-white mr-2 sm:mr-3 mt-0.5">
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                                             </svg>
                                         </div>
-                                        <span className="font-medium">{feature}</span>
+                                        <span className="font-medium text-sm sm:text-base">{feature}</span>
                                     </motion.li>
                                 ))}
                             </ul>
@@ -402,22 +330,22 @@ export default function ProductsClient({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="bg-white rounded-xl shadow-md p-8 border border-gray-100"
+                className="bg-white rounded-lg sm:rounded-xl shadow-md p-4 sm:p-6 md:p-8 border border-gray-100"
             >
                 <div className="max-w-2xl mx-auto text-center">
-                    <h2 className="text-2xl font-bold text-gray-800 mb-3">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">
                         Need Help Choosing the Right Equipment?
                     </h2>
-                    <p className="text-gray-600 mb-6">
+                    <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                         Our product specialists are ready to help you find the perfect solution for your needs.
                     </p>
-                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                        <button className="px-6 py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md">
+                    <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 justify-center">
+                        <button className="px-4 sm:px-6 py-2 sm:py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md text-sm sm:text-base">
                             <Link href="/contact-us/inquiry">
                                 Get Product Consultation
                             </Link>
                         </button>
-                        <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
+                        <button className="px-4 sm:px-6 py-2 sm:py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm text-sm sm:text-base">
                             <Link href="/contact-us">
                                 Call Us Now
                             </Link>

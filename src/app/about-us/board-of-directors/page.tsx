@@ -26,6 +26,8 @@ const BoardOfDirectorsPage = () => {
         'Saroj Punhani is a distinguished member of the Indian Audit and Accounts Service in the Provincial & Federal government. With an experience spanning over almost four decade, she has successfully navigated complex bureaucratic landscapes, implemented effective policies, and delivered impactful results.',
         'Through her career, she has held key positions with various Ministries of GOI and office of CAG of India . She worked as Central Information Commissioner with the Central Information Commission ,Deputy Comptroller & Auditor General (HR, Training & International Relations )Additional Deputy Comptroller & Auditor General looking after Audit reports , Joint Secretary & Financial Advisor, Department of Post, Ministry of Communications, GOI , Director General (Commercial) looking after audit of PSUs; Executive Vice President (Finance & Support Services) PTC India , Ministry of Power, GOI , First Secretary (Economic Cooperation), Embassy of India, Kathmandu , Nepal, MEA, GOI and Under/Secretary Deputy Secretary (Navy and Coast Guard) Ministry of Defence, GOI.',
       ],
+      address: 'TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India.',
+      din: '08922018',
     },
     {
       name: 'General N.B Singh (Retired)',
@@ -37,6 +39,8 @@ const BoardOfDirectorsPage = () => {
         "As DG Information Systems, he was responsible for accelerating the pace of development of Army's operational and management information systems contributing significantly to availability of inputs for decision support at highest level. General Singh pioneered mission engineering analytics and reliability prediction using big data, significantly transforming Army equipment readiness strategies.",
         "Recognized with Param Vishishtha, Ati Vishishtha, and Vishishtha Seva medals, he is a Fellow of the Institution of Engineers, an SAE Member, and holds a PhD in Knowledge Leadership. As Commandant of Military College of EME ,he played a key role in skill development of over one lakh EME technicians across 44 technical streams, leaving an enduring legacy of excellence and innovation."
       ],
+      address: "TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India",
+      din: "09699871",
     },
     {
       name: 'Alok Kumar Tripathi',
@@ -46,6 +50,8 @@ const BoardOfDirectorsPage = () => {
         "Alok is an engineering graduate from BMS College of Engineering, Bengaluru, and completed his PGDBM from IMT, Ghaziabad. With over three decades of extensive industry experience, Alok embarked on his professional journey with BEML, Bengaluru, and then went on to serve at HMEED, Thiruvallur. In 1995, Alok joined Tractors India Limited and has since held various leadership positions in Branch Operations, Parts Marketing Operations, Spare Parts and Construction Machine Sales verticals. Prior to assuming his current role as National Product Support Head at the Gainwell Group, he was the Head Territory East for the Construction Business.",
         "His endearing personality, and people skills have helped him drive excellence in customer engagement and deliver measurable impact in terms of profitability for the aftermarket business. Today he wears many hats as he provides strategic guidance to the Product Support team and takes charge of designing, constructing, and leading the product support operations with the ultimate objective of achieving customer loyalty, market share, and profitability.",
       ],
+      address: "TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India",
+      din: "10470292",
     },
     {
       name: 'Ayan Banerjee',
@@ -54,6 +60,8 @@ const BoardOfDirectorsPage = () => {
       description: [
         "Ayan Banerjee boasts an illustrious career spanning nearly three decades, showcasing extensive expertise in heavy engineering, refractory, electronics, and media across global business landscapes. With a proven track record in startup ventures, he has been pivotal in establishing robust accounting and commercial processes, shaping direct and indirect tax environments, and steering treasury functions. A qualified Chartered Accountant from the prestigious M/S Lovelock & Lewes audit firm, Ayan currently serves as the Group Chief Financial Officer at Gainwell Group, where his dynamic leadership has been instrumental in achieving unparalleled financial success. His accomplishments include optimizing working capital management, overseeing international transfer pricing, ensuring SOX compliance, facilitating seamless merger and acquisition activities, and mitigating different direct and indirect tax cases . Ayan's multifaceted experience and strategic acumen underscore his significant contributions to the financial landscape of the organizations he has served.",
       ],
+      address: "TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India",
+      din: "07563764",
     },
     {
       name: 'Sunil Kumar Chaturvedi',
@@ -63,6 +71,8 @@ const BoardOfDirectorsPage = () => {
         "Sunil Chaturvedi, a Fellow Chartered Accountant by training has worked for two decades as a member of the Civil Services in Indian Administrative Service (IAS). During these years, he has held various positions in the State Government of West Bengal as well as in different Ministries of Government of India including Director in the Department of Economic Affairs, Ministry of Finance, Private Secretary to the Railways Minister, Govt of India, Director in the Ministry of Heavy Industries and Public Enterprises, Project Director of the National Automotive Testing and R&D Infrastructure Project (NATRiP), and finally, Commissioner and Special Secretary in the Department of Micro and Small Scale Enterprises, Government of West Bengal. He has represented Government of India on various international fora including the United Nations in its Woking Party-29 for harmonization of global automotive standards. After voluntarily retiring from the Government in 2008, Sunil served on the board of Bharat Forge Limited as an Executive Director and Chief Operating Officer for the Capital Goods Business till December 2013.",
         "Sunil joined Gainwell (then known as Tractors India Private Limited) in January 2014 and completed its management buyout in June 2016. Since then, he has been chairing the board of Gainwell. He is a member of various professional and trade bodies within and outside India including Society of Automotive Engineers (SAE), Confederation of Indian Industry (CII), Federation of Indian Chambers of Commerce and Industry (FICCI)and Associated Chambers of Commerce (Assocham), Bengal Chambers of Commerce (BCC). Presently he is also on the Board of renowned companies like Vesuvius India Limited and Assets Care & Reconstruction Enterprise Limited.",
       ],
+      address: "TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India",
+      din: "02183147",
     },
     {
       name: 'Amit Mukherjee',
@@ -72,6 +82,8 @@ const BoardOfDirectorsPage = () => {
         "Amit is one of the co-founders of Unigrow Solutions, a business consulting firm. He brings in a rich and varied corporate experience as a business and functional leader in the field of technology and supply chain. Amit is one of the few who has a very deep understanding of business coupled with his domain knowledge of technology. Amit started his career in Tata Steel where he worked in planning, supply chain and in the technology group. His subsequent stints were with SAP India, Hewlett Packard, Reliance Energy, RPG group as Group CIO and Executive Director.",
         "During his tenure at RPG group, he transitioned from a functional head to a business head and managed the Spencer's Retail business as Executive Director responsible for four functions namely: Operations, IT, Supply Chain and Projects. His last assignment was as the Chief Operating Officer of Srei Sahaj e-Village Limited, a company formed under the aegis of NEGP for providing online government and consumer facing services to the rural population using ICT.",
       ],
+      address: "TIL Limited, 1 Taratolla Road, Garden Reach, Kolkata-700024, India",
+      din: "06746412",
     }
   ];
 
@@ -154,8 +166,8 @@ const BoardOfDirectorsPage = () => {
 
   return (
     <>
-      {/* Hero Section - Matching Style */}
-      <div className="relative h-72 w-full overflow-hidden">
+      {/* Hero Section - Mobile Responsive */}
+      <div className="relative h-64 sm:h-72 w-full overflow-hidden">
         <img
           src={`${basePath}/bod-banner.png`}
           alt="Board of Directors"
@@ -167,8 +179,8 @@ const BoardOfDirectorsPage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
 
         {/* Content Container */}
-        <div className="absolute inset-0 z-20 flex items-center pt-8">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
+        <div className="absolute inset-0 z-20 flex items-center pt-4 sm:pt-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20 w-full">
             <motion.div
               className="max-w-2xl"
               initial={{ opacity: 0, x: -30 }}
@@ -176,7 +188,7 @@ const BoardOfDirectorsPage = () => {
               transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
             >
               <motion.span
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
+                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-4 sm:mt-8 uppercase"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -185,7 +197,7 @@ const BoardOfDirectorsPage = () => {
               </motion.span>
 
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
@@ -194,18 +206,18 @@ const BoardOfDirectorsPage = () => {
               </motion.h1>
 
               <motion.div
-                className="w-32 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-6 shadow-lg"
+                className="w-24 sm:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-4 sm:mb-6 shadow-lg"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               />
 
               <motion.p
-                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5, duration: 0.8 }}
-              >
+                              className="text-base sm:text-lg md:text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ delay: 0.5, duration: 0.8 }}
+                            >
                 Meet our leadership and governance team
               </motion.p>
             </motion.div>
@@ -214,20 +226,20 @@ const BoardOfDirectorsPage = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20">
           {/* Back Link */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center space-x-4 text-gray-600 mb-8"
+            className="flex items-center space-x-2 sm:space-x-4 text-gray-600 mb-6 sm:mb-8"
           >
             <Link 
               href="/about-us" 
-              className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
+              className="flex items-center space-x-1 sm:space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium text-sm sm:text-base"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Back to About</span>
             </Link>
           </motion.div>
@@ -237,11 +249,11 @@ const BoardOfDirectorsPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-gray-100"
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12">
               <motion.h2
-                className="text-3xl font-bold mb-4 tracking-tight"
+                className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -250,13 +262,13 @@ const BoardOfDirectorsPage = () => {
                 <span className="text-gray-900">Directors</span>
               </motion.h2>
               <motion.div
-                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                className="w-20 sm:w-24 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-4 sm:mb-6"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               />
               <motion.p
-                className="text-gray-600 max-w-3xl mx-auto text-lg tracking-wide"
+                className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base md:text-lg tracking-wide"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -265,18 +277,18 @@ const BoardOfDirectorsPage = () => {
               </motion.p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {boardMembers.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 group cursor-pointer transform hover:scale-[1.02] transition-all duration-300"
+                  className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border border-gray-200 group cursor-pointer transform hover:scale-[1.02] transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => setSelectedLeader(member)}
                 >
-                  <div className="p-6 text-center">
-                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#F1B434] mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-4 sm:p-6 text-center">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-[#F1B434] mb-4 sm:mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                       <img
                         src={member.image}
                         alt={member.name}
@@ -286,12 +298,12 @@ const BoardOfDirectorsPage = () => {
                         }}
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 tracking-tight">{member.name}</h3>
-                    <p className="text-[#F1B434] font-semibold mb-4 text-sm tracking-wide">{member.title}</p>
-                    <div className="text-gray-600 text-sm line-clamp-3 leading-relaxed mb-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 tracking-tight">{member.name}</h3>
+                    <p className="text-[#F1B434] font-semibold mb-3 sm:mb-4 text-xs sm:text-sm tracking-wide">{member.title}</p>
+                    <div className="text-gray-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-3 sm:mb-4">
                       {member.description[0]}
                     </div>
-                    <button className="text-[#F1B434] font-semibold text-sm hover:text-[#e0a42d] transition-colors duration-300 tracking-wide">
+                    <button className="text-[#F1B434] font-semibold text-xs sm:text-sm hover:text-[#e0a42d] transition-colors duration-300 tracking-wide">
                       Read More
                     </button>
                   </div>
@@ -305,11 +317,11 @@ const BoardOfDirectorsPage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="bg-white rounded-2xl shadow-2xl p-10 border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-100"
           >
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 sm:mb-12">
               <motion.h2
-                className="text-3xl font-bold mb-4 tracking-tight"
+                className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -318,13 +330,13 @@ const BoardOfDirectorsPage = () => {
                 <span className="text-gray-900">Team</span>
               </motion.h2>
               <motion.div
-                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                className="w-20 sm:w-24 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-4 sm:mb-6"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               />
               <motion.p
-                className="text-gray-600 max-w-3xl mx-auto text-lg tracking-wide"
+                className="text-gray-600 max-w-3xl mx-auto text-sm sm:text-base md:text-lg tracking-wide"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -333,18 +345,18 @@ const BoardOfDirectorsPage = () => {
               </motion.p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {leadershipTeam.map((member, index) => (
                 <motion.div
                   key={index}
-                  className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 group cursor-pointer transform hover:scale-[1.02] transition-all duration-300"
+                  className="bg-white rounded-xl sm:rounded-2xl shadow-lg overflow-hidden border border-gray-200 group cursor-pointer transform hover:scale-[1.02] transition-all duration-300"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   onClick={() => setSelectedLeader(member)}
                 >
-                  <div className="p-6 text-center">
-                    <div className="w-32 h-32 rounded-full overflow-hidden border-4 border-[#F1B434] mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                  <div className="p-4 sm:p-6 text-center">
+                    <div className="w-24 h-24 sm:w-32 sm:h-32 rounded-full overflow-hidden border-4 border-[#F1B434] mb-4 sm:mb-6 mx-auto shadow-lg group-hover:shadow-xl transition-shadow duration-300">
                       <img
                         src={member.image}
                         alt={member.name}
@@ -354,12 +366,12 @@ const BoardOfDirectorsPage = () => {
                         }}
                       />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-3 tracking-tight">{member.name}</h3>
-                    <p className="text-[#F1B434] font-semibold mb-4 text-sm tracking-wide">{member.title}</p>
-                    <div className="text-gray-600 text-sm line-clamp-3 leading-relaxed mb-4">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3 tracking-tight">{member.name}</h3>
+                    <p className="text-[#F1B434] font-semibold mb-3 sm:mb-4 text-xs sm:text-sm tracking-wide">{member.title}</p>
+                    <div className="text-gray-600 text-xs sm:text-sm line-clamp-3 leading-relaxed mb-3 sm:mb-4">
                       {member.description[0]}
                     </div>
-                    <button className="text-[#F1B434] font-semibold text-sm hover:text-[#e0a42d] transition-colors duration-300 tracking-wide">
+                    <button className="text-[#F1B434] font-semibold text-xs sm:text-sm hover:text-[#e0a42d] transition-colors duration-300 tracking-wide">
                       Read More
                     </button>
                   </div>
@@ -370,36 +382,36 @@ const BoardOfDirectorsPage = () => {
         </div>
       </section>
 
-      {/* Leader Modal */}
+      {/* Leader Modal - Mobile Responsive */}
       <AnimatePresence>
         {selectedLeader && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-2 sm:p-4"
             onClick={() => setSelectedLeader(null)}
           >
             <motion.div
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               exit={{ scale: 0.95, opacity: 0 }}
-              className="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100"
+              className="bg-white rounded-xl sm:rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-100"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="relative p-8">
+              <div className="relative p-4 sm:p-6 md:p-8">
                 {/* Close Button */}
                 <button
                   onClick={() => setSelectedLeader(null)}
-                  className="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
+                  className="absolute top-3 right-3 sm:top-4 sm:right-4 md:top-6 md:right-6 p-1 sm:p-2 rounded-full hover:bg-gray-100 transition-colors duration-300"
                   aria-label="Close modal"
                 >
-                  <X className="w-6 h-6 text-gray-700" />
+                  <X className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-gray-700" />
                 </button>
 
-                <div className="flex flex-col md:flex-row gap-8 items-start">
+                <div className="flex flex-col md:flex-row gap-4 sm:gap-6 md:gap-8 items-start">
                   {/* Left: Leader Image */}
-                  <div className="flex-shrink-0 w-40 h-40 rounded-full overflow-hidden border-4 border-[#F1B434] shadow-lg mx-auto md:mx-0">
+                  <div className="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-[#F1B434] shadow-lg mx-auto md:mx-0">
                     <img
                       src={selectedLeader.image}
                       alt={selectedLeader.name}
@@ -412,11 +424,11 @@ const BoardOfDirectorsPage = () => {
 
                   {/* Right: Name, Title, Description */}
                   <div className="flex-1 text-center md:text-left">
-                    <h3 className="text-3xl font-bold text-gray-800 mb-2 tracking-tight">{selectedLeader.name}</h3>
-                    <p className="text-[#F1B434] font-semibold text-xl mb-6 tracking-wide">{selectedLeader.title}</p>
-                    <div className="space-y-4">
+                    <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-1 sm:mb-2 tracking-tight">{selectedLeader.name}</h3>
+                    <p className="text-[#F1B434] font-semibold text-base sm:text-lg md:text-xl mb-4 sm:mb-6 tracking-wide">{selectedLeader.title}</p>
+                    <div className="space-y-3 sm:space-y-4">
                       {selectedLeader.description.map((para, idx) => (
-                        <p key={idx} className="text-gray-700 leading-relaxed tracking-wide">
+                        <p key={idx} className="text-gray-700 leading-relaxed tracking-wide text-sm sm:text-base">
                           {para}
                         </p>
                       ))}
@@ -426,7 +438,7 @@ const BoardOfDirectorsPage = () => {
 
                 {/* Optional: Address / DIN */}
                 {selectedLeader.address && (
-                  <div className="mt-6 text-gray-700 text-base border-t border-gray-200 pt-6">
+                  <div className="mt-4 sm:mt-6 text-gray-700 text-sm sm:text-base border-t border-gray-200 pt-4 sm:pt-6">
                     <p>
                       <strong>Address:</strong> {selectedLeader.address}
                     </p>

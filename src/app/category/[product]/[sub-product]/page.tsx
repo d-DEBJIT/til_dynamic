@@ -316,81 +316,61 @@ const allSubProducts: Record<string, SubProduct[]> = {
     {
       id: 'hyster-h10-16xd',
       name: 'Hyster H10-16XD',
-      description: 'Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/hyster-h10-16xd.jpg`,
+      description: "Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​ The load capacity ranges from 10,000 to 16,000 kg.",
+      introTitle: "Meet the Hyster H10-16XD",
+      introDescription: "Hyster forklifts are built for the toughest jobs, delivering the strength and performance of an internal combustion truck. Designed for heavy-duty applications, these forklifts offer optimised powertrains, optional attachments, and IC-like power to handle demanding tasks with ease. Hyster’s dependable technologies—like Hyster Tracker, Hyster Robotics, and flexible power source options- ensure strong, smart performance in even the harshest environments. They combine high productivity with low total cost of ownership, owing to industry-leading fuel efficiency, long service intervals, and affordable parts. With a focus on operator comfort, maximum visibility, and simplified maintenance, the forklift is engineered for uptime, serviceability, and long-term reliability. These forklifts are also easy to service, promoting quick daily checks and fast maintenance access, which helps minimise downtime.",
+      image: `${basePath}/Hyster-H10-16XD_Image-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
+      specifications: [],
       parentProduct: 'forklift-trucks'
     },
     {
       id: 'hyster-h25-32xd',
       name: 'Hyster H25-32XD',
-      description: 'Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/hyster-h25-32xd.jpg`,
+      description: "Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​The load capacity ranges from 25,000 to 32,000 kg.",
+      introTitle: "Meet the Hyster H25-32XD",
+      introDescription: "Hyster forklifts are built for the toughest jobs, delivering the strength and performance of an internal combustion truck. Designed for heavy-duty applications, these forklifts offer optimised powertrains, optional attachments, and IC-like power to handle demanding tasks with ease. Hyster’s dependable technologies—like Hyster Tracker, Hyster Robotics, and flexible power source options- ensure strong, smart performance in even the harshest environments. They combine high productivity with low total cost of ownership, owing to industry-leading fuel efficiency, long service intervals, and affordable parts. With a focus on operator comfort, maximum visibility, and simplified maintenance, the forklift is engineered for uptime, serviceability, and long-term reliability. These forklifts are also easy to service, promoting quick daily checks and fast maintenance access, which helps minimise downtime.",
+      image: `${basePath}/H25-32XD_Image-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
+      specifications: [],
       parentProduct: 'forklift-trucks'
     },
     {
       id: 'hyster-h36-48xd',
       name: 'Hyster H36-48XD',
-      description: 'Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/hyster-h36-48xd.jpg`,
+      description: "Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​ The load capacity ranges from 36,000 to 48,000 kg.",
+      introTitle: "Meet the Hyster H36-48XD",
+      introDescription: "Hyster forklifts are built for the toughest jobs, delivering the strength and performance of an internal combustion truck. Designed for heavy-duty applications, these forklifts offer optimised powertrains, optional attachments, and IC-like power to handle demanding tasks with ease. Hyster’s dependable technologies—like Hyster Tracker, Hyster Robotics, and flexible power source options- ensure strong, smart performance in even the harshest environments. They combine high productivity with low total cost of ownership, owing to industry-leading fuel efficiency, long service intervals, and affordable parts. With a focus on operator comfort, maximum visibility, and simplified maintenance, the forklift is engineered for uptime, serviceability, and long-term reliability. These forklifts are also easy to service, promoting quick daily checks and fast maintenance access, which helps minimise downtime.",
+      image: `${basePath}/H36-48XD_Image-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
+      specifications: [],
       parentProduct: 'forklift-trucks'
     },
     {
       id: 'hyster-h8-10xt',
       name: 'Hyster H8.0-10.0XT',
-      description: 'Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/hyster-h8-10xt.jpg`,
+      description: "Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​ The load capacity ranges from 8,000 to 10,000 kg.",
+      introTitle: "Meet the Hyster H8.0-10.0XT",
+      introDescription: "Hyster forklifts are built for the toughest jobs, delivering the strength and performance of an internal combustion truck. Designed for heavy-duty applications, these forklifts offer optimised powertrains, optional attachments, and IC-like power to handle demanding tasks with ease. Hyster’s dependable technologies—like Hyster Tracker, Hyster Robotics, and flexible power source options- ensure strong, smart performance in even the harshest environments. They combine high productivity with low total cost of ownership, owing to industry-leading fuel efficiency, long service intervals, and affordable parts. With a focus on operator comfort, maximum visibility, and simplified maintenance, the forklift is engineered for uptime, serviceability, and long-term reliability. These forklifts are also easy to service, promoting quick daily checks and fast maintenance access, which helps minimise downtime.",
+      image: `${basePath}/H8.0-10.0XT_Image-1.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
+      specifications: [],
       parentProduct: 'forklift-trucks'
     },
     {
       id: 'hyster-h8-11xd',
       name: 'Hyster H8-11XD EC B3C0',
-      description: 'Hyster forklifts are engineered to deliver power, performance, and energy efficiency for challenging industrial applications.​',
-      introTitle: "",
-      introDescription: "",
-      image: `${basePath}/hyster-h8-11xd.png`,
+      description: "Hyster’s empty container handler offers reliable performance with a focus on operator comfort, durability, and low operating costs. The load capacity ranges from 8,000 to 11,000 kg.",
+      introTitle: "Meet the Hyster H8-11XD EC B3C0",
+      introDescription: "H8-11XD EC B3C0, with Classic Cabin, is engineered for efficient empty container handling in port environments, offers reliable performance with a focus on operator comfort, durability, and low operating costs. The exterior features a flat-glass design with steel bars for added protection, and a structure built for easy maintenance and repairs. Inside, the Classic Cabin shares design elements with the premium XD cabin, offering a user-friendly layout with controls centralised in the ergonomic armrest. A directional lever on the steering column and a new brake pedal system improve handling and reduce operator fatigue. Technology and functionality are built in, with a 7” Integrated Performance Display, USB outlets in both the cabin, and a DC/DC converter with additional power sockets. Navigation and truck functions are accessible via touchscreen or rotary button, with multiple user-level settings. With minimal brake wear, low pedal effort, and long service life, this machine helps maximise uptime while keeping maintenance costs low.",
+      image: `${basePath}/H8-11XD_EC_B3C0_Image_1.png`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
-      specifications: [
-        { name: 'Max Capacity', value: '30 Tons' },
-        { name: 'Boom Length', value: '35 Meters' },
-        { name: 'Engine Power', value: '300 HP' }
-      ],
+      specifications: [],
       parentProduct: 'forklift-trucks'
     }
   ],
@@ -401,7 +381,7 @@ const allSubProducts: Record<string, SubProduct[]> = {
       description: 'Advanced all-terrain crane from the Grove range',
       introTitle: "Meet the A62JRT",
       introDescription: "The Snorkel A62JRT articulating boom lift delivers a superb working envelope with zero tailswing. Offering the largest platform in its class, it can lift two people with tools to a working height of 67 ft. 8 in. (20.8m). A compact length when stowed makes it easy to transport the lift between jobsites. An oscillating front axle keeps the A62JRT steady on uneven ground for all-terrain performance.",
-      image: `${basePath}/a62jrt.jpg`,
+      image: `${basePath}/2024_11_27_13_31_30_6746d1dae2b8f.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
@@ -416,7 +396,7 @@ const allSubProducts: Record<string, SubProduct[]> = {
       description: 'Advanced all-terrain crane from the Grove range',
       introTitle: "Meet the RS 46 - 33CH",
       introDescription: "RS 46 - 33CH - World class ReachStacker made in india I Moving material from port to home",
-      image: `${basePath}/rs46-33ch.jpg`,
+      image: `${basePath}/2024_11_04_13_23_57_67287d956e8c4.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [
@@ -429,7 +409,7 @@ const allSubProducts: Record<string, SubProduct[]> = {
       description: 'Advanced all-terrain crane from the Grove range',
       introTitle: "Meet the RS 45 - 31CH A366 / A404",
       introDescription: "RS 45 - 31CH A366 / A404 - World class ReachStacker made in india I Moving material from port to home",
-      image: `${basePath}/rs45-31cha336-a404.jpg`,
+      image: `${basePath}/2024_11_04_13_23_25_67287d75d25c8.jpg`,
       features: ['All-Terrain Capability', 'Advanced Load Monitoring', 'Comfortable Cab'],
       brochure: `${basePath}/brochures/gmk-3050.pdf`,
       specifications: [

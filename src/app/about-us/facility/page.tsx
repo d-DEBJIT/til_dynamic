@@ -118,8 +118,8 @@ const FacilityPage = () => {
 
     return (
         <>
-            {/* Hero Section */}
-            <div className="relative h-72 w-full overflow-hidden">
+            {/* Hero Section - Mobile Responsive */}
+            <div className="relative h-48 sm:h-56 md:h-64 lg:h-72 w-full overflow-hidden">
                 <motion.img
                     src={`${basePath}/facilities.jpg`}
                     alt="Facilities"
@@ -131,8 +131,8 @@ const FacilityPage = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
 
-                <div className="absolute inset-0 z-20 flex items-center pt-8">
-                    <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
+                <div className="absolute inset-0 z-20 flex items-center pt-4 sm:pt-8">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20 w-full">
                         <motion.div
                             className="max-w-2xl"
                             initial={{ opacity: 0, x: -30 }}
@@ -140,7 +140,7 @@ const FacilityPage = () => {
                             transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
                         >
                             <motion.span
-                                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
+                                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-4 sm:mt-8 uppercase"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.2, duration: 0.8 }}
@@ -149,7 +149,7 @@ const FacilityPage = () => {
                             </motion.span>
 
                             <motion.h1
-                                className="text-4xl md:text-5xl base:text-[3.5rem] font-bold text-white mb-6 leading-tight tracking-tight"
+                                className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-[3.5rem] font-bold text-white mb-3 sm:mb-4 md:mb-6 leading-tight tracking-tight"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.3, duration: 0.8 }}
@@ -158,14 +158,14 @@ const FacilityPage = () => {
                             </motion.h1>
 
                             <motion.div
-                                className="w-32 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-6 shadow-lg"
+                                className="w-20 sm:w-24 md:w-32 h-1 sm:h-1.5 md:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-3 sm:mb-4 md:mb-6 shadow-lg"
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             />
 
                             <motion.p
-                                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                                className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -178,20 +178,20 @@ const FacilityPage = () => {
             </div>
 
             {/* Content Section */}
-            <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-                <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
+            <section className="py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20">
                     {/* Back Link */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="flex items-center space-x-4 text-gray-600 mb-8"
+                        className="flex items-center space-x-2 sm:space-x-4 text-gray-600 mb-6 sm:mb-8"
                     >
                         <Link
                             href="/about-us"
-                            className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
+                            className="flex items-center space-x-1 sm:space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium text-sm sm:text-base"
                         >
-                            <ArrowLeft className="w-4 h-4" />
+                            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
                             <span>Back to About</span>
                         </Link>
                     </motion.div>
@@ -201,11 +201,11 @@ const FacilityPage = () => {
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
-                        className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+                        className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-gray-100"
                     >
                         <div className="text-center max-w-4xl mx-auto">
                             <motion.h2
-                                className="text-3xl font-bold mb-4 tracking-tight"
+                                className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 tracking-tight"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
@@ -214,13 +214,13 @@ const FacilityPage = () => {
                                 <span className="text-gray-900">Manufacturing Facilities</span>
                             </motion.h2>
                             <motion.div
-                                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                                className="w-20 sm:w-24 h-1 sm:h-1.5 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-4 sm:mb-6"
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             />
                             <motion.p
-                                className="text-gray-600 text-lg leading-relaxed tracking-wide"
+                                className="text-gray-600 text-base sm:text-lg leading-relaxed tracking-wide"
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -234,28 +234,28 @@ const FacilityPage = () => {
                     <motion.div
                         initial="hidden"
                         animate="visible"
-                        className="space-y-20 mb-20"
+                        className="space-y-12 sm:space-y-16 md:space-y-20 mb-12 sm:mb-16 md:mb-20"
                     >
                         {facilities.map((facility, index) => (
                             <motion.div
                                 key={facility.name}
-                                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 items-start`}
+                                className={`flex flex-col ${index % 2 === 1 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-6 sm:gap-8 md:gap-12 items-start`}
                             >
                                 {/* Facility Image/Video */}
                                 <motion.div
-                                    className="lg:w-1/2"
+                                    className="lg:w-1/2 w-full"
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ once: true, margin: "-100px" }}
+                                    viewport={{ once: true, margin: "-50px" }}
                                 >
                                     <motion.div
-                                        className="relative rounded-2xl overflow-hidden shadow-2xl"
+                                        className="relative rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl"
                                         variants={index % 2 === 0 ? slideInLeft : slideInRight}
                                     >
                                         <img
                                             src={facility.image}
                                             alt={facility.name}
-                                            className="w-full h-96 object-cover transform hover:scale-105 transition-transform duration-700"
+                                            className="w-full h-48 sm:h-64 md:h-80 lg:h-96 object-cover transform hover:scale-105 transition-transform duration-700"
                                             loading="lazy"
                                         />
                                         <div className="absolute inset-0 bg-black/10 hover:bg-black/5 transition-colors duration-300" />
@@ -268,17 +268,17 @@ const FacilityPage = () => {
                                             whileInView={{ opacity: 1, height: 'auto' }}
                                             transition={{ duration: 0.6, delay: 0.3 }}
                                             viewport={{ once: true }}
-                                            className="mt-6 rounded-2xl overflow-hidden shadow-2xl"
+                                            className="mt-4 sm:mt-6 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl"
                                         >
                                             <iframe
                                                 width="100%"
-                                                height="400"
+                                                height="300"
                                                 src={facility.videoUrl}
                                                 title={`${facility.name} Video`}
                                                 frameBorder="0"
                                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                                 allowFullScreen
-                                                className="w-full h-80 rounded-2xl"
+                                                className="w-full h-48 sm:h-64 md:h-80 rounded-xl sm:rounded-2xl"
                                             />
                                         </motion.div>
                                     )}
@@ -286,35 +286,35 @@ const FacilityPage = () => {
 
                                 {/* Facility Content */}
                                 <motion.div
-                                    className="lg:w-1/2"
+                                    className="lg:w-1/2 w-full"
                                     initial="hidden"
                                     whileInView="visible"
-                                    viewport={{ once: true, margin: "-100px" }}
+                                    viewport={{ once: true, margin: "-50px" }}
                                 >
                                     <motion.div
-                                        className="bg-white rounded-2xl p-8 shadow-xl border border-gray-100"
+                                        className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 shadow-lg sm:shadow-xl border border-gray-100"
                                         variants={index % 2 === 0 ? slideInRight : slideInLeft}
                                     >
-                                        <div className="flex items-center gap-3 mb-6">
-                                            <div className="w-12 h-12 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-xl flex items-center justify-center shadow-lg">
-                                                <Building className="w-6 h-6 text-white" />
+                                        <div className="flex items-center gap-3 mb-4 sm:mb-6">
+                                            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-lg sm:rounded-xl flex items-center justify-center shadow-lg">
+                                                <Building className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                                             </div>
                                             <div>
-                                                <h3 className="text-2xl font-bold text-gray-800 tracking-tight">{facility.name}</h3>
+                                                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 tracking-tight">{facility.name}</h3>
                                                 <div className="flex items-center gap-2 mt-1">
-                                                    <MapPin className="w-4 h-4 text-[#F1B434]" />
-                                                    <span className="text-gray-600 text-sm">{facility.location}</span>
+                                                    <MapPin className="w-3 h-3 sm:w-4 sm:h-4 text-[#F1B434]" />
+                                                    <span className="text-gray-600 text-xs sm:text-sm">{facility.location}</span>
                                                 </div>
                                             </div>
                                         </div>
 
                                         {/* Description */}
-                                        <div className="text-gray-700 mb-8 leading-relaxed tracking-wide text-base">
+                                        <div className="text-gray-700 mb-6 sm:mb-8 leading-relaxed tracking-wide text-sm sm:text-base">
                                             {facility.description}
                                         </div>
 
                                         {/* Features */}
-                                        <div className="grid grid-cols-2 gap-3 mb-6">
+                                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3 mb-4 sm:mb-6">
                                             {facility.features.map((feature, i) => (
                                                 <motion.div
                                                     key={i}
@@ -322,10 +322,10 @@ const FacilityPage = () => {
                                                     whileInView={{ opacity: 1, x: 0 }}
                                                     transition={{ duration: 0.5, delay: i * 0.1 }}
                                                     viewport={{ once: true }}
-                                                    className="flex items-center gap-2 text-sm text-gray-600"
+                                                    className="flex items-center gap-2 text-xs sm:text-sm text-gray-600"
                                                 >
-                                                    <div className="w-2 h-2 bg-[#F1B434] rounded-full" />
-                                                    {feature}
+                                                    <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-[#F1B434] rounded-full flex-shrink-0" />
+                                                    <span>{feature}</span>
                                                 </motion.div>
                                             ))}
                                         </div>
@@ -337,10 +337,10 @@ const FacilityPage = () => {
                                                 whileInView={{ opacity: 1, y: 0 }}
                                                 transition={{ duration: 0.6 }}
                                                 viewport={{ once: true }}
-                                                className="border-t border-gray-200 pt-6"
+                                                className="border-t border-gray-200 pt-4 sm:pt-6"
                                             >
-                                                <h4 className="font-semibold text-gray-800 mb-4 text-lg">Key Achievements:</h4>
-                                                <div className="flex flex-wrap gap-3">
+                                                <h4 className="font-semibold text-gray-800 mb-3 sm:mb-4 text-base sm:text-lg">Key Achievements:</h4>
+                                                <div className="flex flex-wrap gap-2 sm:gap-3">
                                                     {facility.highlights.map((highlight, i) => (
                                                         <motion.span
                                                             key={i}
@@ -348,8 +348,8 @@ const FacilityPage = () => {
                                                             whileInView={{ opacity: 1, scale: 1 }}
                                                             transition={{ duration: 0.4, delay: i * 0.1 }}
                                                             viewport={{ once: true }}
-                                                            className="px-4 py-2 bg-gradient-to-r from-[#F1B434]/10 to-yellow-400/10 border border-[#F1B434]/20 
-                                                            rounded-full text-sm font-medium text-gray-700 whitespace-nowrap
+                                                            className="px-3 py-1.5 sm:px-4 sm:py-2 bg-gradient-to-r from-[#F1B434]/10 to-yellow-400/10 border border-[#F1B434]/20 
+                                                            rounded-full text-xs sm:text-sm font-medium text-gray-700
                                                             hover:shadow-lg hover:border-[#F1B434]/30 transition-all duration-300"
                                                         >
                                                             {highlight}
@@ -370,11 +370,11 @@ const FacilityPage = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+                        className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-gray-100"
                     >
-                        <div className="text-center mb-12">
+                        <div className="text-center mb-8 sm:mb-12">
                             <motion.h2
-                                className="text-3xl font-bold mb-4 tracking-tight"
+                                className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 tracking-tight"
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
@@ -383,14 +383,14 @@ const FacilityPage = () => {
                                 <span className="text-gray-900">Capabilities</span>
                             </motion.h2>
                             <motion.div
-                                className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-6"
+                                className="w-20 sm:w-24 h-1 sm:h-1.5 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg mb-4 sm:mb-6"
                                 initial={{ scaleX: 0 }}
                                 animate={{ scaleX: 1 }}
                                 transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
                             />
                         </div>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                             {capabilities.map((capability, index) => (
                                 <motion.div
                                     key={capability.title}
@@ -399,21 +399,20 @@ const FacilityPage = () => {
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     viewport={{ once: true }}
                                     whileHover={{ y: -5 }}
-                                    className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
+                                    className="bg-gradient-to-br from-gray-50 to-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300 group"
                                 >
                                     <motion.div
-                                        className="w-16 h-16 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300"
+                                        className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 bg-gradient-to-br from-[#F1B434] to-yellow-400 rounded-xl sm:rounded-2xl flex items-center justify-center mx-auto mb-3 sm:mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300"
                                         whileHover={{ rotate: 5 }}
                                     >
-                                        {React.cloneElement(capability.icon, { className: "w-8 h-8 text-white" })}
+                                        {React.cloneElement(capability.icon, { className: "w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 text-white" })}
                                     </motion.div>
-                                    <h4 className="font-bold text-gray-800 mb-3 text-lg tracking-tight">{capability.title}</h4>
-                                    <p className="text-gray-600 text-sm leading-relaxed tracking-wide">{capability.description}</p>
+                                    <h4 className="font-bold text-gray-800 mb-2 sm:mb-3 text-base sm:text-lg tracking-tight">{capability.title}</h4>
+                                    <p className="text-gray-600 text-xs sm:text-sm leading-relaxed tracking-wide">{capability.description}</p>
                                 </motion.div>
                             ))}
                         </div>
                     </motion.div>
- 
                 </div>
             </section>
         </>

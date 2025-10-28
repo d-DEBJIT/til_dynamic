@@ -34,8 +34,8 @@ const CorporateProfilePage = () => {
 
   return (
     <>
-      {/* Hero Section - Matching About Page Style */}
-      <div className="relative h-72 w-full overflow-hidden">
+      {/* Hero Section - Mobile Responsive */}
+      <div className="relative h-64 sm:h-72 w-full overflow-hidden">
         <img
           src={`${basePath}/corporate-profile-banner.png`}
           alt="Corporate Profile"
@@ -47,25 +47,16 @@ const CorporateProfilePage = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-black/50 to-transparent z-10" />
 
         {/* Content Container */}
-        <div className="absolute inset-0 z-20 flex items-center pt-8">
-          <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 w-full">
+        <div className="absolute inset-0 z-20 flex items-center pt-4 sm:pt-8">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20 w-full">
             <motion.div
               className="max-w-2xl"
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: [0.16, 0.77, 0.47, 0.97] }}
             >
-              <motion.span
-                className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-[#F1B434] to-yellow-300 text-sm font-bold tracking-wider mb-2 mt-8 uppercase"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.2, duration: 0.8 }}
-              >
-                {/* CORPORATE PROFILE */}
-              </motion.span>
-
               <motion.h1
-                className="text-5xl md:text-6xl lg:text-[3.5rem] font-bold text-white mb-6 leading-tight tracking-tight"
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.5rem] font-bold text-white mb-4 sm:mb-6 leading-tight tracking-tight"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3, duration: 0.8 }}
@@ -74,14 +65,14 @@ const CorporateProfilePage = () => {
               </motion.h1>
 
               <motion.div
-                className="w-32 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-6 shadow-lg"
+                className="w-24 sm:w-32 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mb-4 sm:mb-6 shadow-lg"
                 initial={{ scaleX: 0 }}
                 animate={{ scaleX: 1 }}
                 transition={{ delay: 0.4, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
               />
 
               <motion.p
-                className="text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
+                className="text-base sm:text-lg md:text-xl text-gray-100 max-w-xl leading-relaxed font-medium tracking-wide"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.5, duration: 0.8 }}
@@ -94,20 +85,20 @@ const CorporateProfilePage = () => {
       </div>
 
       {/* Main Content */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20">
+      <section className="py-12 sm:py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 xl:px-20">
           {/* Back Link */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="flex items-center space-x-4 text-gray-600 mb-8"
+            className="flex items-center space-x-2 sm:space-x-4 text-gray-600 mb-6 sm:mb-8"
           >
             <Link
               href="/about-us"
-              className="flex items-center space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium"
+              className="flex items-center space-x-1 sm:space-x-2 hover:text-[#F1B434] transition-colors duration-300 font-medium text-sm sm:text-base"
             >
-              <ArrowLeft className="w-4 h-4" />
+              <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4" />
               <span>Back to About</span>
             </Link>
           </motion.div>
@@ -117,15 +108,15 @@ const CorporateProfilePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-gray-100"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-start">
               {/* Left Image */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                className="relative h-64 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 order-2 lg:order-1"
               >
                 <img
                   src={contentData.image}
@@ -140,7 +131,7 @@ const CorporateProfilePage = () => {
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6 order-1 lg:order-2"
               >
                 {contentData.content.map((paragraph, index) => {
                   // Special case for first paragraph with "here" hyperlink
@@ -151,7 +142,7 @@ const CorporateProfilePage = () => {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="text-gray-700 leading-relaxed text-base tracking-wide"
+                        className="text-gray-700 leading-relaxed text-sm sm:text-base tracking-wide"
                       >
                         TIL Limited was formerly known as Tractors India Limited. Today TIL is now expanded and the company is simply known as TIL Limited. The company has adopted new values after becoming a part of the Gainwell Group. You can learn more about the values{' '}
                         <Link
@@ -172,7 +163,7 @@ const CorporateProfilePage = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="text-gray-700 leading-relaxed text-base tracking-wide"
+                      className="text-gray-700 leading-relaxed text-sm sm:text-base tracking-wide"
                     >
                       {paragraph}
                     </motion.p>
@@ -187,12 +178,12 @@ const CorporateProfilePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-10 mb-16 border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 mb-12 sm:mb-16 border border-gray-100"
           >
             <div className="flex flex-col items-center">
-              <div className="max-w-2xl text-center mb-12">
+              <div className="max-w-2xl text-center mb-8 sm:mb-12">
                 <motion.h2
-                  className="text-3xl font-bold mb-4 tracking-tight"
+                  className="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6 }}
@@ -201,7 +192,7 @@ const CorporateProfilePage = () => {
                   <span className="text-gray-900">on offer include</span>
                 </motion.h2>
                 <motion.div
-                  className="w-24 h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg"
+                  className="w-20 sm:w-24 h-1.5 sm:h-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] rounded-full mx-auto shadow-lg"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
@@ -210,7 +201,7 @@ const CorporateProfilePage = () => {
 
               {/* Highlight Cards */}
               <motion.div
-                className="flex flex-wrap justify-center gap-4 max-w-5xl"
+                className="flex flex-wrap justify-center gap-3 sm:gap-4 max-w-5xl"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -219,9 +210,10 @@ const CorporateProfilePage = () => {
                   <Link
                     key={index}
                     href={`/category/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                    className="px-6 py-3 bg-[#F1B434] border border-[#F1B434]/30 
+                    className="px-4 sm:px-6 py-2 sm:py-3 bg-[#F1B434] border border-[#F1B434]/30 
                       rounded-full shadow-lg font-medium text-gray-800 whitespace-nowrap
-                      hover:shadow-xl hover:scale-105 transition-all duration-300 transform"
+                      hover:shadow-xl hover:scale-105 transition-all duration-300 transform
+                      text-xs sm:text-sm"
                   >
                     {item}
                   </Link>
@@ -235,45 +227,45 @@ const CorporateProfilePage = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-2xl shadow-2xl p-10 border border-gray-100"
+            className="bg-white rounded-xl sm:rounded-2xl shadow-lg sm:shadow-2xl p-6 sm:p-8 md:p-10 border border-gray-100"
           >
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 md:gap-12 items-center">
               {/* Left Side - Text */}
               <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="space-y-6"
+                className="space-y-4 sm:space-y-6 order-2 lg:order-1"
               >
                 <motion.h3
-                  className="text-2xl font-bold text-gray-900 tracking-tight"
+                  className="text-xl sm:text-2xl font-bold text-gray-900 tracking-tight"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
                   Our <span className="text-[#F1B434]">Commitment</span> to Excellence
                 </motion.h3>
-                
+
                 <motion.p
-                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  className="text-gray-700 text-sm sm:text-base leading-relaxed tracking-wide"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.3 }}
                 >
                   Our unwavering commitment lies in the pursuit of establishing a sustainable institution and securing a sustainable future for all stakeholders.
                 </motion.p>
-                
+
                 <motion.p
-                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  className="text-gray-700 text-sm sm:text-base leading-relaxed tracking-wide"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 }}
                 >
                   The ISO 9001 certification signifies our unwavering dedication to upholding the utmost quality standards. The numerous CSR initiatives TIL undertakes are aimed at the betterment of society, community and environment.
                 </motion.p>
-                
+
                 <motion.p
-                  className="text-gray-700 text-base leading-relaxed tracking-wide"
+                  className="text-gray-700 text-sm sm:text-base leading-relaxed tracking-wide"
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.5 }}
@@ -282,12 +274,12 @@ const CorporateProfilePage = () => {
                 </motion.p>
               </motion.div>
 
-              {/* Right Side - Image - Fixed to fit properly */}
+              {/* Right Side - Image */}
               <motion.div
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6 }}
-                className="relative w-full h-full min-h-96 rounded-2xl overflow-hidden shadow-2xl transform hover:scale-[1.02] transition-transform duration-500"
+                className="relative w-full h-full min-h-64 sm:min-h-80 md:min-h-96 rounded-xl sm:rounded-2xl overflow-hidden shadow-lg sm:shadow-2xl transform hover:scale-[1.02] transition-transform duration-500 order-1 lg:order-2"
               >
                 <img
                   src={`${basePath}/iso.jpg`}

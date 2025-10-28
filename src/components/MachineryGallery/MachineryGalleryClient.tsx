@@ -35,25 +35,22 @@ const ProductCard: FC<{ machine: Machine; isActive: boolean; isClickable: boolea
   isActive,
   isClickable,
 }) => {
-  const [isHovered, setIsHovered] = useState(false)
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <div
-      className={`relative w-full h-full max-w-[16rem] max-h-[16rem] overflow-hidden rounded-xl shadow-lg transition-all duration-500 ${isActive ? 'scale-110 z-10' : 'scale-90'
-        } group`}
+      className={`relative w-full h-full max-w-[16rem] max-h-[16rem] overflow-hidden rounded-xl 
+      shadow-lg transition-all duration-500 ${isActive ? 'scale-110 z-10' : 'scale-90'} group`}
       style={{
         boxShadow: isActive ? '0 10px 25px -5px rgba(0, 0, 0, 0.3)' : 'none',
       }}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      {/* Solid yellow border effect */}
+      {/* Yellow border on hover */}
       <motion.div
         className="absolute inset-0 rounded-xl pointer-events-none"
-        style={{
-          backgroundColor: brandYellow,
-          padding: '2px',
-        }}
+        style={{ backgroundColor: brandYellow, padding: '2px' }}
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
@@ -61,95 +58,75 @@ const ProductCard: FC<{ machine: Machine; isActive: boolean; isClickable: boolea
         <div className="w-full h-full bg-white rounded-lg" />
       </motion.div>
 
+      {/* Product Image */}
       <img
         src={machine.img}
         alt={machine.title}
         className="w-full h-full object-contain bg-white p-4 relative z-0"
       />
 
-      {/* Title inside card */}
+      {/* Title */}
       <motion.span
-        className="absolute top-4 left-0 right-0 inline-block text-lg font-bold tracking-tight text-center"
+        className="absolute top-4 left-0 right-0 text-lg font-bold tracking-tight text-center"
         style={{ color: brandYellow }}
-        initial={{
-          opacity: 0,
-          letterSpacing: "-0.05em"
-        }}
-        animate={{
-          opacity: 1,
-          letterSpacing: "0.02em",
-        }}
-        transition={{
-          duration: 0.8,
-          delay: 0.3,
-          ease: [0.16, 0.77, 0.47, 0.97]
-        }}
+        initial={{ opacity: 0, letterSpacing: '-0.05em' }}
+        animate={{ opacity: 1, letterSpacing: '0.02em' }}
+        transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 0.77, 0.47, 0.97] }}
       >
         {machine.title}
       </motion.span>
 
-      {/* Always visible Explore Now button - Only clickable for active card */}
+      {/* CTA */}
       {isClickable ? (
         <Link href={`/category/${slugify(machine.title)}`} passHref>
           <motion.button
-            className={`absolute flex items-center justify-center gap-1 text-white px-3 py-1.5 rounded-lg text-xs z-10 ${isHovered ? 'bottom-4 right-4' : 'bottom-4 left-1/2 -translate-x-1/2'
-              }`}
+            className="absolute left-1/2 top-[80%] -translate-x-1/2 flex items-center justify-center gap-1 text-white px-3 py-1.5 rounded-md font-semibold z-20 whitespace-nowrap text-sm w-auto"
             style={{
-              backgroundColor: brandYellow
+              backgroundColor: brandYellow,
+              pointerEvents: isHovered ? 'auto' : 'none',
             }}
-            whileHover={{
-              backgroundColor: '#E5A430'
-            }}
-            transition={{
-              duration: 0.3,
-              ease: "easeInOut"
-            }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: isHovered ? 1 : 0 }}
+            transition={{ duration: 0.25, ease: 'easeInOut' }}
           >
-            <ArrowRight size={12} />
-            Explore Now
+            <ArrowRight size={12} /> Explore Now
           </motion.button>
         </Link>
       ) : (
         <motion.button
-          className={`absolute flex items-center justify-center gap-1 text-white px-3 py-1.5 rounded-lg text-xs z-10 ${isHovered ? 'bottom-4 right-4' : 'bottom-4 left-1/2 -translate-x-1/2'
-            }`}
+          className="absolute top-0 left-0  right-0 bottom-0 flex items-center justify-center text-white px-3 py-1.5 rounded-lg text-xs font-semibold z-20 m-auto w-fit h-fit"
           style={{
             backgroundColor: brandYellow,
-            opacity: 0.7,
-            cursor: 'not-allowed'
+            opacity: isHovered ? 0.7 : 0,
+            cursor: 'not-allowed',
+            pointerEvents: 'none',
           }}
+          initial={{ opacity: 0, y: 6 }}
+          animate={{ opacity: isHovered ? 0.7 : 0, y: isHovered ? 0 : 6 }}
+          transition={{ duration: 0.25, ease: 'easeInOut' }}
         >
-          <ArrowRight size={12} />
-          Explore Now
+          <ArrowRight size={12} /> Explore Now
         </motion.button>
       )}
 
-      {/* Hover overlay with details */}
+      {/* Dark Overlay (reduced opacity) */}
       <motion.div
-        className="absolute inset-0 flex flex-col justify-end opacity-0 group-hover:opacity-100 p-4 pointer-events-none"
+        className="absolute inset-0 flex flex-col justify-end p-4 pointer-events-none z-10"
         initial={{ opacity: 0 }}
         animate={{ opacity: isHovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
       >
-        <div className="absolute inset-0 bg-[#1a2233]/90" />
+        <div className="absolute inset-0 bg-[#1a2233]/40 rounded-xl" />
 
         <div className="relative z-10 space-y-2">
-          <ul className="text-gray-100 font-sans text-xs space-y-1">
-            {/* {machine.specs.map((spec, i) => (
-              <li key={i} className="flex items-center">
-                <span 
-                  className="w-1.5 h-1.5 rounded-full mr-2"
-                  style={{ backgroundColor: brandYellow }}
-                ></span>
-                {spec}
-              </li>
-            ))} */}
-          </ul>
+          {/* Future specs list here */}
         </div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
+
+
 
 const MachineryGalleryClient: FC<MachineryGalleryClientProps> = ({
   products = [],
@@ -207,7 +184,7 @@ const MachineryGalleryClient: FC<MachineryGalleryClientProps> = ({
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 tracking-tight">
             Our Product <span style={{ color: brandYellow }}>Portfolio</span>
           </h2>
-          <div 
+          <div
             className="w-24 h-1 mx-auto rounded-full"
             style={{ backgroundColor: brandYellow }}
           ></div>
@@ -218,10 +195,10 @@ const MachineryGalleryClient: FC<MachineryGalleryClientProps> = ({
           <div className="md:hidden">
             <div className="relative h-[300px] flex items-center justify-center overflow-hidden">
               <div className="flex w-full h-full items-center justify-center">
-                <ProductCard 
-                  machine={products[activeIndex]} 
-                  isActive={true} 
-                  isClickable={true} 
+                <ProductCard
+                  machine={products[activeIndex]}
+                  isActive={true}
+                  isClickable={true}
                 />
               </div>
 
@@ -329,9 +306,9 @@ const MachineryGalleryClient: FC<MachineryGalleryClientProps> = ({
                           setRotation(targetRotation)
                         }}
                       >
-                        <ProductCard 
-                          machine={machine} 
-                          isActive={isActive} 
+                        <ProductCard
+                          machine={machine}
+                          isActive={isActive}
                           isClickable={isActive}
                         />
                       </div>

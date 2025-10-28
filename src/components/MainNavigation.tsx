@@ -17,6 +17,7 @@ import {
   Train,
   Shield,
   Zap,
+  MapPin,
   Phone,
   Download,
   Star,
@@ -24,6 +25,7 @@ import {
   Settings,
   Award,
   Users,
+  Briefcase,
   MessageSquare,
   Mail,
   Linkedin,
@@ -83,8 +85,6 @@ function kebab(str: string): string {
 
 const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [activeCategory, setActiveCategory] = useState('company');
-  const [activeItem, setActiveItem] = useState<null | typeof aboutSubmenuData.company.items[0]>(null);
-  const [rightPanelContent, setRightPanelContent] = useState<AboutMedia | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   // Mobile detection hook
@@ -99,13 +99,15 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
+  const router = useRouter();
+
   const primaryCategories = [
     {
       id: 'company',
       name: 'Corporate Profile',
       icon: <Building className="w-4 h-4" />,
       description: 'Our heritage and leadership in construction equipment',
-      link: '/about-us//corporate'
+      link: '/about-us/corporate'
     },
     {
       id: 'leadership',
@@ -119,7 +121,7 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Milestones',
       icon: <Shield className="w-4 h-4" />,
       description: 'Key achievements and historical moments',
-      link: '/about-us//milestones'
+      link: '/about-us/milestones'
     },
     {
       id: 'values',
@@ -150,272 +152,60 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       link: '/about-us/facility'
     }
   ];
-  const router = useRouter();
 
-
-
-  const aboutSubmenuData = {
+  const aboutContentData = {
     company: {
-      items: [
-        {
-          name: 'Company History',
-          description: 'Explore our 80+ years of engineering excellence',
-          image: `${basePath}/company-history.jpeg`,
-          link: `/about-us?tab=history`
-        },
-        {
-          name: 'Milestones',
-          description: 'Key achievements in our journey',
-          image: `${basePath}/milestone.png`,
-          link: `/about-us?tab=milestones`
-        },
-        {
-          name: 'Awards & Recognition',
-          description: 'Industry accolades and certifications',
-          image: `${basePath}/awards.jpg`,
-          link: `/about-us?tab=awards`
-        },
-        {
-          name: 'Global Presence',
-          description: 'Our international footprint and partnerships',
-          image: `${basePath}/global-presence.jpg`,
-          link: `/about-us?tab=global`
-        },
-        {
-          name: 'Manufacturing Facilities',
-          description: 'State-of-the-art production plants',
-          image: `${basePath}/manufacturing.jpg`,
-          link: `/about-us`
-        },
-        {
-          name: 'Quality Standards',
-          description: 'Our commitment to excellence',
-          image: `${basePath}/quality-standards.jpg`,
-          link: `/about-us`
-        }
-      ],
-      media: {
-        image: `${basePath}/legacy.jpg`,
-        title: 'Our Legacy',
-        description: '80+ years of engineering excellence in construction and material handling equipment.',
-        cta: 'Learn More',
-        features: ['80+ Years Experience', 'Global Presence', 'ISO Certified']
-      }
+      title: 'Corporate Profile',
+      description: 'TIL Limited was formerly known as Tractors India Limited. Today TIL is now expanded and the company is simply known as TIL Limited. The company has adopted new values after becoming a part of the Gainwell Group.',
+      image: `${basePath}/about-us.png`,
+      link: '/about-us/corporate',
+      features: ['80+ Years Experience', 'Global Presence', 'ISO Certified']
     },
     leadership: {
-      items: [
-        {
-          name: 'Board of Directors',
-          description: 'Meet our governing body and strategic advisors',
-          image: `${basePath}/board-directors.jpg`,
-          link: 'about-us?tab=leadership'
-
-        },
-        {
-          name: 'Executive Team',
-          description: 'Our day-to-day leadership team',
-          image: `${basePath}/executive-team.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Management Committee',
-          description: 'Department heads and functional leaders',
-          image: `${basePath}/management-committee.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Advisory Board',
-          description: 'Industry experts guiding our strategy',
-          image: `${basePath}/advisory-board.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/leadership.jpg`,
-        title: 'Leadership Team',
-        description: 'Experienced leaders driving innovation and growth in the construction industry.',
-        cta: 'Meet Our Team',
-        features: ['Industry Veterans', 'Global Experience', 'Innovation Focus']
-      }
+      title: 'Board of Directors',
+      description: 'Our board members bring diverse expertise and extensive experience to guide TIL\'s strategic direction and ensure sustainable growth. Meet our leadership and governance team.',
+      image: `${basePath}/leadership.jpg`,
+      link: '/about-us/board-of-directors',
+      features: ['Industry Veterans', 'Global Experience', 'Strategic Guidance']
     },
     milestones: {
-      items: [
-        {
-          name: 'Foundation & Early Years',
-          description: 'Our humble beginnings and initial successes',
-          image: `${basePath}/foundation.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Key Innovations',
-          description: 'Breakthrough products and technologies',
-          image: `${basePath}/innovations.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Expansion Phases',
-          description: 'Growth of our operations and facilities',
-          image: `${basePath}/expansion.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Recent Achievements',
-          description: 'Our latest accomplishments and awards',
-          image: `${basePath}/achievements.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/milestone.png`,
-        title: 'Our Journey',
-        description: 'Key milestones that define our growth and success in the industry.',
-        cta: 'View Timeline',
-        features: ['80+ Years', '100+ Innovations', 'Global Reach']
-      }
+      title: 'Our Journey',
+      description: 'Key milestones that define our growth and success in the industry. Explore our historical achievements and future aspirations.',
+      image: `${basePath}/milestone.png`,
+      link: '/about-us/milestones',
+      features: ['80+ Years', '100+ Innovations', 'Global Reach']
     },
     values: {
-      items: [
-        {
-          name: 'Mission Statement',
-          description: 'Our purpose and reason for being',
-          image: `${basePath}/mission.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Vision 2030',
-          description: 'Our aspirations for the future',
-          image: `${basePath}/vision.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Core Values',
-          description: 'Principles that guide our actions',
-          image: `${basePath}/values.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Ethics & Integrity',
-          description: 'Our commitment to doing business right',
-          image: `${basePath}/ethics.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/vision.jpg`,
-        title: 'Our Values',
-        description: 'Committed to excellence, innovation, and sustainable growth.',
-        cta: 'Our Philosophy',
-        features: ['Customer First', 'Innovation', 'Sustainability']
-      }
+      title: 'Our Values',
+      description: 'Committed to excellence, innovation, and sustainable growth. Discover our mission, vision, and the core principles that guide our actions.',
+      image: `${basePath}/vision.jpg`,
+      link: '/about-us/vision-values',
+      features: ['Customer First', 'Innovation', 'Sustainability']
     },
     corporate: {
-      items: [
-        {
-          name: 'Environmental Policy',
-          description: 'Our commitment to sustainable operations',
-          image: `${basePath}/environmental.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Green Manufacturing',
-          description: 'Eco-friendly production processes',
-          image: `${basePath}/green-manufacturing.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Community Impact',
-          description: 'Initiatives that benefit local communities',
-          image: `${basePath}/community.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Employee Welfare',
-          description: 'Programs for our workforce wellbeing',
-          image: `${basePath}/employee-welfare.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/social.jpg`,
-        title: 'Sustainability',
-        description: 'Leading the way in environmentally responsible manufacturing and operations.',
-        cta: 'Green Initiatives',
-        features: ['Carbon Neutral', 'Green Tech', 'Eco-Friendly']
-      }
+      title: 'Sustainability',
+      description: 'Leading the way in environmentally responsible manufacturing and operations. Our commitment to corporate social responsibility and community development.',
+      image: `${basePath}/social.jpg`,
+      link: '/about-us/csr',
+      features: ['Carbon Neutral', 'Green Tech', 'Eco-Friendly']
     },
     codeofconduct: {
-      items: [
-        {
-          name: 'Business Ethics',
-          description: 'Our standards for ethical business practices',
-          image: `${basePath}/ethics.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Anti-Corruption',
-          description: 'Policies against bribery and corruption',
-          image: `${basePath}/anti-corruption.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Compliance Framework',
-          description: 'Ensuring adherence to laws and regulations',
-          image: `${basePath}/compliance.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/code_of_conduct.png`,
-        title: 'Code of Conduct',
-        description: 'Our commitment to ethical business practices and corporate governance.',
-        cta: 'View Policy',
-        features: ['Ethical Standards', 'Compliance', 'Transparency']
-      }
+      title: 'Code of Conduct',
+      description: 'Our commitment to ethical business practices and corporate governance. These guidelines outline the expected behavior and ethical standards for our organization.',
+      image: `${basePath}/code_of_conduct.png`,
+      link: '/about-us/code-of-conduct',
+      features: ['Ethical Standards', 'Compliance', 'Transparency']
     },
     facilities: {
-      items: [
-        {
-          name: 'Kolkata Headquarters',
-          description: 'Our corporate office and main facility',
-          image: `${basePath}/kol.jpeg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Manufacturing Plants',
-          description: 'State-of-the-art production facilities',
-          image: `${basePath}/plants.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'R&D Centers',
-          description: 'Innovation hubs driving product development',
-          image: `${basePath}/rd-centers.jpg`,
-          link: '/about-us'
-        },
-        {
-          name: 'Regional Offices',
-          description: 'Our presence across India',
-          image: `${basePath}/regional-offices.jpg`,
-          link: '/about-us'
-        }
-      ],
-      media: {
-        image: `${basePath}/facilities.jpg`,
-        title: 'Our Facilities',
-        description: 'World-class manufacturing plants and offices supporting our operations.',
-        cta: 'Virtual Tour',
-        features: ['Modern Infrastructure', 'Advanced Equipment', 'Sustainable Design']
-      }
+      title: 'Our Facilities',
+      description: 'World-class manufacturing plants and offices supporting our operations. Discover our state-of-the-art infrastructure and production capabilities.',
+      image: `${basePath}/facilities.jpg`,
+      link: '/about-us/facility',
+      features: ['Modern Infrastructure', 'Advanced Equipment', 'Sustainable Design']
     }
   };
 
-
-  // Initialize right panel content
-  useEffect(() => {
-    setRightPanelContent(aboutSubmenuData[activeCategory as keyof typeof aboutSubmenuData]?.media);
-  }, [activeCategory]);
-
-  const currentSubmenu = aboutSubmenuData[activeCategory as keyof typeof aboutSubmenuData];
+  const currentContent = aboutContentData[activeCategory as keyof typeof aboutContentData];
 
   return (
     <>
@@ -483,7 +273,9 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             <span className="text-black font-medium block">
                               {category.name}
                             </span>
-                            {/* No description property for category */}
+                            <span className="text-xs text-gray-600">
+                              {category.description}
+                            </span>
                           </div>
                         </div>
                         <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -495,12 +287,11 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
               </div>
             ) : (
-              /* Desktop View - Full Mega Menu */
+              /* Desktop View - Simplified Mega Menu */
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-                <div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
-
+                <div className="lg:col-span-4 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       About Us
@@ -518,7 +309,6 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             }`}
                           onMouseEnter={() => {
                             setActiveCategory(category.id);
-                            setRightPanelContent(aboutSubmenuData[category.id as keyof typeof aboutSubmenuData]?.media);
                           }}
                           onClick={() => {
                             router.push(category.link);
@@ -549,105 +339,77 @@ const AboutMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   </div>
                 </div>
 
-                {/* Middle: Items */}
-                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                {/* Middle: Content Description with Image */}
+                <div className="lg:col-span-8 border-r-2 border-r-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
                     </h3>
                   </div>
-                  <div className="p-4 pt-0">
-                    <ul className="space-y-4">
-                      {currentSubmenu?.items.map((item, index) => (
-                        <li
-                          key={index}
-                          onMouseEnter={() => setActiveItem(item)}
-                          onMouseLeave={() => setActiveItem(null)}
-                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
-                          onClick={() => {
-                            router.push(item.link);
-                            onClose();
-                          }}
-                        >
-                          <div className="pt-1">
-                            <ChevronRight className="w-4 h-4 text-yellow-500 flex-shrink-0" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                              {item.name}
-                            </p>
-                            <p className="text-xs text-black mt-1">{item.description}</p>
-                          </div>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right: Details */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Details
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
+                  <div className="p-6">
                     <motion.div
-                      key={rightPanelContent?.title}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={activeCategory}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex flex-col h-full"
+                      className="flex flex-col lg:flex-row gap-6 items-start"
                     >
-                      <div className="relative mb-3 overflow-hidden rounded">
-                        <img
-                          src={rightPanelContent?.image}
-                          alt={rightPanelContent?.title}
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      {/* Image Section */}
+                      <div className="lg:w-2/5 w-full">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
+                          <img
+                            src={currentContent.image}
+                            alt={currentContent.title}
+                            className="w-full h-48 lg:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              e.currentTarget.src = `${basePath}/placeholder_avatar.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-base text-[#fbb53d] mb-2">
-                          {rightPanelContent?.title}
+                      {/* Content Section */}
+                      <div className="lg:w-3/5 w-full space-y-4">
+                        <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
+                          {currentContent.title}
                         </h4>
-                        <p className="text-black mb-3 leading-relaxed text-xs">
-                          {rightPanelContent?.description}
+
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {currentContent.description}
                         </p>
 
-                        {rightPanelContent?.features && (
-                          <div className="mb-4">
-                            <h5 className="font-semibold text-[#fbb53d] mb-2 text-xs">Key Features:</h5>
-                            <div className="space-y-1">
-                              {rightPanelContent.features.map((feature, index) => (
-                                <div key={index} className="flex items-center space-x-2">
-                                  <Award className="w-3 h-3 text-yellow-500 flex-shrink-0" />
-                                  <span className="text-black text-xs">{feature}</span>
-                                </div>
+                        {/* Features */}
+                        {currentContent.features && (
+                          <div className="space-y-2">
+                            <h5 className="font-semibold text-[#fbb53d] text-sm">Key Highlights:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {currentContent.features.map((feature, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 text-[#fbb53d] text-xs font-medium"
+                                >
+                                  <Award className="w-3 h-3 mr-1" />
+                                  {feature}
+                                </span>
                               ))}
                             </div>
                           </div>
                         )}
 
-                        <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                          <motion.button
-                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
-                            whileHover={{ scale: 1.02, boxShadow: "0 0 15px rgba(255, 193, 7, 0.3)" }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            <span>{rightPanelContent?.cta || 'Learn More'}</span>
-                          </motion.button>
-
-                          <button
-                            className="w-full border border-yellow-500/50 hover:bg-yellow-500/10 text-[#fbb53d] py-1.5 px-3 rounded font-semibold text-xs transition-all duration-200 flex items-center justify-center space-x-2"
-                            onClick={onClose}
-                          >
-                            <Download className="w-3 h-3" />
-                            <span>Download Brochure</span>
-                          </button>
-                        </div>
+                        {/* Read More Button */}
+                        <motion.button
+                          onClick={() => {
+                            router.push(currentContent.link);
+                            onClose();
+                          }}
+                          className="flex items-center space-x-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#e0a42d] hover:to-[#e0a42d] text-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>Read More</span>
+                        </motion.button>
                       </div>
                     </motion.div>
                   </div>
@@ -759,7 +521,6 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         image: `${basePath}/articulating.jpg`,
         title: 'TIL Product Range',
         description: 'Comprehensive lifting solutions for all your construction needs.',
-        cta: 'View All Products',
         features: ['Durable Construction', 'Advanced Safety', 'Easy Maintenance']
       }
     },
@@ -784,7 +545,6 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         image: `${basePath}/crawler-cranes.png`,
         title: 'Latest Innovations',
         description: 'Cutting-edge technology and smart features for enhanced productivity.',
-        cta: 'Explore New Tech',
         features: ['Smart Telematics', 'Eco-Friendly Powertrain', 'IoT Integration']
       }
     },
@@ -809,7 +569,6 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         image: `${basePath}/forklift.png`,
         title: 'Proven Performers',
         description: 'Most trusted equipment by businesses across India.',
-        cta: 'Request Demo',
         features: ['Uptime Guarantee', 'Nationwide Service', 'Spare Part Availability']
       }
     },
@@ -827,9 +586,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
         image: `${basePath}/boomlifts.png`,
         title: 'Complete Support',
         description: 'Comprehensive after-sales support and services.',
-        cta: 'Service Support',
-        features: ['Certified Engineers', 'Rapid On-Site Service', 'OEM Spare Assurance'],
-        link: `/category/${createSlug('Complete Support')}` // Example slug if needed
+        features: ['Certified Engineers', 'Rapid On-Site Service', 'OEM Spare Assurance']
       }
     }
   };
@@ -902,7 +659,6 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             <span className="text-black font-medium block">
                               {category.name}
                             </span>
-                            {/* No description property for category */}
                           </div>
                         </div>
                         <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -918,7 +674,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Product Categories
@@ -929,39 +685,37 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       {primaryCategories.map((category) => (
                         <motion.div
                           key={category.id}
-                          className={`cursor-pointer transition-all duration-200 rounded w-full
-                            ${activeCategory === category.id
-                              ? 'bg-yellow-500/8 shadow-[0_0_15px_rgba(255,193,7,0.08)]'
-                              : 'hover:bg-yellow-500/8 hover:shadow-[0_0_15px_rgba(255,193,7,0.08)]'
+                          className={`cursor-pointer transition-all duration-200 rounded w-full ${activeCategory === category.id
+                            ? 'bg-[#F1B434] ring-0'
+                            : 'hover:bg-yellow-500/10 ring-0'
                             }`}
-                          onMouseEnter={() => {
+
+                          onClick={() => {
                             setActiveCategory(category.id);
                             setActiveProduct(null);
                           }}
-                          onClick={() => {
-                            router.push(category.link);
-                            onClose();
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              setActiveCategory(category.id);
+                              setActiveProduct(null);
+                            }
                           }}
                           whileHover={{ x: 2 }}
                         >
                           <div className="flex items-center space-x-3 px-3 py-2.5">
                             <div className={`p-1.5 rounded flex-shrink-0 ${activeCategory === category.id
-                              ? 'bg-yellow-500 text-black'
+                              ? 'bg-black text-[#F1B434]'
                               : 'bg-gray-700 text-[#fbb53d]'
                               }`}>
                               {category.icon}
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
-                                }`}>
-                                {category.name}
-                              </div>
-                              {category.description && (
-                                <div className="text-xs text-gray-500 truncate">
-                                  {category.description}
-                                </div>
-                              )}
+
+                            <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-black' : 'text-black'}`}>
+                              {category.name}
                             </div>
+
                           </div>
                         </motion.div>
                       ))}
@@ -1011,7 +765,7 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Dynamic Media Panel */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
+                <div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Details
@@ -1061,31 +815,6 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             </div>
                           </div>
                         )}
-
-                        <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                          <motion.button
-                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
-                            whileHover={{ scale: 1.02, boxShadow: "0 0 15px rgba(255, 193, 7, 0.3)" }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            <span>
-                              {activeProduct
-                                ? 'Get Quote'
-                                : 'cta' in activeMedia
-                                  ? activeMedia.cta
-                                  : 'Learn More'}
-                            </span>
-                          </motion.button>
-
-                          <button
-                            className="w-full border border-yellow-500/50 hover:bg-yellow-500/10 text-[#fbb53d] py-1.5 px-3 rounded font-semibold text-xs transition-all duration-200 flex items-center justify-center space-x-2"
-                            onClick={onClose}
-                          >
-                            <Download className="w-3 h-3" />
-                            <span>Download Specs</span>
-                          </button>
-                        </div>
                       </div>
                     </motion.div>
                   </div>
@@ -1093,15 +822,14 @@ const ProductsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               </div>
             )}
           </div>
-        </motion.div>
-      </div>
+        </motion.div >
+      </div >
     </>
   );
 };
 
 const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [activeCategory, setActiveCategory] = useState('corporate-governance');
-  const [activePoint, setActivePoint] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
@@ -1114,474 +842,70 @@ const InvestorRelationsMegamenu: React.FC<{ onClose: () => void }> = ({ onClose 
   }, []);
 
   const router = useRouter();
-  const categories = [
-    { id: 'corporate-governance', name: 'Corporate Governance', link: `/investor-relations` },
-    { id: 'shareholders-information', name: 'Shareholders Information', link: `/investor-relations` },
-    { id: 'financials', name: 'Financials', link: `/investor-relations` },
-    { id: 'notice', name: 'Notice', link: `/investor-relations` },
+
+  const primaryCategories = [
+    {
+      id: 'corporate-governance',
+      name: 'Corporate Governance',
+      icon: <Shield className="w-4 h-4" />,
+      description: 'Board structure, policies and governance framework',
+      link: `/investor-relations?page=corporate-governance`
+    },
+    {
+      id: 'shareholders-information',
+      name: 'Shareholders Information',
+      icon: <Users className="w-4 h-4" />,
+      description: 'Ownership patterns and investor services',
+      link: `/investor-relations?page=shareholders-information`
+    },
+    {
+      id: 'financials',
+      name: 'Financials',
+      icon: <FileText className="w-4 h-4" />,
+      description: 'Financial reports and performance data',
+      link: `/investor-relations?page=financials`
+    },
+    {
+      id: 'notice',
+      name: 'Notice & Announcements',
+      icon: <Calendar className="w-4 h-4" />,
+      description: 'Regulatory filings and press releases',
+      link: `/investor-relations?page=notice`
+    }
   ];
 
-  const submenuData = {
+  const investorContentData = {
     'corporate-governance': {
-      points: [
-        { name: 'Board of Directors', description: 'Overview of board members and their roles', link: `/investor-relations` },
-        { name: 'Committee Charters', description: 'Governance committees and their mandates', link: `/investor-relations` },
-        { name: 'Policies', description: 'Corporate policies and guidelines', link: `/investor-relations` },
-        { name: 'Annual Reports', description: 'Download annual reports and disclosures', link: `/investor-relations` },
-      ],
-      media: {
-        image: `${basePath}/corporate-governance.jpg`,
-        title: 'Corporate Governance',
-        description:
-          'TIL is committed to maintaining the highest standards of corporate governance and ethics, ensuring transparency and accountability to our stakeholders.',
-        cta: 'Learn More',
-      },
+      title: 'Corporate Governance',
+      description: 'TIL Limited is committed to maintaining the highest standards of corporate governance, ensuring transparency, accountability, and ethical business practices. Our governance framework includes robust policies, board oversight, and compliance mechanisms.',
+      image: `${basePath}/corporate-governance.jpg`,
+      link: '/investor-relations?page=corporate-governance',
+      features: ['Board Committees', 'Ethical Policies', 'Compliance Framework', 'Risk Management']
     },
     'shareholders-information': {
-      points: [
-        { name: 'Shareholding Pattern', description: 'Current shareholding distribution' },
-        { name: 'Dividend History', description: 'Details of dividend payouts' },
-        { name: 'Annual General Meeting', description: 'Information on upcoming and past AGMs' },
-        { name: 'Registrar & Transfer Agent', description: 'Contact info for shareholder services' },
-      ],
-      media: {
-        image: `${basePath}/shareholders.jpg`,
-        title: 'Shareholders Information',
-        description:
-          'Access detailed information for shareholders including ownership patterns, dividends, and investor services.',
-        cta: 'Investor Services',
-      },
+      title: 'Shareholders Information',
+      description: 'Access comprehensive information for our valued shareholders including ownership patterns, dividend history, AGM details, and investor services. We are dedicated to protecting shareholder interests and maintaining transparent communication.',
+      image: `${basePath}/shareholders.jpg`,
+      link: '/investor-relations?page=shareholders-information',
+      features: ['Dividend History', 'AGM Information', 'Shareholding Pattern', 'Investor Services']
     },
-    financials: {
-      points: [
-        { name: 'Quarterly Results', description: 'Latest quarterly financial statements' },
-        { name: 'Audited Financials', description: 'Annual audited financial reports' },
-        { name: 'Stock Price Information', description: 'Historical and current stock prices' },
-        { name: 'Credit Ratings', description: 'Credit rating details and reports' },
-      ],
-      media: {
-        image: `${basePath}/financials.jpg`,
-        title: 'Financials',
-        description:
-          'Stay updated with TIL’s financial performance through detailed reports and market data.',
-        cta: 'View Reports',
-      },
+    'financials': {
+      title: 'Financial Performance',
+      description: 'Stay updated with TIL\'s financial performance through detailed quarterly and annual reports. Our financial disclosures provide comprehensive insights into our business performance, growth trajectory, and future outlook.',
+      image: `${basePath}/financials.jpg`,
+      link: '/investor-relations?page=financials',
+      features: ['Quarterly Results', 'Annual Reports', 'Financial Statements', 'Performance Metrics']
     },
-    notice: {
-      points: [
-        { name: 'Regulatory Filings', description: 'Important statutory filings and disclosures' },
-        { name: 'Press Releases', description: 'Latest news and announcements' },
-        { name: 'Corporate Announcements', description: 'Updates on company developments' },
-        { name: 'Investor Alerts', description: 'Alerts and notifications for investors' },
-      ],
-      media: {
-        image: `${basePath}/notice.jpg`,
-        title: 'Notice',
-        description:
-          'Keep track of important notices, press releases, and official communications from TIL.',
-        cta: 'View Notices',
-      },
-    },
-  };
-
-
-  const currentSubmenu = submenuData[activeCategory as keyof typeof submenuData];
-
-  return (
-    <>
-      <style>{`
-        .mega-menu-height {
-          height: 60vh;
-          max-height: 60vh;
-        }
-        .mobile-menu-height {
-          height: auto;
-          max-height: 50vh;
-        }
-        .scroll-hover::-webkit-scrollbar {
-          width: 4px;
-          height: 4px;
-        }
-        .scroll-hover::-webkit-scrollbar-track {
-          background: transparent;
-        }
-        .scroll-hover::-webkit-scrollbar-thumb {
-          background: transparent;
-          border-radius: 4px;
-          transition: all 0.3s ease;
-        }
-        .scroll-hover:hover::-webkit-scrollbar-thumb {
-          background: rgba(255, 193, 7, 0.3);
-        }
-        .scroll-hover::-webkit-scrollbar-thumb:hover {
-          background: rgba(255, 193, 7, 0.5);
-        }
-      `}</style>
-
-      <div onMouseLeave={onClose}>
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: -10 }}
-          transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="overflow-hidden"
-        >
-          <div
-            className={`bg-white/95 backdrop-blur-md shadow-2xl border-t border-yellow-500/20 ${isMobile ? 'mobile-menu-height' : 'mega-menu-height'
-              } overflow-y-auto scroll-hover`}
-          >
-            {/* Mobile View */}
-            {isMobile ? (
-              <div className="p-4">
-                <div className="space-y-2">
-                  {categories.map((category) => (
-                    <motion.button
-                      key={category.id}
-                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
-                      onClick={() => {
-                        router.push(category.link);
-                        onClose();
-                      }}
-                      whileHover={{ x: 4 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <span className="text-black font-medium">{category.name}</span>
-                    </motion.button>
-                  ))}
-                </div>
-              </div>
-            ) : (
-              // Desktop View
-              <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
-                {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Investor Relations
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
-                    <div className="space-y-1">
-                      {categories.map((category) => (
-                        <motion.div
-                          key={category.id}
-                          className={`cursor-pointer transition-all duration-200 rounded w-full ${activeCategory === category.id
-                            ? 'bg-yellow-500/8 shadow-[0_0_15px_rgba(255,193,7,0.08)]'
-                            : 'hover:bg-yellow-500/8 hover:shadow-[0_0_15px_rgba(255,193,7,0.08)]'
-                            }`}
-                          onMouseEnter={() => {
-                            setActiveCategory(category.id);
-                            setActivePoint(null);
-                          }}
-                          onClick={() => {
-                            router.push(category.link);
-                            onClose();
-                          }}
-                          whileHover={{ x: 2 }}
-                        >
-                          <div className="flex items-center space-x-3 px-3 py-2.5">
-                            <span
-                              className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
-                                }`}
-                            >
-                              {category.name}
-                            </span>
-                          </div>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Middle: Points */}
-                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      {categories.find((cat) => cat.id === activeCategory)?.name || 'Details'}
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
-                    <ul className="space-y-4">
-                      {hasPoints(currentSubmenu) &&
-                        currentSubmenu.points.map((point, index) => (
-
-                          <li
-                            key={index}
-                            className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
-                            onClick={() => {
-                              router.push('link' in point ? point.link : '/investor-relations');
-                              onClose();
-                            }}
-                          >
-                            <div className="pt-1">
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="w-5 h-5 text-yellow-500 flex-shrink-0"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={1.5}
-                              >
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 11.5a2 2 0 100-4 2 2 0 000 4z" />
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10c0 6-7.5 11.5-7.5 11.5S4.5 16 4.5 10a7.5 7.5 0 1115 0z" />
-                              </svg>
-                            </div>
-                            <div>
-                              <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                                {point.name}
-                              </p>
-                              <p className="text-xs text-black mt-1">{point.description}</p>
-                            </div>
-                          </li>
-                        ))}
-                    </ul>
-                  </div>
-                </div>
-
-                {/* Right: Media */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Details
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
-                    <motion.div
-                      key={activeCategory}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="flex flex-col h-full"
-                    >
-                      <div className="relative mb-3 overflow-hidden rounded">
-                        <img
-                          src={currentSubmenu?.media.image}
-                          alt={currentSubmenu?.media.title}
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-                      </div>
-
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-base text-[#fbb53d] mb-2">
-                          {currentSubmenu?.media.title}
-                        </h4>
-                        <p className="text-black mb-4 leading-relaxed text-xs">
-                          {currentSubmenu?.media.description}
-                        </p>
-
-                        <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                          <motion.button
-                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            <span>{currentSubmenu?.media.cta || 'Learn More'}</span>
-                          </motion.button>
-                        </div>
-                      </div>
-                    </motion.div>
-                  </div>
-                </div>
-              </div>
-            )}
-          </div>
-        </motion.div>
-      </div>
-    </>
-  );
-};
-
-const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
-  const [activeCategory, setActiveCategory] = useState('heavy-industries');
-  const [activePoint, setActivePoint] = useState<{ name: string; description: string; image?: string } | null>(null);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Mobile detection hook
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 1024); // lg breakpoint
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  const router = useRouter();
- const primaryCategories = [
-     { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
-     { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
-     { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
-     { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/customer-support/locations` }
-   ];
-
-  const submenuData = {
-    'heavy-industries': {
-      points: [
-        {
-          name: 'Annual Service Contracts',
-          description: 'Minimize downtime and ensure preventive care with our comprehensive contracts',
-          link: `/customer-support`
-        },
-        {
-          name: 'Pre-Purchase Consultancy',
-          description: 'Expert guidance for optimal equipment investment decisions',
-          link: `/customer-support`
-        },
-        {
-          name: 'Quick Parts Delivery',
-          description: 'Wide and responsive supply network for fast delivery',
-          link: `/customer-support`
-        },
-        {
-          name: 'Pan-India On-Site Support',
-          description: 'Qualified engineers available on call across India',
-          link: `/customer-support`
-        },
-        {
-          name: 'Rebuild & Refurbishment',
-          description: 'Services to extend your equipment lifecycle',
-          link: `/customer-support`
-        }
-      ],
-      media: {
-        image: `${basePath}/maintenance.jpg`,
-        title: 'Maintenance Contracts',
-        description: 'Keep your machines in peak condition with our comprehensive annual maintenance services. Our expert technicians provide preventive care, emergency support, and lifecycle management to maximize your equipment uptime and ROI.',
-        cta: 'Download Brochure'
-      }
-    },
-    'infrastructure': {
-      points: [
-        {
-          name: 'Authentic TIL Parts',
-          description: 'Genuine parts for safety, reliability, and longer equipment life',
-          link: `/customer-support`
-        },
-        {
-          name: 'Real-Time Inventory',
-          description: 'Advanced Warehouse Management System for parts tracking',
-          link: `/customer-support`
-        },
-        {
-          name: 'Wide Range Availability',
-          description: 'Filters, oils, fluids, undercarriage components & more',
-          link: `/customer-support`
-        },
-        {
-          name: 'Expert Support',
-          description: 'Trained product specialists for the right-fit solutions',
-          link: `/customer-support`
-        },
-        {
-          name: 'ERP-Enabled Warehouse',
-          description: 'Central warehouse at Dankuni for nationwide fulfillment',
-          link: `/customer-support`
-        }
-      ],
-      media: {
-        image: `${basePath}/parts-banner.jpg`,
-        title: 'Parts & Warehouse',
-        description: 'Rapid access to critical parts with optimized logistics and warehouse coverage. Our centralized inventory system ensures authentic TIL parts are available when you need them most.',
-        cta: 'Check Availability'
-      }
-    },
-    'specialized': {
-      points: [
-        {
-          name: 'Operator Training',
-          description: 'Boost ROI & Safety with skilled operators who unlock full machine potential',
-          link: `/customer-support`
-        },
-        {
-          name: 'Hands-On Training',
-          description: 'Practical sessions in basic operations and scheduled maintenance',
-          link: `/customer-support`
-        },
-        {
-          name: 'Customized Modules',
-          description: 'Training tailored to operator and maintenance staff needs',
-          link: `/customer-support`
-        },
-        {
-          name: 'Downtime Prevention',
-          description: 'Minimize downtime through better handling and issue prevention',
-          link: `/customer-support`
-        },
-        {
-          name: 'Competitive Edge',
-          description: 'Enhanced knowledge, confidence, and efficiency for your team',
-          link: `/customer-support`
-        }
-      ],
-      media: {
-        image: `${basePath}/training-banner.jpg`,
-        title: 'Training Programs',
-        description: 'Empower your workforce with certified technical and operator training. Our comprehensive modules cover safety protocols, operational efficiency, and maintenance best practices.',
-        cta: 'Training Calendar'
-      }
-    },
-    'energy': {
-      points: [
-        {
-          name: 'Kolkata Service Center',
-          description: 'Full-service support for Eastern India operations',
-          image: `${basePath}/Kolkata.avif`,
-          link: `/customer-support`
-        },
-        {
-          name: 'Chennai Service Center',
-          description: 'Comprehensive support for Southern region',
-          image: `${basePath}/chennai.avif`,
-          link: `/customer-support`
-        },
-        {
-          name: 'Delhi NCR Service Center',
-          description: 'Strategic support hub for Northern India',
-          image: `${basePath}/delhi.avif`,
-          link: `/customer-support`
-        },
-        {
-          name: 'Mumbai Service Center',
-          description: 'West zone operational support center',
-          image: `${basePath}/mumbai.avif`,
-          link: `/customer-support`
-        },
-        {
-          name: 'Singrauli Service Depot',
-          description: 'Industrial logistics and support in central India',
-          image: `${basePath}/singrauli.jpeg`,
-          link: `/customer-support`
-        }
-      ],
-      media: {
-        image: `${basePath}/location-banner.png`,
-        title: 'Service Locations',
-        description: 'Our nationwide network of service centers and support facilities ensures prompt response times and local expertise across all major industrial regions in India.',
-        cta: 'View Network'
-      }
+    'notice': {
+      title: 'Notices & Announcements',
+      description: 'Keep track of important corporate announcements, regulatory filings, press releases, and investor alerts. Stay informed about company developments and market-sensitive information.',
+      image: `${basePath}/notice.jpg`,
+      link: '/investor-relations?page=notice',
+      features: ['Regulatory Filings', 'Press Releases', 'Corporate Updates', 'Investor Alerts']
     }
   };
 
-  const currentSubmenu = submenuData[activeCategory as keyof typeof submenuData];
-
-  // Type guard to check if the object is a point
-  const isPoint = (item: any): item is { name: string; description: string; image?: string } => {
-    return item && 'name' in item;
-  };
-
-  // Type guard to check if the object is media
-  const isMedia = (item: any): item is { image: string; title: string; description: string; cta: string } => {
-    return item && 'title' in item;
-  };
-
-  // Conditional media selection: dynamic for Service Locations, static for others
-  const activeMedia = activeCategory === 'energy' && activePoint
-    ? activePoint
-    : currentSubmenu?.media;
+  const currentContent = investorContentData[activeCategory as keyof typeof investorContentData];
 
   return (
     <>
@@ -1649,7 +973,9 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                             <span className="text-black font-medium block">
                               {category.name}
                             </span>
-
+                            <span className="text-xs text-gray-600">
+                              {category.description}
+                            </span>
                           </div>
                         </div>
                         <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1661,14 +987,14 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                 </div>
               </div>
             ) : (
-              /* Desktop View - Full Mega Menu */
+              /* Desktop View - Two Panel Layout (Like About Us & Careers) */
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-4 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Support Categories
+                      Investor Relations
                     </h3>
                   </div>
                   <div className="p-4 pt-0">
@@ -1677,13 +1003,12 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                         <motion.div
                           key={category.id}
                           className={`cursor-pointer transition-all duration-200 rounded w-full
-                            ${activeCategory === category.id
+                          ${activeCategory === category.id
                               ? 'bg-yellow-500/8 shadow-[0_0_15px_rgba(255,193,7,0.08)]'
                               : 'hover:bg-yellow-500/8 hover:shadow-[0_0_15px_rgba(255,193,7,0.08)]'
                             }`}
                           onMouseEnter={() => {
                             setActiveCategory(category.id);
-                            setActivePoint(null);
                           }}
                           onClick={() => {
                             router.push(category.link);
@@ -1698,10 +1023,15 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                               }`}>
                               {category.icon}
                             </div>
-                            <span className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
-                              }`}>
-                              {category.name}
-                            </span>
+                            <div className="flex-1 min-w-0">
+                              <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
+                                }`}>
+                                {category.name}
+                              </div>
+                              <div className="text-xs text-gray-500 truncate">
+                                {category.description}
+                              </div>
+                            </div>
                           </div>
                         </motion.div>
                       ))}
@@ -1709,105 +1039,345 @@ const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose })
                   </div>
                 </div>
 
-                {/* Middle: Point-wise Info */}
-                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                {/* Right: Content Description with Image */}
+                <div className="lg:col-span-8 border-r-2 border-r-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Support Info'}
+                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
+                    </h3>
+                  </div>
+                  <div className="p-6">
+                    <motion.div
+                      key={activeCategory}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="flex flex-col lg:flex-row gap-6 items-start"
+                    >
+                      {/* Image Section */}
+                      <div className="lg:w-2/5 w-full">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
+                          <img
+                            src={currentContent.image}
+                            alt={currentContent.title}
+                            className="w-full h-48 lg:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              e.currentTarget.src = `${basePath}/placeholder_avatar.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                      </div>
+
+                      {/* Content Section */}
+                      <div className="lg:w-3/5 w-full space-y-4">
+                        <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
+                          {currentContent.title}
+                        </h4>
+
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {currentContent.description}
+                        </p>
+
+                        {/* Features */}
+                        {currentContent.features && (
+                          <div className="space-y-2">
+                            <h5 className="font-semibold text-[#fbb53d] text-sm">Key Highlights:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {currentContent.features.map((feature, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 text-[#fbb53d] text-xs font-medium"
+                                >
+                                  <Award className="w-3 h-3 mr-1" />
+                                  {feature}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Read More Button */}
+                        <motion.button
+                          onClick={() => {
+                            router.push(currentContent.link);
+                            onClose();
+                          }}
+                          className="flex items-center space-x-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#e0a42d] hover:to-[#e0a42d] text-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>Explore More</span>
+                        </motion.button>
+                      </div>
+                    </motion.div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </motion.div>
+      </div>
+    </>
+  );
+};
+
+const CustomerSupportMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const [activeCategory, setActiveCategory] = useState('heavy-industries');
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Mobile detection hook
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 1024); // lg breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const router = useRouter();
+  const primaryCategories = [
+    { id: 'heavy-industries', name: 'Maintenance Contract', icon: <Mountain className="w-4 h-4" />, link: `/customer-support/maintenance-contract` },
+    { id: 'infrastructure', name: 'Parts & Warehouse', icon: <Building className="w-4 h-4" />, link: `/customer-support/parts-warehouse` },
+    { id: 'specialized', name: 'Training', icon: <Shield className="w-4 h-4" />, link: `/customer-support/training` },
+    { id: 'energy', name: 'Service Locations', icon: <Zap className="w-4 h-4" />, link: `/contact-us/locations` }
+  ];
+
+  const submenuData = {
+    'heavy-industries': {
+      title: 'Maintenance Contracts',
+      description: 'Keep your machines in peak condition with our comprehensive annual maintenance services. Our expert technicians provide preventive care, emergency support, and lifecycle management to maximize your equipment uptime and ROI.',
+      image: `${basePath}/maintenance.jpg`,
+      link: '/customer-support/maintenance-contract',
+      features: ['Annual Service Contracts', 'Pre-Purchase Consultancy', 'Quick Parts Delivery', 'Pan-India Support', 'Rebuild & Refurbishment']
+    },
+    'infrastructure': {
+      title: 'Parts & Warehouse',
+      description: 'Rapid access to critical parts with optimized logistics and warehouse coverage. Our centralized inventory system ensures authentic TIL parts are available when you need them most.',
+      image: `${basePath}/parts-warehouse.png`,
+      link: '/customer-support/parts-warehouse',
+      features: ['Authentic TIL Parts', 'Real-Time Inventory', 'Wide Range Availability', 'Expert Support', 'ERP-Enabled Warehouse']
+    },
+    'specialized': {
+      title: 'Training Programs',
+      description: 'Empower your workforce with certified technical and operator training. Our comprehensive modules cover safety protocols, operational efficiency, and maintenance best practices.',
+      image: `${basePath}/training-banner.jpg`,
+      link: '/customer-support/training',
+      features: ['Operator Training', 'Hands-On Sessions', 'Customized Modules', 'Downtime Prevention', 'Competitive Edge']
+    },
+    'energy': {
+      title: 'Service Locations',
+      description: 'Our nationwide network of service centers and support facilities ensures prompt response times and local expertise across all major industrial regions in India.',
+      image: `${basePath}/location-banner.png`,
+      link: '/customer-support/locations',
+      features: ['Kolkata Service Center', 'Chennai Service Center', 'Delhi NCR Service Center', 'Mumbai Service Center', 'Singrauli Service Depot']
+    }
+  };
+
+  const currentContent = submenuData[activeCategory as keyof typeof submenuData];
+
+  return (
+    <>
+      <style>{`
+        .mega-menu-height {
+          height: 60vh;
+          max-height: 60vh;
+        }
+        .mobile-menu-height {
+          height: auto;
+          max-height: 50vh;
+        }
+        .scroll-hover::-webkit-scrollbar {
+          width: 4px;
+          height: 4px;
+        }
+        .scroll-hover::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        .scroll-hover::-webkit-scrollbar-thumb {
+          background: transparent;
+          border-radius: 4px;
+          transition: all 0.3s ease;
+        }
+        .scroll-hover:hover::-webkit-scrollbar-thumb {
+          background: rgba(255, 193, 7, 0.3);
+        }
+        .scroll-hover::-webkit-scrollbar-thumb:hover {
+          background: rgba(255, 193, 7, 0.5);
+        }
+      `}</style>
+
+      <div onMouseLeave={onClose}>
+        <motion.div
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -10 }}
+          transition={{ duration: 0.2, ease: "easeOut" }}
+          className="overflow-hidden"
+        >
+          <div className={`bg-white/95 backdrop-blur-md shadow-2xl border-t border-yellow-500/20 ${isMobile ? 'mobile-menu-height' : 'mega-menu-height'
+            } overflow-y-auto scroll-hover`}>
+
+            {/* Mobile View - Clean Simple List */}
+            {isMobile ? (
+              <div className="p-4">
+                <div className="space-y-2">
+                  {primaryCategories.map((category) => (
+                    <motion.button
+                      key={category.id}
+                      className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
+                      onClick={() => {
+                        router.push(category.link);
+                        onClose();
+                      }}
+                      whileHover={{ x: 4 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="text-[#fbb53d]">
+                            {category.icon}
+                          </div>
+                          <div>
+                            <span className="text-black font-medium block">
+                              {category.name}
+                            </span>
+                          </div>
+                        </div>
+                        <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
+              </div>
+            ) : (
+              /* Desktop View - Simplified Mega Menu (Like About Us) */
+              <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
+
+                {/* Left: Categories */}
+                <div className="lg:col-span-4 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                  <div className="p-4 sticky top-0 bg-white z-10">
+                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
+                      Customer Support
                     </h3>
                   </div>
                   <div className="p-4 pt-0">
-                    <ul className="space-y-4">
-                      {currentSubmenu?.points.map((point, index) => (
-                        <li
-                          key={index}
+                    <div className="space-y-1">
+                      {primaryCategories.map((category) => (
+                        <motion.div
+                          key={category.id}
+                          className={`cursor-pointer transition-all duration-200 rounded w-full
+                          ${activeCategory === category.id
+                              ? 'bg-yellow-500/8 shadow-[0_0_15px_rgba(255,193,7,0.08)]'
+                              : 'hover:bg-yellow-500/8 hover:shadow-[0_0_15px_rgba(255,193,7,0.08)]'
+                            }`}
                           onMouseEnter={() => {
-                            // Only set activePoint for Service Locations (energy)
-                            if (activeCategory === 'energy') {
-                              setActivePoint(point);
-                            }
+                            setActiveCategory(category.id);
                           }}
-                          className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
                           onClick={() => {
-                            router.push(point.link);
+                            router.push(category.link);
                             onClose();
                           }}
+                          whileHover={{ x: 2 }}
                         >
-                          <div className="pt-1">
-                            <svg
-                              xmlns="http://www.w3.org/2000/svg"
-                              className="w-5 h-5 text-yellow-500 flex-shrink-0"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                              strokeWidth={1.5}
-                            >
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M12 11.5a2 2 0 100-4 2 2 0 000 4z"
-                              />
-                              <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                d="M19.5 10c0 6-7.5 11.5-7.5 11.5S4.5 16 4.5 10a7.5 7.5 0 1115 0z"
-                              />
-                            </svg>
+                          <div className="flex items-center space-x-3 px-3 py-2.5">
+                            <div className={`p-1.5 rounded flex-shrink-0 ${activeCategory === category.id
+                              ? 'bg-yellow-500 text-black'
+                              : 'bg-gray-700 text-[#fbb53d]'
+                              }`}>
+                              {category.icon}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
+                                }`}>
+                                {category.name}
+                              </div>
+                            </div>
                           </div>
-                          <div>
-                            <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                              {point.name}
-                            </p>
-                            <p className="text-xs text-black mt-1">{point.description}</p>
-                          </div>
-                        </li>
+                        </motion.div>
                       ))}
-                    </ul>
+                    </div>
                   </div>
                 </div>
 
-                {/* Right: Media Panel */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
+                {/* Middle: Content Description with Image (Like About Us) */}
+                <div className="lg:col-span-8 border-r-2 border-r-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Details
+                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
                     </h3>
                   </div>
-                  <div className="p-4 pt-0">
+                  <div className="p-6">
                     <motion.div
                       key={activeCategory}
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex flex-col h-full"
+                      className="flex flex-col lg:flex-row gap-6 items-start"
                     >
-                      <div className="relative mb-3 overflow-hidden rounded">
-                        <img
-                          src={isPoint(activeMedia) ? activeMedia.image : isMedia(activeMedia) ? activeMedia.image : ''}
-                          alt={isPoint(activeMedia) ? activeMedia.name : isMedia(activeMedia) ? activeMedia.title : ''}
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      {/* Image Section */}
+                      <div className="lg:w-2/5 w-full">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
+                          <img
+                            src={currentContent.image}
+                            alt={currentContent.title}
+                            className="w-full h-48 lg:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              e.currentTarget.src = `${basePath}/placeholder_avatar.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-base text-[#fbb53d] mb-2">
-                          {isPoint(activeMedia) ? activeMedia.name : isMedia(activeMedia) ? activeMedia.title : ''}
+                      {/* Content Section */}
+                      <div className="lg:w-3/5 w-full space-y-4">
+                        <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
+                          {currentContent.title}
                         </h4>
-                        <p className="text-black mb-4 leading-relaxed text-xs">
-                          {isPoint(activeMedia) ? activeMedia.description : isMedia(activeMedia) ? activeMedia.description : ''}
+
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {currentContent.description}
                         </p>
 
-                        <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                          <motion.button
-                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            <span>{isMedia(activeMedia) ? activeMedia.cta : 'Learn More'}</span>
-                          </motion.button>
-                        </div>
+                        {/* Features */}
+                        {currentContent.features && (
+                          <div className="space-y-2">
+                            <h5 className="font-semibold text-[#fbb53d] text-sm">Key Features:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {currentContent.features.map((feature, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 text-[#fbb53d] text-xs font-medium"
+                                >
+                                  <Award className="w-3 h-3 mr-1" />
+                                  {feature}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Read More Button */}
+                        <motion.button
+                          onClick={() => {
+                            router.push(currentContent.link);
+                            onClose();
+                          }}
+                          className="flex items-center space-x-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#e0a42d] hover:to-[#e0a42d] text-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>Read More</span>
+                        </motion.button>
                       </div>
                     </motion.div>
                   </div>
@@ -1895,14 +1465,14 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
       name: 'Press Release',
       icon: <FileText className="w-4 h-4" />,
       description: 'Official press announcements',
-      link: '/media/news'
+      link: '/media//press-release'
     },
     {
       id: 'downloads',
       name: 'Downloads',
       icon: <Download className="w-4 h-4" />,
       description: 'Brochures and technical documents',
-      link: '/media'
+      link: '/media/freedownloads'
     }
   ];
 
@@ -2338,7 +1908,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Media Center
@@ -2575,7 +2145,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
 
                 {/* Right: Media Panel */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
+                <div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
                       Highlights
@@ -2653,15 +2223,6 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [activeCategory, setActiveCategory] = useState('life');
   const [isMobile, setIsMobile] = useState(false);
 
-  // Type guards for submenu data
-  function hasPoints(data: any): data is { points: Array<{ name: string; description: string }> } {
-    return 'points' in data;
-  }
-
-  function hasMembers(data: any): data is { members: Array<{ name: string; title: string; image: string }> } {
-    return 'members' in data;
-  }
-
   // Mobile detection hook
   useEffect(() => {
     const checkMobile = () => {
@@ -2674,179 +2235,74 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Preload images
-  useEffect(() => {
-    Object.values(submenuData).forEach((item) => {
-      const img = new Image();
-      img.src = item.media.image;
-    });
-  }, []);
-
   const router = useRouter();
   const primaryCategories = [
-    { id: 'life', name: 'Life @TIL', icon: <Mountain className="w-4 h-4" />, link: `/careers/life-til` },
-    { id: 'team', name: 'Meet our Team', icon: <Building className="w-4 h-4" />, link: `/careers/meet-our-team` },
-    { id: 'vacant', name: 'Vacancies', icon: <Shield className="w-4 h-4" />, link: `/careers/vacancies` },
-    { id: 'equal', name: 'Equal Opportunity Employer', icon: <Zap className="w-4 h-4" />, link: `/careers/equal-opportunity-employer` }
+    {
+      id: 'life',
+      name: 'Life @TIL',
+      icon: <Users className="w-4 h-4" />,
+      description: 'Our vibrant workplace culture and employee experience',
+      link: `/careers/life-til`
+    },
+    {
+      id: 'team',
+      name: 'Meet our Team',
+      icon: <Users className="w-4 h-4" />,
+      description: 'Get to know our passionate team members',
+      link: `/careers/meet-our-team`
+    },
+    {
+      id: 'vacant',
+      name: 'Vacancies',
+      icon: <Briefcase className="w-4 h-4" />,
+      description: 'Current job openings and career opportunities',
+      link: `/careers/vacancies`
+    },
+    {
+      id: 'equal',
+      name: 'Equal Opportunity Employer',
+      icon: <Award className="w-4 h-4" />,
+      description: 'Our commitment to diversity and inclusion',
+      link: `/careers/equal-opportunity-employer`
+    }
   ];
 
-  const submenuData = {
+  const careersContentData = {
     life: {
-      points: [
-        {
-          name: 'Inclusive Culture',
-          description: 'Collaborative work environment that values diversity',
-          link: `/careers`
-        },
-        {
-          name: 'Flexible Work',
-          description: 'Hybrid options and adaptable working hours',
-          link: `/careers`
-        },
-        {
-          name: 'Wellness Programs',
-          description: 'Initiatives supporting mental and physical health',
-          link: `/careers`
-        },
-        {
-          name: 'Recognition',
-          description: 'Programs celebrating employee achievements',
-          link: `/careers`
-        }
-      ],
-      media: {
-        image: `${basePath}/life.jpg`,
-        title: 'Life @TIL',
-        description:
-          'Work-life balance, diversity, and innovation thrive in our dynamic culture. We foster an environment where every team member can grow personally and professionally.',
-        cta: 'Explore Culture'
-      }
+      title: 'Life @TIL',
+      description: 'Experience our vibrant workplace culture that fosters innovation, collaboration, and personal growth. At TIL, we believe in creating an environment where every employee can thrive and reach their full potential through continuous learning and development opportunities.',
+      image: `${basePath}/life_til.jpg`,
+      link: '/careers/life-til',
+      features: ['Inclusive Culture', 'Flexible Work Options', 'Wellness Programs', 'Career Growth']
     },
     team: {
-      members: [
-        {
-          name: 'Pinaki Niyogy',
-          title: 'Chief Executive Officer',
-          image: `${basePath}/pinaki.jpg`
-        },
-        {
-          name: 'Arvind Rishi',
-          title: 'AVP- Sales & After Market',
-          image: `${basePath}/arvind.jpeg`
-        },
-        {
-          name: 'Mr. Kanhaiya Gupta',
-          title: 'Chief Financial Officer',
-          image: `${basePath}/Kanhaiya.png`
-        },
-        {
-          name: 'Ms. Shamita Nandi',
-          title: 'Chief Human Resource Officer',
-          image: `${basePath}/Shamita.png`
-        },
-        {
-          name: 'Chandrani Chatterjee',
-          title: 'Company Secretary',
-          image: `${basePath}/chandrani.jpg`
-        },
-        {
-          name: 'Mr. Saikat Bagchi',
-          title: 'Head - Supply Chain & Commercial',
-          image: `${basePath}/saiket.png`
-        },
-        {
-          name: 'Rishabh P Nair',
-          title: 'Head Of Brand, Content & PR',
-          image: `${basePath}/Risabh.png`
-        }
-      ],
-      media: {
-        image: `${basePath}/team-placeholder.jpg`,
-        title: 'Meet Our Team',
-        description:
-          'Get to know the passionate minds building the future of infrastructure. Our leadership team brings decades of experience and innovation.',
-        cta: 'Meet the Team'
-      }
+      title: 'Meet Our Team',
+      description: 'Get to know the passionate professionals who drive TIL\'s success. Our diverse team brings together expertise from various fields to create innovative solutions and build India\'s infrastructure future.',
+      image: `${basePath}/meet_our_team_new.png`,
+      link: '/careers/meet-our-team',
+      features: ['Industry Experts', 'Diverse Talent', 'Collaborative Spirit', 'Leadership Excellence']
     },
     vacant: {
-      points: [
-        {
-          name: 'Open Roles',
-          description: 'Positions across engineering, sales, and operations',
-          link: `/careers`
-        },
-        {
-          name: 'Campus Programs',
-          description: 'Placement and intern opportunities for students',
-          link: `/careers`
-        },
-        {
-          name: 'Hiring Process',
-          description: 'Quick and transparent recruitment journey',
-          link: `/careers`
-        },
-        {
-          name: 'Career Growth',
-          description: 'Structured learning and development paths',
-          link: `/careers`
-        }
-      ],
-      media: {
-        image: `${basePath}/job.jpg`,
-        title: 'Current Openings',
-        description:
-          "Explore vacancies and apply to be a part of TIL's next chapter. We offer competitive packages and growth opportunities across all departments.",
-        cta: 'View Jobs'
-      }
+      title: 'Career Opportunities',
+      description: 'Explore exciting career opportunities with TIL Limited. Join us in building India\'s infrastructure with cutting-edge technology and be part of our 80+ years legacy of excellence in heavy equipment manufacturing.',
+      image: `${basePath}/vacancies_new.jpg`,
+      link: '/careers/vacancies',
+      features: ['Competitive Packages', 'Skill Development', 'Growth Paths', 'Pan-India Locations']
     },
     equal: {
-      points: [
-        {
-          name: 'Diversity & Inclusion',
-          description: 'Commitment across all departments and levels',
-          link: `/careers`
-        },
-        {
-          name: 'Zero Tolerance',
-          description: 'Against discrimination or bias of any kind',
-          link: `/careers`
-        },
-        {
-          name: 'Women Leadership',
-          description: 'Initiatives to promote gender equality',
-          link: `/careers`
-        },
-        {
-          name: 'Accessibility',
-          description: 'Inclusive workplace policies and facilities',
-          link: `/careers`
-        }
-      ],
-      media: {
-        image: `${basePath}/equal.jpg`,
-        title: 'Equal Opportunity',
-        description:
-          'We are committed to an inclusive, safe, and diverse work environment. Every individual deserves equal opportunities to succeed and thrive.',
-        cta: 'Our Policy'
-      }
+      title: 'Equal Opportunity Employer',
+      description: 'TIL is committed to creating an inclusive workplace where diversity is celebrated. We provide equal opportunities for all employees regardless of background, fostering an environment of respect and equal growth potential.',
+      image: `${basePath}/equal_opportunity.jpg`,
+      link: '/careers/equal-opportunity-employer',
+      features: ['Diversity & Inclusion', 'Zero Discrimination', 'Women Leadership', 'Accessible Workplace']
     }
   };
 
-  const currentSubmenu = submenuData[activeCategory as keyof typeof submenuData];
-
-  // Determine the active media for the right panel (team uses media, others use media or member)
-  const activeMedia =
-    hasMembers(currentSubmenu)
-      ? currentSubmenu.media
-      : currentSubmenu.media;
-
-  function setActiveLocation(location: { name: string; description: string; link: string; }): void {
-    throw new Error('Function not implemented.');
-  }
+  const currentContent = careersContentData[activeCategory as keyof typeof careersContentData];
 
   return (
     <>
-      <style jsx>{`
+      <style>{`
         .mega-menu-height {
           height: 60vh;
           max-height: 60vh;
@@ -2910,6 +2366,9 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             <span className="text-black font-medium block">
                               {category.name}
                             </span>
+                            <span className="text-xs text-gray-600">
+                              {category.description}
+                            </span>
                           </div>
                         </div>
                         <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2921,14 +2380,14 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
               </div>
             ) : (
-              /* Desktop View - Full Mega Menu */
+              /* Desktop View - Simplified Mega Menu (Like About Us) */
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                <div className="lg:col-span-4 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Contact Channels
+                      Careers
                     </h3>
                   </div>
                   <div className="p-4 pt-0">
@@ -2957,10 +2416,15 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                               }`}>
                               {category.icon}
                             </div>
-                            <span className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
-                              }`}>
-                              {category.name}
-                            </span>
+                            <div className="flex-1 min-w-0">
+                              <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
+                                }`}>
+                                {category.name}
+                              </div>
+                              <div className="text-xs text-gray-500 truncate">
+                                {category.description}
+                              </div>
+                            </div>
                           </div>
                         </motion.div>
                       ))}
@@ -2968,159 +2432,77 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   </div>
                 </div>
 
-                {/* Middle: Info List */}
-                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                {/* Middle: Content Description with Image */}
+                <div className="lg:col-span-8 border-r-2 border-r-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Contact'}
+                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
                     </h3>
                   </div>
-                  <div className="p-4 pt-0">
-                    {activeCategory === 'inquiry' ? (
-                      <ul className="space-y-4">
-                        {hasContacts(currentSubmenu) &&
-                          currentSubmenu.contacts.map((contact, index) => {
-                            const isPhone = contact.label.toLowerCase().includes('phone');
-                            const isEmail = contact.label.toLowerCase().includes('email');
-                            const isWhatsApp = contact.label.toLowerCase().includes('whatsapp');
-                            const isLinkedIn = contact.label.toLowerCase().includes('linkedin');
-
-                            let href = '#';
-                            if (isPhone) href = `tel:${contact.value}`;
-                            else if (isEmail) href = `mailto:${contact.value}`;
-                            else if (isWhatsApp) href = `https://wa.me/${contact.value.replace(/\D/g, '')}`;
-                            else if (isLinkedIn) href = contact.value;
-
-                            return (
-                              <li
-                                key={index}
-                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20"
-                              >
-                                <div className="pt-1">
-                                  {contact.icon}
-                                </div>
-                                <div>
-                                  <a
-                                    href={href}
-                                    target={isLinkedIn || isWhatsApp ? "_blank" : "_self"}
-                                    rel={isLinkedIn || isWhatsApp ? "noopener noreferrer" : ""}
-                                    className="block hover:text-yellow-300 transition-colors"
-                                    aria-label={`Contact via ${contact.label}`}
-                                  >
-                                    <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                                      {contact.label}
-                                    </p>
-                                    <p className="text-xs text-black mt-1">{contact.description}</p>
-                                    <p className="text-xs text-[#fbb53d] mt-1 underline underline-offset-2">
-                                      {contact.value}
-                                    </p>
-                                  </a>
-                                </div>
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    ) : (
-                      <ul className="space-y-4">
-                        {hasPoints(currentSubmenu) &&
-                          currentSubmenu.points.map((location, index) => (
-                            <li
-                              key={index}
-                              onMouseEnter={() => setActiveLocation(location)}
-                              onClick={() => {
-                                router.push(location.link ?? '/careers');
-                                onClose();
-                              }}
-                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
-                            >
-                              <div className="pt-1">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="w-5 h-5 text-yellow-500 flex-shrink-0"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  strokeWidth={1.5}
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M12 11.5a2 2 0 100-4 2 2 0 000 4z"
-                                  />
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M19.5 10c0 6-7.5 11.5-7.5 11.5S4.5 16 4.5 10a7.5 7.5 0 1115 0z"
-                                  />
-                                </svg>
-                              </div>
-                              <div>
-                                <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                                  {location.name}
-                                </p>
-                                <p className="text-xs text-black mt-1">{location.description}</p>
-                              </div>
-                            </li>
-                          ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-
-                {/* Right: Dynamic Media Panel */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Details
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
+                  <div className="p-6">
                     <motion.div
-                      key={
-                        (activeMedia && typeof activeMedia === 'object' && 'title' in activeMedia && (activeMedia as { title?: string }).title) ||
-                        (activeMedia && typeof activeMedia === 'object' && 'name' in activeMedia && (activeMedia as { name?: string }).name) ||
-                        ''
-                      }
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={activeCategory}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex flex-col h-full"
+                      className="flex flex-col lg:flex-row gap-6 items-start"
                     >
-                      <div className="relative mb-3 overflow-hidden rounded">
-                        <img
-                          src={
-                            (activeMedia && typeof activeMedia === 'object' && 'image' in activeMedia)
-                              ? (activeMedia as { image?: string }).image
-                              : ''
-                          }
-                          alt={
-                            (activeMedia && typeof activeMedia === 'object' && 'title' in activeMedia && (activeMedia as { title?: string }).title) ||
-                            (activeMedia && typeof activeMedia === 'object' && 'name' in activeMedia && (activeMedia as { name?: string }).name) ||
-                            ''
-                          }
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      {/* Image Section */}
+                      <div className="lg:w-2/5 w-full">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
+                          <img
+                            src={currentContent.image}
+                            alt={currentContent.title}
+                            className="w-full h-48 lg:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              e.currentTarget.src = `${basePath}/placeholder_avatar.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-base text-[#fbb53d] mb-2">
-                          {'title' in (activeMedia || {}) ? (activeMedia as { title?: string }).title : ('name' in (activeMedia || {}) ? (activeMedia as { name?: string }).name : '')}
+                      {/* Content Section */}
+                      <div className="lg:w-3/5 w-full space-y-4">
+                        <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
+                          {currentContent.title}
                         </h4>
-                        <p className="text-black mb-4 leading-relaxed text-xs">
-                          {'description' in (activeMedia || {}) ? (activeMedia as { description?: string }).description : ''}
+
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {currentContent.description}
                         </p>
 
-                        <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                          <motion.button
-                            className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 shadow-lg"
-                            whileHover={{ scale: 1.02 }}
-                            whileTap={{ scale: 0.98 }}
-                          >
-                            <Phone className="w-3 h-3" />
-                            <span>{'cta' in activeMedia ? activeMedia.cta : 'Learn More'}</span>
-                          </motion.button>
-                        </div>
+                        {/* Features */}
+                        {currentContent.features && (
+                          <div className="space-y-2">
+                            <h5 className="font-semibold text-[#fbb53d] text-sm">Key Highlights:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {currentContent.features.map((feature, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 text-[#fbb53d] text-xs font-medium"
+                                >
+                                  <Award className="w-3 h-3 mr-1" />
+                                  {feature}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )}
+
+                        {/* Read More Button */}
+                        <motion.button
+                          onClick={() => {
+                            router.push(currentContent.link);
+                            onClose();
+                          }}
+                          className="flex items-center space-x-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#e0a42d] hover:to-[#e0a42d] text-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>Explore More</span>
+                        </motion.button>
                       </div>
                     </motion.div>
                   </div>
@@ -3136,13 +2518,6 @@ const CareersMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
 const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const [activeCategory, setActiveCategory] = useState('locations');
-  const [activeLocation, setActiveLocation] = useState<{
-    name: string;
-    image: string;
-    title: string;
-    description: string;
-    cta: string;
-  } | null>(null);
   const [isMobile, setIsMobile] = useState(false);
 
   // Mobile detection hook
@@ -3159,100 +2534,40 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const router = useRouter();
   const primaryCategories = [
-    { id: 'locations', name: 'Locations', icon: <Mountain className="w-4 h-4" />, link: `/contact-us/locations` },
-    { id: 'inquiry', name: 'Inquiry', icon: <Building className="w-4 h-4" />, link: `/contact-us/inquiry` }
+    {
+      id: 'locations',
+      name: 'Locations',
+      icon: <MapPin className="w-4 h-4" />,
+      description: 'Find our offices and service centers across India',
+      link: `/contact-us/locations`
+    },
+    {
+      id: 'inquiry',
+      name: 'Inquiry',
+      icon: <Mail className="w-4 h-4" />,
+      description: 'Get in touch with our team for any questions',
+      link: `/contact-us/inquiry`
+    }
   ];
 
-  const submenuData = {
+  const contactContentData = {
     locations: {
-      points: [
-        {
-          name: 'Kolkata',
-          image: `${basePath}/Kolkata.avif`,
-          title: 'Kolkata',
-          description: 'Corporate headquarters of TIL, located in the heart of the city.',
-          cta: 'View Kolkata Office',
-          link: `/contact-us`
-        },
-        {
-          name: 'Chennai',
-          image: `${basePath}/chennai.avif`,
-          title: 'Chennai',
-          description: 'Serving the southern region with excellence.',
-          cta: 'View Chennai Office',
-          link: `/contact-us`
-        },
-        {
-          name: 'Delhi NCR',
-          image: `${basePath}/delhi.avif`,
-          title: 'Delhi NCR ',
-          description: 'Our strategic presence in the capital region.',
-          cta: 'View Delhi NCR Office',
-          link: `/contact-us`
-        },
-        {
-          name: 'Mumbai',
-          image: `${basePath}/mumbai.avif`,
-          title: 'Mumbai',
-          description: 'West zone operational hub for TIL.',
-          cta: 'View Mumbai Office',
-          link: `/contact-us`
-        },
-        {
-          name: 'Singrauli',
-          image: `${basePath}/singrauli.jpeg`,
-          title: 'Singrauli',
-          description: 'Industrial logistics and support in central India.',
-          cta: 'View Singrauli Depot',
-          link: `/contact-us`
-        }
-      ],
-      media: {}
+      title: 'Our Locations',
+      description: 'With a strong presence across India, TIL ensures prompt service and support wherever you are. Our strategically located offices and service centers are equipped to handle your equipment needs with local expertise and global standards.',
+      image: `${basePath}/location-banner.png`,
+      link: '/contact-us/locations',
+      features: ['Pan-India Network', 'Local Expertise', 'Quick Response', 'Service Centers']
     },
-
     inquiry: {
-      contacts: [
-        {
-          label: 'WhatsApp',
-          value: '+91 89815 30153',
-          icon: <MessageCircle className="w-5 h-5 text-green-400" />,
-          description: 'Quick messaging and support'
-        },
-        {
-          label: 'Email',
-          value: 'mktg-til@tilindia.com',
-          icon: <Mail className="w-5 h-5 text-blue-400" />,
-          description: 'Business inquiries and detailed communications'
-        },
-        {
-          label: 'Phone',
-          value: '+91 033 6633 2000',
-          icon: <Phone className="w-5 h-5 text-[#fbb53d]" />,
-          description: 'Direct phone support during business hours'
-        },
-        {
-          label: 'LinkedIn',
-          value: 'https://www.linkedin.com/company/til-limited-ind/',
-          icon: <Linkedin className="w-5 h-5 text-[#0A66C2]" />,
-          description: 'Professional networking and company updates'
-        }
-      ],
-      media: {
-        image: `${basePath}/photo-1486406146926-c627a92ad1ab.jpg`,
-        title: 'Get In Touch',
-        description: "Reach out to our team through your preferred channel. We're here to help.",
-        cta: 'Contact Us'
-      }
+      title: 'Get In Touch',
+      description: 'Reach out to our dedicated team through multiple channels. Whether you have product inquiries, need technical support, or want to explore partnerships, we\'re here to help you find the right solutions for your business needs.',
+      image: `${basePath}/contact.jpg`,
+      link: '/contact-us/inquiry',
+      features: ['Multiple Channels', 'Quick Response', 'Expert Support', '24/7 Availability']
     }
   };
 
-
-  const currentSubmenu = submenuData[activeCategory as keyof typeof submenuData];
-  const activeMedia =
-    activeCategory === 'locations' && hasPoints(currentSubmenu)
-      ? activeLocation || currentSubmenu.points[0]
-      : (currentSubmenu.media && typeof currentSubmenu.media === 'object' ? currentSubmenu.media : {});
-
+  const currentContent = contactContentData[activeCategory as keyof typeof contactContentData];
 
   return (
     <>
@@ -3305,8 +2620,8 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                       key={category.id}
                       className="w-full text-left px-4 py-3 rounded-lg bg-white/40 hover:bg-yellow-500/10 border-l-4 border-yellow-500 transition-all duration-200"
                       onClick={() => {
-                        // Handle category selection
                         router.push(category.link);
+                        onClose();
                       }}
                       whileHover={{ x: 4 }}
                       whileTap={{ scale: 0.98 }}
@@ -3316,9 +2631,14 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                           <div className="text-[#fbb53d]">
                             {category.icon}
                           </div>
-                          <span className="text-black font-medium">
-                            {category.name}
-                          </span>
+                          <div>
+                            <span className="text-black font-medium block">
+                              {category.name}
+                            </span>
+                            <span className="text-xs text-gray-600">
+                              {category.description}
+                            </span>
+                          </div>
                         </div>
                         <svg className="w-4 h-4 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -3329,14 +2649,14 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                 </div>
               </div>
             ) : (
-              /* Desktop View - Full Mega Menu */
+              /* Desktop View - Simplified Mega Menu (Like About Us) */
               <div className="grid grid-cols-1 lg:grid-cols-12 w-full h-full min-h-0">
 
                 {/* Left: Categories */}
-<div className="lg:col-span-3 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
-<div className="p-4 sticky top-0 bg-white z-10">
+                <div className="lg:col-span-4 border-r border-r-gray-700/50 border-l-2 border-l-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                  <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Contact Channels
+                      Contact Us
                     </h3>
                   </div>
                   <div className="p-4 pt-0">
@@ -3351,10 +2671,6 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                             }`}
                           onMouseEnter={() => {
                             setActiveCategory(category.id);
-                            if (category.id === 'locations' && hasPoints(currentSubmenu)) {
-                              setActiveLocation(currentSubmenu.points[0]);
-                            }
-
                           }}
                           onClick={() => {
                             router.push(category.link);
@@ -3369,10 +2685,15 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                               }`}>
                               {category.icon}
                             </div>
-                            <span className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
-                              }`}>
-                              {category.name}
-                            </span>
+                            <div className="flex-1 min-w-0">
+                              <div className={`font-semibold text-sm ${activeCategory === category.id ? 'text-[#fbb53d]' : 'text-black'
+                                }`}>
+                                {category.name}
+                              </div>
+                              <div className="text-xs text-gray-500 truncate">
+                                {category.description}
+                              </div>
+                            </div>
                           </div>
                         </motion.div>
                       ))}
@@ -3380,160 +2701,77 @@ const ContactMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
                   </div>
                 </div>
 
-                {/* Middle: Info List */}
-                <div className="lg:col-span-6 border-r border-r-gray-700/50 border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
+                {/* Middle: Content Description with Image */}
+                <div className="lg:col-span-8 border-r-2 border-r-[#F1B434] border-b-2 border-b-[#F1B434] min-w-0 h-full overflow-y-auto scroll-hover">
                   <div className="p-4 sticky top-0 bg-white z-10">
                     <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Contact'}
+                      {primaryCategories.find(cat => cat.id === activeCategory)?.name || 'Information'}
                     </h3>
                   </div>
-                  <div className="p-4 pt-0">
-                    {activeCategory === 'inquiry' ? (
-                      <ul className="space-y-4">
-                        {hasContacts(currentSubmenu) &&
-                          currentSubmenu.contacts.map((contact, index) => {
-                            const isPhone = contact.label.toLowerCase().includes('phone');
-                            const isEmail = contact.label.toLowerCase().includes('email');
-                            const isWhatsApp = contact.label.toLowerCase().includes('whatsapp');
-                            const isLinkedIn = contact.label.toLowerCase().includes('linkedin');
-
-                            let href = '#';
-                            if (isPhone) href = `tel:${contact.value}`;
-                            else if (isEmail) href = `mailto:${contact.value}`;
-                            else if (isWhatsApp) href = `https://wa.me/${contact.value.replace(/\D/g, '')}`;
-                            else if (isLinkedIn) href = contact.value;
-
-                            return (
-                              <li
-                                key={index}
-                                className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20"
-                              >
-                                <div className="pt-1">
-                                  {contact.icon}
-                                </div>
-                                <div>
-                                  <a
-                                    href={href}
-                                    target={isLinkedIn || isWhatsApp ? "_blank" : "_self"}
-                                    rel={isLinkedIn || isWhatsApp ? "noopener noreferrer" : ""}
-                                    className="block hover:text-yellow-300 transition-colors"
-                                    aria-label={`Contact via ${contact.label}`}
-                                  >
-                                    <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                                      {contact.label}
-                                    </p>
-                                    <p className="text-xs text-black mt-1">{contact.description}</p>
-                                    <p className="text-xs text-[#fbb53d] mt-1 underline underline-offset-2">
-                                      {contact.value}
-                                    </p>
-                                  </a>
-                                </div>
-                              </li>
-                            );
-                          })}
-                      </ul>
-                    ) : (
-                      <ul className="space-y-4">
-                        {hasPoints(currentSubmenu) &&
-                          currentSubmenu.points.map((location, index) => (
-                            <li
-                              key={index}
-                              onMouseEnter={() => setActiveLocation(location)}
-                              onClick={() => {
-                                router.push(location.link ?? '/contact-us');
-                                onClose();
-                              }}
-                              className="flex items-start gap-3 border border-gray-700/40 p-3 rounded hover:border-yellow-500 transition duration-200 bg-white/20 cursor-pointer"
-                            >
-                              <div className="pt-1">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  className="w-5 h-5 text-yellow-500 flex-shrink-0"
-                                  fill="none"
-                                  viewBox="0 0 24 24"
-                                  stroke="currentColor"
-                                  strokeWidth={1.5}
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M12 11.5a2 2 0 100-4 2 2 0 000 4z"
-                                  />
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    d="M19.5 10c0 6-7.5 11.5-7.5 11.5S4.5 16 4.5 10a7.5 7.5 0 1115 0z"
-                                  />
-                                </svg>
-                              </div>
-                              <div>
-                                <p className="text-sm font-semibold text-black hover:text-[#fbb53d] transition">
-                                  {location.name}
-                                </p>
-                                <p className="text-xs text-black mt-1">{location.description}</p>
-                              </div>
-                            </li>
-                          ))}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-
-                {/* Right: Dynamic Media Panel */}
-<div className="lg:col-span-3 bg-gradient-to-br from-white to-white min-w-0 h-full overflow-y-auto scroll-hover border-r-2 border-b-2 border-[#F1B434]">
-                  <div className="p-4 sticky top-0 bg-white z-10">
-                    <h3 className="text-sm font-bold text-[#fbb53d] mb-4 border-b border-yellow-700/30 pb-2 uppercase tracking-wider">
-                      Details
-                    </h3>
-                  </div>
-                  <div className="p-4 pt-0">
+                  <div className="p-6">
                     <motion.div
-                      key={
-                        (activeMedia && typeof activeMedia === 'object' && 'title' in activeMedia && (activeMedia as { title?: string }).title) ||
-                        (activeMedia && typeof activeMedia === 'object' && 'name' in activeMedia && (activeMedia as { name?: string }).name) ||
-                        ''
-                      }
-                      initial={{ opacity: 0, x: 10 }}
-                      animate={{ opacity: 1, x: 0 }}
+                      key={activeCategory}
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.3 }}
-                      className="flex flex-col h-full"
+                      className="flex flex-col lg:flex-row gap-6 items-start"
                     >
-                      <div className="relative mb-3 overflow-hidden rounded">
-                        <img
-                          src={
-                            (activeMedia && typeof activeMedia === 'object' && 'image' in activeMedia)
-                              ? (activeMedia as { image?: string }).image
-                              : ''
-                          }
-                          alt={
-                            (activeMedia && typeof activeMedia === 'object' && 'title' in activeMedia && (activeMedia as { title?: string }).title) ||
-                            (activeMedia && typeof activeMedia === 'object' && 'name' in activeMedia && (activeMedia as { name?: string }).name) ||
-                            ''
-                          }
-                          className="w-full h-32 object-cover"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                      {/* Image Section */}
+                      <div className="lg:w-2/5 w-full">
+                        <div className="relative rounded-lg overflow-hidden shadow-lg">
+                          <img
+                            src={currentContent.image}
+                            alt={currentContent.title}
+                            className="w-full h-48 lg:h-64 object-cover transform hover:scale-105 transition-transform duration-500"
+                            onError={(e) => {
+                              e.currentTarget.src = `${basePath}/placeholder_avatar.jpg`;
+                            }}
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
                       </div>
 
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-base text-[#fbb53d] mb-2">
-                          {'title' in (activeMedia || {}) ? (activeMedia as { title?: string }).title : ('name' in (activeMedia || {}) ? (activeMedia as { name?: string }).name : '')}
+                      {/* Content Section */}
+                      <div className="lg:w-3/5 w-full space-y-4">
+                        <h4 className="text-2xl font-bold text-gray-800 tracking-tight">
+                          {currentContent.title}
                         </h4>
-                        <p className="text-black mb-4 leading-relaxed text-xs">
-                          {'description' in (activeMedia || {}) ? (activeMedia as { description?: string }).description : ''}
+
+                        <p className="text-gray-700 leading-relaxed text-base">
+                          {currentContent.description}
                         </p>
 
-                        {'cta' in (activeMedia || {}) && (activeMedia as { cta?: string }).cta && (
-                          <div className="space-y-2 sticky bottom-0 bg-white/80 backdrop-blur-sm py-2 -mx-4 px-4">
-                            <motion.button
-                              className="w-full bg-gradient-to-r from-yellow-500 to-yellow-500 hover:from-[#fbb53d] hover:to-yellow-500 text-black py-2 px-3 rounded font-bold text-xs transition-all duration-200 shadow-lg"
-                              whileHover={{ scale: 1.02 }}
-                              whileTap={{ scale: 0.98 }}
-                            >
-                              {(activeMedia as { cta?: string }).cta}
-                            </motion.button>
+                        {/* Features */}
+                        {currentContent.features && (
+                          <div className="space-y-2">
+                            <h5 className="font-semibold text-[#fbb53d] text-sm">Key Highlights:</h5>
+                            <div className="flex flex-wrap gap-2">
+                              {currentContent.features.map((feature, index) => (
+                                <span
+                                  key={index}
+                                  className="inline-flex items-center px-3 py-1 rounded-full bg-yellow-500/10 text-[#fbb53d] text-xs font-medium"
+                                >
+                                  <Award className="w-3 h-3 mr-1" />
+                                  {feature}
+                                </span>
+                              ))}
+                            </div>
                           </div>
                         )}
+
+                        {/* Read More Button */}
+                        <motion.button
+                          onClick={() => {
+                            router.push(currentContent.link);
+                            onClose();
+                          }}
+                          className="flex items-center space-x-2 bg-gradient-to-r from-[#F1B434] to-[#F1B434] hover:from-[#e0a42d] hover:to-[#e0a42d] text-black px-6 py-3 rounded-lg font-semibold transition-all duration-200 shadow-lg hover:shadow-xl"
+                          whileHover={{ scale: 1.05 }}
+                          whileTap={{ scale: 0.95 }}
+                        >
+                          <Eye className="w-4 h-4" />
+                          <span>Explore More</span>
+                        </motion.button>
                       </div>
                     </motion.div>
                   </div>
@@ -3621,7 +2859,7 @@ const MainNavigation: React.FC = () => {
     { name: 'Investor Relations', hasSubmenu: true, path: '/investor-relations' },
     { name: 'Media', hasSubmenu: true, path: '/media' },
     { name: 'Careers', hasSubmenu: true, path: '/careers' },
-    { name: 'Contact Us', hasSubmenu: true, path: '/contact-us' },
+    { name: 'Contact Us', hasSubmenu: true, path: '/contact-us/inquiry' },
   ];
 
 
@@ -3709,12 +2947,12 @@ const MainNavigation: React.FC = () => {
               >
                 <motion.button
                   onClick={() => {
-                    router.push(`${item.path}`); 
+                    router.push(`${item.path}`);
                     setActiveMenu(null); // close hover menu
                   }}
                   className={`flex items-center justify-center space-x-1 px-4 font-bold text-sm uppercase tracking-wide transition-all duration-200 w-full h-full ${activeMenu === item.name
-                      ? 'bg-[#fbb53d] text-[#000]'
-                      : 'text-[#fbb53d] hover:text-black hover:bg-[#fbb53d]'
+                    ? 'bg-[#fbb53d] text-[#000]'
+                    : 'text-[#fbb53d] hover:text-black hover:bg-[#fbb53d]'
                     }`}
                   whileHover={{ scale: 1.005 }}
                   whileTap={{ scale: 0.995 }}
@@ -3838,7 +3076,7 @@ const MainNavigation: React.FC = () => {
                   <div className="flex items-center">
                     <img
                       className="h-8 w-auto invert"
-                      src="/logo1.png"
+                      src={`${basePath}/logo1.png`}
                       alt="TIL Limited"
                       onError={(e) => {
                         e.currentTarget.style.display = 'none';

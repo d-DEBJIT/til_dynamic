@@ -20,17 +20,17 @@ const TopBar: React.FC = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
-    
+
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
     };
-    
+
     // Initial check
     checkMobile();
-    
+
     window.addEventListener('scroll', handleScroll);
     window.addEventListener('resize', checkMobile);
-    
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('resize', checkMobile);
@@ -44,9 +44,8 @@ const TopBar: React.FC = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.3 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'bg-[#F1B434] h-14' : 'bg-[#F1B434] h-16'
-        } border-b border-black/20`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-[#F1B434] h-14' : 'bg-[#F1B434] h-16'
+          } border-b border-black/20`}
       >
         <div className="max-w-7xl mx-auto px-6 md:px-10 xl:px-20 h-full">
           <div className="flex items-center justify-between h-full">
@@ -146,21 +145,19 @@ const TopBar: React.FC = () => {
 
               {/* Get Quote Button - Updated Style without icon */}
               <motion.button
-              onClick={() => setIsQuoteOpen(true)}
-              whileTap={{ scale: 0.95 }}
-              className={`group inline-flex items-center justify-center px-6 py-3 
+                onClick={() => setIsQuoteOpen(true)}
+                whileTap={{ scale: 0.95 }}
+                className={`group inline-flex items-center justify-center px-6 py-3 
               border-2 border-white/80 bg-black/85 text-white font-semibold 
               rounded-xl shadow-xl backdrop-blur-md 
               transition-colors duration-300
               hover:border-[#f1b434] hover:text-[#f1b434]
               ${isMobile ? 'w-full' : ''}`}
-  style={{ fontFamily: 'Arial, sans-serif' }}
->
-  <FileText className="mr-2 w-4 h-4 transition-transform group-hover:scale-110" />
-  <span className="text-sm lg:text-base">Get Quote</span>
-</motion.button>
-
-
+                style={{ fontFamily: 'Arial, sans-serif' }}
+              >
+                <FileText className="mr-2 w-4 h-4 transition-transform group-hover:scale-110" />
+                <span className="text-sm lg:text-base">Inquiry</span>
+              </motion.button>
             </div>
           </div>
         </div>
