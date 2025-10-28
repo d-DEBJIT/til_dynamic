@@ -134,13 +134,13 @@ const TopBar: React.FC = () => {
                 </button>
 
                 {/* Search Icon */}
-                <button
+                {/* <button
                   onClick={openSearch}
                   aria-label="Search"
                   className="p-2 text-black hover:text-white transition-colors"
                 >
                   <Search className="w-5 h-5" />
-                </button>
+                </button> */}
               </div>
 
               {/* Get Quote Button - Updated Style without icon */}

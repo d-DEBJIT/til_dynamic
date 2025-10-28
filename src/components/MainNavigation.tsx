@@ -1426,7 +1426,7 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
 
   const primaryCategories = [
     {
-      id: 'blog',
+      id: 'blogs',
       name: 'Blogs',
       icon: <Building className="w-4 h-4" />,
       description: 'Industry insights and company updates',
@@ -1480,36 +1480,36 @@ const MediaMegamenu: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     blogs: {
       items: [
         {
-          title: 'How to Buy a Reachstacker? 6 Factors to Consider',
-          description: 'When comparing reachstackers, the specifications listed on paper are only the first step. If you..',
-          image: `${basePath}/blog1.png`,
+          title: '6 Proven Factors That Affect Truck Crane Durability',
+          description: 'In the heavy-lifting and infrastructure sector, truck cranes are more than just machines. They are...',
+          image: `${basePath}/1761127133_1755059720_1320-x-720_12830_BLOG.jpg`,
           link: '/media/blog/how-to-buy-reachstacker',
           type: 'blog',
-          date: '2024-12-15'
+          date: '2025-10-22'
         },
         {
-          title: '6 Powerful Cranes Used in Modern Construction',
-          description: 'Let\'s be real—on any serious construction site, cranes aren\'t treated as just any other machine...',
-          image: `${basePath}/blog2.jpg`,
+          title: 'How to Read Rough Terrain Crane Load Charts?',
+          description: 'If you read a crane load chart incorrectly, you could be on the verge of a major accident.',
+          image: `${basePath}/1760341612_1755059719_1320-x-720_12829_BLOG.jpg`,
           link: '/media/blog/cranes-in-construction',
           type: 'blog',
-          date: '2024-12-10'
+          date: '2025-10-13'
         },
         {
-          title: '7 Proven Ways Rough Terrain Cranes Power Up Business Efficiency',
-          description: 'In the world of construction and heavy lifting, the right equipment isn\'t just helpful—it\'s business critical...',
-          image: `${basePath}/blog3.jpg`,
-          link: '/media/blog/rough-terrain-cranes-efficiency',
+          title: 'New vs. Used Crane: Which is a Smarter Investment in 2025?',
+          description: 'When it comes to heavy lifting, the question of whether to buy a new vs used crane is never...',
+          image: `${basePath}/1758349399_1755059718_1320-x-720_12828_BLOG.jpg`,
+          link: '/media/blog/new-vs.-used-crane-which-is-a-smarter-investment-in-2025',
           type: 'blog',
-          date: '2024-12-05'
+          date: '2025-09-20'
         },
         {
-          title: 'The Ultimate Rough Terrain Cranes Guide in 2025 For Your Next Project',
-          description: 'When you picture a Rough Terrain crane, you probably imagine a beastly machine...',
-          image: `${basePath}/blog4.jpg`,
-          link: '/media/blog/rough-terrain-cranes-guide',
+          title: 'Hydraulic vs Mechanical Crane: How to Choose the Right Crane?',
+          description: 'Contractors, fleet owners, and project managers who buy cranes often find themselves...',
+          image: `${basePath}/1757331853_1755059717_1320-x-720_12827_BLOG.jpg`,
+          link: '/media/blog/hydraulic-vs-mechanical-crane-how-to-choose-the-right-crane',
           type: 'blog',
-          date: '2024-11-28'
+          date: '2024-09-08'
         }
       ],
       media: {
@@ -2980,7 +2980,7 @@ const MainNavigation: React.FC = () => {
                 {/* Social Icons */}
                 <div className="flex items-center gap-4">
                   {/* WhatsApp */}
-                  <a href="https://wa.me/919999999999" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                  <a href="https://wa.me/918981530153" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 text-white hover:text-[#25D366] transition-colors duration-200">
                       <path d="M20.52 3.48A11.94 11.94 0 0012 0C5.37 0 0 5.37 0 12a11.94 11.94 0 001.48 6.52l-1.48 5.48 5.48-1.48A11.94 11.94 0 0012 24c6.63 0 12-5.37 12-12a11.94 11.94 0 00-3.48-8.52zM12 21.5a9.5 9.5 0 01-5.2-1.5l-.4-.25-3.1.83.83-3.1-.25-.4A9.5 9.5 0 012.5 12 9.5 9.5 0 0112 2.5 9.5 9.5 0 0121.5 12 9.5 9.5 0 0112 21.5z" />
                       <path d="M17.5 14.5c-.3 0-1.7-.8-2-1-.3-.2-.5-.2-.7 0-.2.2-.8.9-1 1.1-.2.2-.4.3-.7.1s-1.3-.5-2.5-1.5c-.9-.8-1.5-1.8-1.7-2-.2-.2 0-.3.1-.5.1-.1.2-.3.3-.5.1-.2.1-.3 0-.5-.1-.2-.7-1.7-1-2.3-.3-.6-.6-.5-.7-.5-.2 0-.4 0-.6 0-.2 0-.5.2-.7.5s-1 1-1 2.5 1 2.9 1.2 3.1c.2.2 2 3 4.8 4.2 2.8 1.2 2.8.8 3.3.7.5-.1 1.7-.7 1.9-1.3.2-.6.2-1.1.1-1.2-.1-.1-.3-.2-.6-.3z" />
@@ -2988,7 +2988,7 @@ const MainNavigation: React.FC = () => {
                   </a>
 
                   {/* YouTube */}
-                  <a href="https://youtube.com/@tilindia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+                  <a href="https://www.youtube.com/tillimitedindia" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor"
                       viewBox="0 0 24 24"
                       className="w-5 h-5 text-white hover:text-[#FF0000] transition-colors duration-200">
@@ -2997,14 +2997,14 @@ const MainNavigation: React.FC = () => {
                   </a>
 
                   {/* Facebook */}
-                  <a href="https://facebook.com/tilindia" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                  <a href="https://www.facebook.com/tillimited/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 text-white hover:text-[#1877F2] transition-colors duration-200">
                       <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.406.593 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.894-4.788 4.659-4.788 1.325 0 2.466.099 2.797.143v3.24l-1.918.001c-1.504 0-1.796.715-1.796 1.763v2.312h3.59l-.467 3.622h-3.123V24h6.116c.73 0 1.324-.594 1.324-1.326V1.326C24 .593 23.406 0 22.675 0z" />
                     </svg>
                   </a>
 
                   {/* LinkedIn */}
-                  <a href="https://linkedin.com/company/tilindia" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                  <a href="https://www.linkedin.com/company/til-limited-ind/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-5 h-5 text-white hover:text-[#0077B5] transition-colors duration-200">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.327-.025-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.352V9h3.414v1.561h.049c.476-.9 1.637-1.852 3.37-1.852 3.602 0 4.268 2.37 4.268 5.455v6.288zM5.337 7.433a2.062 2.062 0 11-.001-4.124 2.062 2.062 0 010 4.124zM7.119 20.452H3.554V9h3.565v11.452z" />
                     </svg>

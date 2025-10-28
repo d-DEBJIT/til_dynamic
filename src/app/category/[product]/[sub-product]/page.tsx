@@ -1212,15 +1212,9 @@ function SubProductContent({ params }: { params: Promise<{ product: string; "sub
               Our product specialists are ready to help you with specifications, pricing, and any other questions.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
-              <button
-                onClick={() => setIsQuoteModalOpen(true)}
-                className="px-6 py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md"
+              <button className="px-6 py-3 bg-[#F1B434] text-white font-medium rounded-lg hover:bg-[#d89c2a] transition-colors shadow-md"
               >
-                Contact Our Experts
-              </button>
-              <button className="px-6 py-3 bg-white border border-gray-300 text-gray-700 font-medium rounded-lg hover:bg-gray-50 transition-colors shadow-sm">
-                <Link href="/contact-us">Call Us Now</Link>
-                
+                <Link href="/contact-us/inquiry">Call Us Now</Link>
               </button>
             </div>
           </div>
